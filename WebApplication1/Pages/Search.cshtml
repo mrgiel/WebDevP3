@@ -1,0 +1,25 @@
+﻿@page
+@model WebApplication1.Pages.Search
+
+@{
+    ViewData["Title"] = "SearchFunction";
+}
+
+<h1>@ViewData["Title"]</h1>
+
+<p>Use this page to detail your site's privacy policy.</p>
+<form method="post">
+    <input type="text" name="Name" value=""/>
+    <input type="submit"/>
+</form>
+
+<ul>
+    @foreach (var uitgave in Model.Stripboeken)
+    {
+        <li> @uitgave.ISBN -- @uitgave.Naam -- @uitgave.versie_nr -- @uitgave.jaar -- @uitgave.prijs</li>
+    }
+</ul>
+
+<!-- Search op naam -->
+<!-- WHERE Naam LIKE '%Hier de variable die je meer geeft%' -->
+

@@ -17,11 +17,13 @@ namespace WebApplication1.Pages
             get
             {
                 return new SearchRepository().Get();
+
             }
         }
-        public void OnGet()
+        public void OnPostSearch()
         {
-
+            string naam = "Giel";
+            new SearchRepository().SearchName(naam);
         }
     }
     

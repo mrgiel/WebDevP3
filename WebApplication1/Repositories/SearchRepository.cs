@@ -22,7 +22,14 @@ public class SearchRepository
     {
         using var connection = Connect();
         var stripboeken = connection
-            .Query<Uitgave>("SELECT * FROM uitgave");
+            .Query<Uitgave>("SELECT * FROM uitgave WHERE Naam = 'Donald Duck als topverkoper'");
+        return stripboeken.ToList();
+    }
+    public List<Uitgave> SearchName(string naam)
+    {
+        using var connection = Connect();
+        var stripboeken = connection
+            .Query<Uitgave>("SELECT * FROM uitgave WHERE Naam LIKE CONCAT('%',@Naam,'%'); ", new {Naam = naam});
         return stripboeken.ToList();
     }
 }

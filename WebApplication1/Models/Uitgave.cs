@@ -1,15 +1,15 @@
 ﻿namespace WebApplication1.Models;
 public class Uitgave
 {
-    public int ISBN { get; set; }
+    public int Isbn { get; set; }
     public string Naam { get; set; }
-    public int versie_nr { get; set; }
-    public int jaar { get; set; }
-    public int hoogte { get; set; }
-    public string afbeeldingURL { get; set; }
-    public string uitgever { get; set; }
-    public int reeks_nummer { get; set; }
-    public int categorie_nummer { get; set; }
-    public bool NSFW { get; set; }
-    public double prijs { get; set; }
+    public int Versie_nr { get; set; }
+    public int Jaar { get; set; }
+    public int Hoogte { get; set; }
+    public string AfbeeldingUrl { get; set; }
+    public string Uitgever { get; set; }
+    public int ReeksNummer { get; set; }
+    public int CategorieNummer { get; set; }
+    public bool Nsfw { get; set; }
+    public float Prijs { get; set; }
 }

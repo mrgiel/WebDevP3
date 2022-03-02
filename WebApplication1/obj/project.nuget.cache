@@ -1,10 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "0vPIKF57qGDUTUhw8G4OlxHhfZCOPWxif/hu1yoxnEJpSRpyyJ3W6XvSpqFXxH1aSJhYd/pwi4oxuhBFv3+V5g==",
+  "dgSpecHash": "LfIhEg39Ka7vy5lZKNjWvWNqrFEl+lhAoSwKyInGqBbdCInQWerRiNiHdp+3Jal0ApZi5BMnHRXPJwu+SQmeHQ==",
   "success": true,
-  "projectFilePath": "G:\\Mijn Drive\\Periode3\\Project\\StripboekApp\\WebApplication1\\WebApplication1\\WebApplication1.csproj",
-  "expectedPackageFiles": [
-    "C:\\Users\\Gebruiker\\.nuget\\packages\\microsoft.netcore.app.host.win-x64\\5.0.13\\microsoft.netcore.app.host.win-x64.5.0.13.nupkg.sha512"
-  ],
+  "projectFilePath": "G:\\Mijn Drive\\Periode3\\Project\\comic_app\\WebApplication1\\WebApplication1.csproj",
+  "expectedPackageFiles": [],
   "logs": []
 }

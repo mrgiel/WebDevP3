@@ -1,24 +1,24 @@
 {
   "format": 1,
   "restore": {
-    "G:\\Mijn Drive\\Periode3\\Project\\StripboekApp\\WebApplication1\\WebApplication1\\WebApplication1.csproj": {}
+    "G:\\Mijn Drive\\Periode3\\Project\\comic_app\\WebApplication1\\WebApplication1.csproj": {}
   },
   "projects": {
-    "G:\\Mijn Drive\\Periode3\\Project\\StripboekApp\\WebApplication1\\WebApplication1\\WebApplication1.csproj": {
+    "G:\\Mijn Drive\\Periode3\\Project\\comic_app\\WebApplication1\\WebApplication1.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "G:\\Mijn Drive\\Periode3\\Project\\StripboekApp\\WebApplication1\\WebApplication1\\WebApplication1.csproj",
+        "projectUniqueName": "G:\\Mijn Drive\\Periode3\\Project\\comic_app\\WebApplication1\\WebApplication1.csproj",
         "projectName": "WebApplication1",
-        "projectPath": "G:\\Mijn Drive\\Periode3\\Project\\StripboekApp\\WebApplication1\\WebApplication1\\WebApplication1.csproj",
-        "packagesPath": "C:\\Users\\Gebruiker\\.nuget\\packages\\",
-        "outputPath": "G:\\Mijn Drive\\Periode3\\Project\\StripboekApp\\WebApplication1\\WebApplication1\\obj\\",
+        "projectPath": "G:\\Mijn Drive\\Periode3\\Project\\comic_app\\WebApplication1\\WebApplication1.csproj",
+        "packagesPath": "C:\\Users\\gago2\\.nuget\\packages\\",
+        "outputPath": "G:\\Mijn Drive\\Periode3\\Project\\comic_app\\WebApplication1\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "D:\\Visual_Studio\\SDK\\NuGetPackages",
           "C:\\Program Files (x86)\\Microsoft\\Xamarin\\NuGet\\"
         ],
         "configFilePaths": [
-          "C:\\Users\\Gebruiker\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\gago2\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
@@ -55,12 +55,6 @@
           ],
           "assetTargetFallback": true,
           "warn": true,
-          "downloadDependencies": [
-            {
-              "name": "Microsoft.NETCore.App.Host.win-x64",
-              "version": "[5.0.13, 5.0.13]"
-            }
-          ],
           "frameworkReferences": {
             "Microsoft.AspNetCore.App": {
               "privateAssets": "none"
@@ -69,7 +63,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.101\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.100\\RuntimeIdentifierGraph.json"
         }
       }
     }

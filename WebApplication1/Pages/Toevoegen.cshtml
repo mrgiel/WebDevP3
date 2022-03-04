@@ -19,63 +19,53 @@
         <h1 class="text-center">Stripboek Toevoegen</h1>
         <br/>
         <form method="post">
-            <div>
-                @if (@Model.Error)
-                {
-                    <script>
-                    alert("Error, Zorg ervoor dat alle velden goed zijn ingevuld");
-                    </script>
-                }
-
-            </div>
             <div class="row">
                 <div class="col-6">
                     <h3 class="text-white">ISBN</h3>
-                    <input class="form-control" asp-for="ISBN" type="text" value="" placeholder="9032005235"/>
-                    <span asp-validation-for="ISBN"></span>
+                    <input class="form-control" asp-for="Uitgaves.isbn" value="" type="text" placeholder="9032005235"/>
+                    <span asp-validation-for="Uitgaves.isbn"></span>
                 </div>
                 <div class="col-6">
                     <h3 class="text-white">Reeks</h3>
-                    <input class="form-control" asp-for="reeksUser" type="text" placeholder="Donald Duck"/>
-                    <span asp-validation-for="reeksUser"></span>
+                    <input class="form-control" asp-for="Reeks.reeks_naam" value="" type="text" placeholder="Donald Duck"/>
+                    <span asp-validation-for="Reeks.reeks_naam"></span>
                 </div>
             </div>
             <div class="row">
                 <div class="col-6">
                     <h3 class="text-white">Titel</h3>
-                    <input class="form-control" asp-for="naam" type="text" placeholder="Als Cowboy"/>
-                    <span asp-validation-for="naam"></span>
+                    <input class="form-control" asp-for="Uitgaves.naam" type="text" placeholder="Als Cowboy"/>
+                    <span asp-validation-for="Uitgaves.naam"></span>
                 </div>
                 <div class="col-6">
                     <h3 class="text-white">Jaar</h3>
-                    <input class="form-control" asp-for="jaar" type="text" value="" placeholder="1990"/>
-                    <span asp-validation-for="jaar"></span>
+                    <input class="form-control" asp-for="Uitgaves.jaar" asp-format="{0:yyyy-MM-dd}" />
                 </div>
 
             </div>
             <div class="row">
                 <div class="col-6">
                     <h3 class="text-white">Hoogte</h3>
-                    <input class="form-control" asp-for="hoogte" value="" type="text" placeholder="22 (cm)"/>
-                    <span asp-validation-for="hoogte"></span>
+                    <input class="form-control" asp-for="Uitgaves.hoogte" value="" type="text" placeholder="22 (cm)"/>
+                    <span asp-validation-for="Uitgaves.hoogte"></span>
                 </div>
                 <div class="col-6">
                     <h3 class="text-white">Prijs</h3>
-                    <input class="form-control" asp-for="prijs" value="" type="text" placeholder="5,99 (euro)"/>
-                    <span asp-validation-for="prijs"></span>
+                    <input class="form-control" asp-for="Uitgaves.prijs" value="" type="text" placeholder="5,99 (euro)"/>
+                    <span asp-validation-for="Uitgaves.prijs"></span>
                 </div>
             </div>
             <div class="row">
                 <div class="col-6">
                     <h3 class="text-white">Uitgever</h3>
-                    <input class="form-control" asp-for="uitgever" type="text" placeholder="DPG Media"/>
-                    <span asp-validation-for="uitgever"></span>
+                    <input class="form-control" asp-for="Uitgaves.uitgever" type="text" placeholder="DPG Media"/>
+                    <span asp-validation-for="Uitgaves.uitgever"></span>
                 </div>
                 <div class="col-6">
                     <h3 class="text-white mx-auto">Sensueel</h3>
                     <br/>
-                    <input class="mx-auto" asp-for="NSFW" type="checkbox"/>
-                                                            <span asp-validation-for="NSFW"></span>
+                    <input class="mx-auto" asp-for="Uitgaves.nsfw" type="checkbox"/>
+                                                            <span asp-validation-for="Uitgaves.nsfw"></span>
                 </div>
             </div>
             <br/>

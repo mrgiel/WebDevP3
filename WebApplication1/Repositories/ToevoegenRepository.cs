@@ -15,45 +15,37 @@ namespace WebApplication1.Repositories
         private MySqlConnection Connect()
         {
             return new MySqlConnection(
-                "Server=127.0.0.1;Database=DbExample;Uid=root;Pwd=Test1234!@;Port=3306");
-
+                "Server=127.0.0.1;Database=stripboeken_collectie;Uid=root;Pwd=Test1234!@;Port=3306");
         }
 
 
-        public bool VoegToe(string reeksUser,int ISBN,string naam,int jaar,int hoogte,string uitgever,bool NSFW,float prijs)
+        public void VoegToe(Reeks reeks, Uitgave uitgave)
         {
+
             using var connection = Connect();
 
-            int reeksNummer;
-            
-            try
-            {
-                string zoekNummer = "SELECT reeks_nummer FROM Reeks WHERE lower(reeks_naam) = lower(@reeksUser)";
-                reeksNummer = connection.QuerySingle<int>(zoekNummer, new {reeksUser});
-                
-            }
-            catch (Exception e)
-            {
-                return false;
+            string zoekNummer = "SELECT reeks_nr FROM Reeks WHERE lower(reeks_naam) = lower(@reeksUser)";
+            int? reeksNummer = connection.QuerySingle<int?>(zoekNummer,
+                new
+                {
+                    reeksUser = reeks.reeks_naam
+                });
 
-            }
+            string sql =
+                "INSERT INTO uitgave(isbn,naam,jaar,hoogte,uitgever,nsfw,prijs, reeks_nr)VALUES(@isbn,@naam,@jaar,@hoogte,@uitgever,@nsfw,@prijs,@reeksNummer)";
 
-            try
-            {
-                string sql = "INSERT INTO uitgave(ISBN,naam,jaar,hoogte,uitgever,reeks_nummer,NSFW,prijs,categorie_nummer)VALUES(@ISBN,@naam,@jaar,@hoogte,@uitgever,@reeksNummer,@NSFW,@prijs,12)";
-
-                connection.Execute(sql, new {ISBN,naam,jaar,hoogte,uitgever, reeksNummer,NSFW,prijs});
-            }
-            catch (Exception e)
-            {
-                Console.WriteLine(e);
-                return false;
-            }
-
-            return true;
-
-
-
+            connection.Execute(sql,
+                new
+                {
+                    isbn = uitgave.isbn,
+                    naam = uitgave.naam,
+                    jaar = uitgave.jaar,
+                    hoogte = uitgave.hoogte,
+                    uitgever = uitgave.uitgever,
+                    nsfw = uitgave.nsfw,
+                    prijs = Math.Round(uitgave.prijs, 2),
+                    reeksNummer = reeksNummer
+                });
         }
     }
 }

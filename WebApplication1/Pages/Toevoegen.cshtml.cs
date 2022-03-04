@@ -15,40 +15,23 @@ namespace WebApplication1.Pages.Shared
 {
     public class Stripboeken_Toevoegen : PageModel
     {
-        public bool Error { get; set; }
-        [Required] [BindProperty] public int ISBN { get; set; }
-
-        [Required, DataType(DataType.Text)]
-        [BindProperty]
-        public string naam { get; set; }
-
-        [BindProperty] public int versie_nr { get; set; }
-        [BindProperty] public int jaar { get; set; }
-        [BindProperty] public int hoogte { get; set; }
-
-        [DataType(DataType.Text)]
-        [BindProperty]
-        public string uitgever { get; set; }
-
-        [BindProperty] public bool NSFW { get; set; }
-
-        [DataType(DataType.Currency)]
-        [BindProperty]
-        public float prijs { get; set; }
-
-        [Required, DataType(DataType.Text)]
-        [BindProperty]
-        public string reeksUser { get; set; }
-
 
         public void OnGet()
         {
         }
 
+        [Required, BindProperty]
+        public Uitgave Uitgaves { get; set; } = new Uitgave();
+        [Required, BindProperty]
+        public Reeks Reeks { get; set; } = new Reeks();
+
         public void OnPostSend()
         {
-            if (!new ToevoegenRepository().VoegToe(reeksUser, ISBN, naam, jaar, hoogte, uitgever, NSFW, prijs))
-                Error = true;
+            if (ModelState.IsValid)
+            {
+                new ToevoegenRepository().VoegToe(Reeks,Uitgaves);
+            }
+            
         }
     }
 }

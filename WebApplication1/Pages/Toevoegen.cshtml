@@ -1,15 +1,15 @@
 ﻿@page
-@model WebApplication1.Pages.Shared.Stripboeken_Toevoegen
+@model WebApplication1.Pages.Toevoegen
 
 @{
     ViewData["Title"] = "Toevoegen";
 }
 
 <!DOCTYPE html>
-
-<html>
+<link rel="stylesheet" href="~/css/toevoegen.css"/>
+<html lang="ne">
 <head>
-    <title></title>
+    <title>Toevoegen</title>
 </head>
 <body>
 <div>
@@ -21,51 +21,47 @@
         <form method="post">
             <div class="row">
                 <div class="col-6">
-                    <h3 class="text-white">ISBN</h3>
+                    <h3 >ISBN</h3>
                     <input class="form-control" asp-for="Uitgaves.isbn" value="" type="text" placeholder="9032005235"/>
-                    <span asp-validation-for="Uitgaves.isbn"></span>
                 </div>
                 <div class="col-6">
-                    <h3 class="text-white">Reeks</h3>
+                    <h3 >Reeks</h3>
                     <input class="form-control" asp-for="Reeks.reeks_naam" value="" type="text" placeholder="Donald Duck"/>
                     <span asp-validation-for="Reeks.reeks_naam"></span>
                 </div>
             </div>
             <div class="row">
                 <div class="col-6">
-                    <h3 class="text-white">Titel</h3>
+                    <h3 >Titel</h3>
                     <input class="form-control" asp-for="Uitgaves.naam" type="text" placeholder="Als Cowboy"/>
                     <span asp-validation-for="Uitgaves.naam"></span>
                 </div>
                 <div class="col-6">
-                    <h3 class="text-white">Jaar</h3>
-                    <input class="form-control" asp-for="Uitgaves.jaar" asp-format="{0:yyyy-MM-dd}" />
+                    <h3 >Datum</h3>
+                    <input class="form-control" asp-for="Uitgaves.jaar" asp-format="{0:yyyy-MM-dd}"/>
+                    <span asp-validation-for="Uitgaves.jaar"></span>
                 </div>
 
             </div>
             <div class="row">
                 <div class="col-6">
-                    <h3 class="text-white">Hoogte</h3>
+                    <h3 >Hoogte</h3>
                     <input class="form-control" asp-for="Uitgaves.hoogte" value="" type="text" placeholder="22 (cm)"/>
-                    <span asp-validation-for="Uitgaves.hoogte"></span>
                 </div>
                 <div class="col-6">
-                    <h3 class="text-white">Prijs</h3>
+                    <h3 >Prijs</h3>
                     <input class="form-control" asp-for="Uitgaves.prijs" value="" type="text" placeholder="5,99 (euro)"/>
-                    <span asp-validation-for="Uitgaves.prijs"></span>
                 </div>
             </div>
             <div class="row">
                 <div class="col-6">
-                    <h3 class="text-white">Uitgever</h3>
+                    <h3 >Uitgever</h3>
                     <input class="form-control" asp-for="Uitgaves.uitgever" type="text" placeholder="DPG Media"/>
-                    <span asp-validation-for="Uitgaves.uitgever"></span>
                 </div>
                 <div class="col-6">
-                    <h3 class="text-white mx-auto">Sensueel</h3>
+                    <h3 class=" mx-auto">Sensueel</h3>
                     <br/>
                     <input class="mx-auto" asp-for="Uitgaves.nsfw" type="checkbox"/>
-                                                            <span asp-validation-for="Uitgaves.nsfw"></span>
                 </div>
             </div>
             <br/>

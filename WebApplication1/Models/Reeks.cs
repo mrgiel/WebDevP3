@@ -1,9 +1,7 @@
 ﻿using System.ComponentModel.DataAnnotations;
-using Microsoft.AspNetCore.Mvc;
 
 namespace WebApplication1.Models
 {
-    [BindProperties]
     public class Reeks
     {
         [Required]

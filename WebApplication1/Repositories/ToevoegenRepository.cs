@@ -1,51 +1,70 @@
 ﻿using System;
-using System.Collections;
-using System.Collections.Generic;
 using Dapper;
-using Microsoft.AspNetCore.Mvc.ModelBinding;
-using Microsoft.VisualBasic;
-using MySql.Data.MySqlClient;
-using Org.BouncyCastle.Crypto.Tls;
 using WebApplication1.Models;
 
 namespace WebApplication1.Repositories
 {
-    public class ToevoegenRepository
+    public class ToevoegenRepository : DbConnection
     {
-        private MySqlConnection Connect()
+        /// <summary>
+        /// zoeks reeks nummer voor reeks naam
+        /// </summary>
+        /// <param name="reeks"></param>
+        /// <returns></returns>
+        public int? ZoekReeksNummer(Reeks reeks)
         {
-            return new MySqlConnection(
-                "Server=127.0.0.1;Database=stripboeken_collectie;Uid=root;Pwd=Test1234!@;Port=3306");
+            //connect to database
+            using var connection = Connect();
+            //query
+            var sql = "SELECT reeks_nr FROM Reeks WHERE lower(reeks_naam) = lower(@reeksUser)";
+
+            //param
+            var param = new {reeksUser = reeks.reeks_naam};
+
+            //als database niet bestaat of null dan return
+            if (!connection.ExecuteScalar<bool>(sql, param))
+                return null;
+
+            //execute query + param
+            var reeksNummer = connection.QuerySingle<int>(sql, param);
+
+            //return reeksNummer
+            return reeksNummer;
         }
 
-
-        public void VoegToe(Reeks reeks, Uitgave uitgave)
+        /// <summary>
+        /// stuur data naar database
+        /// </summary>
+        /// <param name="uitgave"></param>
+        /// <param name="reeksNummer"></param>
+        public void VoegToe(Uitgave uitgave, int? reeksNummer)
         {
-
+            //connect to database
             using var connection = Connect();
 
-            string zoekNummer = "SELECT reeks_nr FROM Reeks WHERE lower(reeks_naam) = lower(@reeksUser)";
-            int? reeksNummer = connection.QuerySingle<int?>(zoekNummer,
-                new
-                {
-                    reeksUser = reeks.reeks_naam
-                });
+            //param
+            var param = new
+            {
+                uitgave.isbn,
+                uitgave.naam,
+                uitgave.jaar,
+                uitgave.hoogte,
+                uitgave.uitgever,
+                uitgave.nsfw,
+                prijs = Math.Round(uitgave.prijs, 2),
+                reeksNummer
+            };
 
-            string sql =
+            //query
+            var sql =
                 "INSERT INTO uitgave(isbn,naam,jaar,hoogte,uitgever,nsfw,prijs, reeks_nr)VALUES(@isbn,@naam,@jaar,@hoogte,@uitgever,@nsfw,@prijs,@reeksNummer)";
 
-            connection.Execute(sql,
-                new
-                {
-                    isbn = uitgave.isbn,
-                    naam = uitgave.naam,
-                    jaar = uitgave.jaar,
-                    hoogte = uitgave.hoogte,
-                    uitgever = uitgave.uitgever,
-                    nsfw = uitgave.nsfw,
-                    prijs = Math.Round(uitgave.prijs, 2),
-                    reeksNummer = reeksNummer
-                });
+            //check if database exists
+            if (!connection.ExecuteScalar<bool>(sql, param))
+                return;
+
+            //execute
+            connection.Execute(sql, param);
         }
     }
 }

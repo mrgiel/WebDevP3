@@ -7,10 +7,6 @@ namespace WebApplication1.Pages
 {
     public class Toevoegen : PageModel
     {
-        public void OnGet()
-        {
-        }
-
         [BindProperty] public Uitgave Uitgaves { get; set; } = new Uitgave();
         [BindProperty] public Reeks Reeks { get; set; } = new Reeks();
 
@@ -21,5 +17,6 @@ namespace WebApplication1.Pages
             if (reeksNr != null)
                 new ToevoegenRepository().VoegToe(Uitgaves, reeksNr);
         }
+        
     }
 }

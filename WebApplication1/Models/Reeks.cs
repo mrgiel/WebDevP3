@@ -6,6 +6,6 @@ namespace WebApplication1.Models
     {
         [Required]
         public string reeks_naam { get; set; }
-        public int reeks_nummer { get; set; }
+        public int reeks_nr { get; set; }
     }
 }

@@ -7,10 +7,8 @@ namespace WebApplication1.Models
     {
         public int id { get; set; }
         public int isbn { get; set; }
-        [Required]
-        public string naam { get; set; }
+        [Required] public string naam { get; set; }
         public int versie_nr { get; set; }
-
         [Required] public DateTime jaar { get; set; }
         public int hoogte { get; set; }
         public string afbeelding_url { get; set; }

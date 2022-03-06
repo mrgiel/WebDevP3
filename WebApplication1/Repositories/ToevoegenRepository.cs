@@ -22,15 +22,8 @@ namespace WebApplication1.Repositories
             //connect to database
             using var connection = Connect();
 
-            //als database niet bestaat of null dan return
-            if (!connection.ExecuteScalar<bool>(sql, param))
-                return null;
-
-            //execute query + param
-            var reeksNummer = connection.QuerySingle<int>(sql, param);
-
-            //return reeksNummer
-            return reeksNummer;
+            //als database niet bestaat of null --> return null anders return int
+            return !connection.ExecuteScalar<bool>(sql, param) ? null : connection.QuerySingleOrDefault<int>(sql, param);
         }
 
         /// <summary>

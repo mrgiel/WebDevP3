@@ -13,13 +13,14 @@ namespace WebApplication1.Repositories
         /// <returns></returns>
         public int? ZoekReeksNummer(Reeks reeks)
         {
-            //connect to database
-            using var connection = Connect();
             //query
             var sql = "SELECT reeks_nr FROM Reeks WHERE lower(reeks_naam) = lower(@reeksUser)";
 
             //param
             var param = new {reeksUser = reeks.reeks_naam};
+
+            //connect to database
+            using var connection = Connect();
 
             //als database niet bestaat of null dan return
             if (!connection.ExecuteScalar<bool>(sql, param))
@@ -39,8 +40,6 @@ namespace WebApplication1.Repositories
         /// <param name="reeksNummer"></param>
         public void VoegToe(Uitgave uitgave, int? reeksNummer)
         {
-            //connect to database
-            using var connection = Connect();
 
             //param
             var param = new
@@ -59,6 +58,9 @@ namespace WebApplication1.Repositories
             var sql =
                 "INSERT INTO uitgave(isbn,naam,jaar,hoogte,uitgever,nsfw,prijs, reeks_nr)VALUES(@isbn,@naam,@jaar,@hoogte,@uitgever,@nsfw,@prijs,@reeksNummer)";
 
+            //connect to database
+            using var connection = Connect();
+            
             //check if database exists
             if (!connection.ExecuteScalar<bool>(sql, param))
                 return;

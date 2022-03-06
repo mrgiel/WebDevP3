@@ -1,6 +1,8 @@
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
+using Microsoft.AspNetCore.Identity;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
@@ -8,6 +10,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using WebApplication1.Models;
 
 namespace WebApplication1
 {
@@ -24,6 +27,15 @@ namespace WebApplication1
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddRazorPages();
+            //new
+
+            var serverVersion = new MySqlServerVersion(new Version(8, 0, 27));
+
+            services.AddDbContext<AuthDbContext>(options => options.UseMySql(Configuration.GetConnectionString("AuthConnectionString"), serverVersion));
+
+
+            services.AddIdentity<IdentityUser, IdentityRole>().AddEntityFrameworkStores<AuthDbContext>();
+
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -45,6 +57,8 @@ namespace WebApplication1
 
             app.UseRouting();
 
+            //New
+            app.UseAuthentication();
             app.UseAuthorization();
 
             app.UseEndpoints(endpoints =>

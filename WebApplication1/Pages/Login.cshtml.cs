@@ -31,26 +31,15 @@ namespace WebApplication1.Pages
         public async Task<IActionResult> OnPostAsync(string returnUrl = null)
         {
             //call sign in manager
-            if (ModelState.IsValid)
-            {
-                var identityResult = await signInManager.PasswordSignInAsync(Model.Email, Model.Password, Model.RememberMe, false);
-                //check if password username correct
-                if (identityResult.Succeeded)
-                {
-                    if (returnUrl == null || returnUrl == "/")
-                    {
-                        return RedirectToPage("Index");
-                    }
-                    else
-                    {
-                        //if user got return url
-                        return RedirectToPage(returnUrl);
-                    }
-                }
-
-                //if no success
-                ModelState.AddModelError("", "Username or password inccorect");
-            }
+            if (!ModelState.IsValid) return Page();
+            var identityResult = await signInManager.PasswordSignInAsync(Model.Email, Model.Password, Model.RememberMe, false);
+            
+            //check if password username correct
+            if (identityResult.Succeeded)
+                return RedirectToPage(returnUrl is null or "/" ? "Index" : returnUrl);
+            
+            //if no success
+            ModelState.AddModelError("", "Username or password inccorect");
             return Page();
         }
     }

@@ -33,11 +33,11 @@ namespace WebApplication1.Pages
             //call sign in manager
             if (!ModelState.IsValid) return Page();
             var identityResult = await signInManager.PasswordSignInAsync(Model.Email, Model.Password, Model.RememberMe, false);
-            
+
             //check if password username correct
             if (identityResult.Succeeded)
                 return RedirectToPage(returnUrl is null or "/" ? "Index" : returnUrl);
-            
+
             //if no success
             ModelState.AddModelError("", "Username or password inccorect");
             return Page();

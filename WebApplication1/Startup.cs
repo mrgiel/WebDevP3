@@ -32,13 +32,16 @@ namespace WebApplication1
             var serverVersion = new MySqlServerVersion(new Version(8, 0, 27));
 
             services.AddDbContext<AuthDbContext>(options => options.UseMySql(Configuration.GetConnectionString("AuthConnectionString"), serverVersion));
-
-
             services.AddIdentity<IdentityUser, IdentityRole>().AddEntityFrameworkStores<AuthDbContext>();
 
+            //if authorized pages gets opened without being logged in we go to /login
+            services.ConfigureApplicationCookie(config =>
+            {
+                config.LoginPath = "/Login";
+            });
         }
 
-        // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
+         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
             if (env.IsDevelopment())
@@ -56,6 +59,7 @@ namespace WebApplication1
             app.UseStaticFiles();
 
             app.UseRouting();
+
 
             //New
             app.UseAuthentication();

@@ -13,9 +13,9 @@ namespace WebApplication1.Models
         public AuthDbContext(DbContextOptions<AuthDbContext> options) : base(options)
         { }
 
-        //public AuthDbContext()
-        //{
-        //}
+        public AuthDbContext()
+        {
+        }
 
         protected override void OnModelCreating(ModelBuilder builder)
         {

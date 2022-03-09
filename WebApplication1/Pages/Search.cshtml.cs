@@ -12,19 +12,15 @@ namespace WebApplication1.Pages
 {
     public class Search : PageModel
     { 
-        public IEnumerable<Uitgave> Stripboeken
-        {
-            get
-            {
-                return new SearchRepository().Get();
 
-            }
-        }
-        public void OnPostSearch()
+        public IEnumerable<Uitgave> Stripboeken { get; set; }
+
+        public void OnGet()
         {
-            string naam = "Giel";
-            new SearchRepository().SearchName(naam);
+            string searchString = "Donald Duck";
+            Stripboeken = new SearchRepository().Get(searchString);
         }
+
     }
     
 }

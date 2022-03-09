@@ -8,16 +8,25 @@
 <h1>@ViewData["Title"]</h1>
 
 <p>Use this page to detail your site's privacy policy.</p>
-<form method="post">
-    <button type="submit" asp-page-handler="Search"></button>
+<form>
+    <p>
+        Title: <input type="text" name="searchString">
+        <input type="submit" value="Filter"/>
+    </p>
 </form>
 
-<ul>
+
+<div class="row">
     @foreach (var uitgave in Model.Stripboeken)
     {
-        <li> @uitgave.Isbn -- @uitgave.Naam -- @uitgave.Versie_nr -- @uitgave.Jaar -- @uitgave.Prijs</li>
+        <div style="background: white; border: solid 1px black" class="col-lg-4 col-md-6 col-sm-12 d-flex justify-content-center flex-column">
+            <img class="img-thumbnail" src="@uitgave.AfbeeldingUrl"/>
+            <p class="m-auto">ISBN: @uitgave.Isbn</p>
+            <p class="m-auto">Titel: @uitgave.Naam</p>
+        </div>
     }
-</ul>
+</div>
+
 
 <!-- Search op naam -->
 <!-- WHERE Naam LIKE '%Hier de variable die je meer geeft%' -->

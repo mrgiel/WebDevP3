@@ -105,3 +105,4 @@ C:\Users\gbuss\Documents\GitHub\WebDevP3\WebApplication1\obj\Debug\net5.0\WebApp
 C:\Users\gbuss\Documents\GitHub\WebDevP3\WebApplication1\obj\Debug\net5.0\WebApplication1.Views.pdb
 C:\Users\gbuss\Documents\GitHub\WebDevP3\WebApplication1\obj\Debug\net5.0\WebApplication1.csproj.CopyComplete
 C:\Users\gbuss\Documents\GitHub\WebDevP3\WebApplication1\obj\Debug\net5.0\WebApplication1.genruntimeconfig.cache
+C:\Users\gbuss\Desktop\WebDevP3\WebApplication1\bin\Debug\net5.0\WebApplication1.StaticWebAssets.xml

@@ -2,20 +2,19 @@
 @model WebApplication1.Pages.Search
 
 @{
-    ViewData["Title"] = "SearchFunction";
+    ViewData["Title"] = "AdvancedSearch";
 }
 
 <h1>@ViewData["Title"]</h1>
 
 <form method="post">
     <p>
-        Title: <input type="text" name="searchString">
+        <input type="text" name="searchString">
         <select name="advSearch">
             <option value="naam">Naam</option>
             <option value="isbn">ISBN</option>
             <option value="uitgever">Uitgever</option>
             <option value="prijs">Prijs</option>
-
         </select>
         <button type="submit" asp-page-handler="AdvSearch">Search</button>
     </p>

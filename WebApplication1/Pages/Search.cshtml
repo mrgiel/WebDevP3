@@ -7,7 +7,6 @@
 
 <h1>@ViewData["Title"]</h1>
 
-<p>Use this page to detail your site's privacy policy.</p>
 <form>
     <p>
         Title: <input type="text" name="searchString">
@@ -20,14 +19,11 @@
     @foreach (var uitgave in Model.Stripboeken)
     {
         <div style="background: white; border: solid 1px black" class="col-lg-4 col-md-6 col-sm-12 d-flex justify-content-center flex-column">
-            <img class="img-thumbnail" src="@uitgave.AfbeeldingUrl"/>
+            <img class="img-thumbnail" src="@uitgave.afbeelding_url"/>
             <p class="m-auto">ISBN: @uitgave.Isbn</p>
             <p class="m-auto">Titel: @uitgave.Naam</p>
+            <p class="m-auto">Prijs: €@uitgave.Prijs</p>
         </div>
     }
 </div>
-
-
-<!-- Search op naam -->
-<!-- WHERE Naam LIKE '%Hier de variable die je meer geeft%' -->
 

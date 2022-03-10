@@ -15,9 +15,8 @@ namespace WebApplication1.Pages
 
         public IEnumerable<Uitgave> Stripboeken { get; set; }
 
-        public void OnGet()
+        public void OnGet(string searchString)
         {
-            string searchString = "Donald Duck";
             Stripboeken = new SearchRepository().Get(searchString);
         }
 

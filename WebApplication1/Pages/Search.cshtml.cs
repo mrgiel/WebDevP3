@@ -19,6 +19,11 @@ namespace WebApplication1.Pages
         {
             Stripboeken = new SearchRepository().Get(searchString);
         }
+    
+        public void OnPostAdvSearch(string advSearch, string searchString)
+        {
+            Stripboeken = new SearchRepository().AdvSearch(advSearch, searchString);
+        }
 
     }
     

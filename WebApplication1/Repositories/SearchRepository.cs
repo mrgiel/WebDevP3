@@ -27,5 +27,32 @@ namespace WebApplication1.Repositories
                     new {Naam = searchString});
             return stripboeken.ToList();
         }
+
+        public List<Uitgave> AdvSearch(string advSearch,string searchString)
+        {
+
+
+            var sql = $"SELECT * FROM uitgave "; //" WHERE {advSearch} LIKE CONCAT('%',@src,'%')";
+
+            if (advSearch == "isbn")
+            {
+                sql += "WHERE isbn = @src";
+            } else if (advSearch == "uitgever")
+            {
+                sql += "WHERE uitgever = @src";
+            } else if (advSearch == "prijs")
+            {
+                sql += "WHERE prijs = @src";
+            } else if (advSearch == "naam")
+            {
+                sql += "WHERE naam LIKE CONCAT ('%',@src,'%');";
+            }
+
+            using var connection = Connect();
+            var stripboeken = connection
+                .Query<Uitgave>(sql,
+                    new {src = searchString, Tabel = advSearch});
+            return stripboeken.ToList();
+        }
     }
 }

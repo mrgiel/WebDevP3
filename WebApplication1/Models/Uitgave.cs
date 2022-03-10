@@ -2,7 +2,7 @@
 {
     public class Uitgave
     {
-        public int Isbn { get; set; }
+        public string isbn { get; set; }
         public string Naam { get; set; }
         public int Versie_nr { get; set; }
         public int Jaar { get; set; }

@@ -54,3 +54,5 @@ G:\Mijn Drive\Periode3\Project\comic_app\WebApplication1\obj\Debug\net5.0\WebApp
 G:\Mijn Drive\Periode3\Project\comic_app\WebApplication1\obj\Debug\net5.0\ref\WebApplication1.dll
 G:\Mijn Drive\Periode3\Project\comic_app\WebApplication1\obj\Debug\net5.0\WebApplication1.pdb
 G:\Mijn Drive\Periode3\Project\comic_app\WebApplication1\obj\Debug\net5.0\WebApplication1.genruntimeconfig.cache
+G:\Mijn Drive\Periode3\Project\comic_app\WebApplication1\obj\Debug\net5.0\WebApplication1.csproj.AssemblyReference.cache
+G:\Mijn Drive\Periode3\Project\comic_app\WebApplication1\obj\Debug\net5.0\Razor\Pages\ForgotPassword.cshtml.g.cs

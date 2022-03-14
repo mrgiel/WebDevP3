@@ -49,23 +49,25 @@
                     </ul>
 
                     <ul class="navbar-nav ul-two mx-auto">
-                        <li class="nav-item">
-                            <a class="nav-link" href="/Login">Login</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="/Register">Registreren</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#"><i class="fa-solid fa-user"></i></a>
-                        </li>
-                        @if (SignInManager.IsSignedIn(User))
+                        @if (!SignInManager.IsSignedIn(User))
                         {
-
                             <li class="nav-item">
-                                <a class="nav-link" href="/Logout">Logout</a>
+                                <a class="nav-link" href="/Login">Login</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="/Register">Registreren</a>
                             </li>
                         }
-                    </ul>
+                            <li class="nav-item">
+                                <a class="nav-link" href="#"><i class="fa-solid fa-user"></i></a>
+                            </li>
+                            @if (SignInManager.IsSignedIn(User))
+                            {
+                                <li class="nav-item">
+                                    <a class="nav-link" href="/Logout">Logout</a>
+                                </li>
+                            }
+                        </ul>
                 </div>
             </div>
         </nav>

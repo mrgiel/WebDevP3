@@ -32,7 +32,7 @@ namespace WebApplication1.Pages
         {
             //call sign in manager
             if (!ModelState.IsValid) return Page();
-            var identityResult = await signInManager.PasswordSignInAsync(Model.Email, Model.Password, Model.RememberMe, false);
+            var identityResult = await signInManager.PasswordSignInAsync(Model.UserName, Model.Password, Model.RememberMe, false);
 
             //check if password username correct
             if (identityResult.Succeeded)

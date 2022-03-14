@@ -1,9 +1,7 @@
-<<<<<<< HEAD
+
 using System.Data;
 using Microsoft.AspNetCore.Connections;
-=======
 ﻿using System.Data;
->>>>>>> origin/Nigel
 using MySql.Data.MySqlClient;
 
 namespace WebApplication1.Repositories
@@ -23,13 +21,10 @@ namespace WebApplication1.Repositories
                 @"Server=127.0.0.1;
                 Port=3306;
                 Database=stripboeken_collectie;
-<<<<<<< HEAD
                 Uid=ruho;
-                Pwd=toegangTotKernwapens123!;");
-=======
+                Pwd=toegangTotKernwapens123!;);
                 Uid=root;
                 Pwd=Test1234!@;");
->>>>>>> origin/Nigel
         }
     }
 }

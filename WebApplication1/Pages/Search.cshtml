@@ -1,0 +1,35 @@
+﻿@page
+@model WebApplication1.Pages.Search
+
+@{
+    ViewData["Title"] = "AdvancedSearch";
+}
+
+<h1>@ViewData["Title"]</h1>
+
+<form method="post">
+    <p>
+        <input type="text" name="searchString">
+        <select name="advSearch">
+            <option value="naam">Naam</option>
+            <option value="isbn">ISBN</option>
+            <option value="uitgever">Uitgever</option>
+            <option value="prijs">Prijs</option>
+        </select>
+        <button type="submit" asp-page-handler="AdvSearch">Search</button>
+    </p>
+</form>
+
+
+<div class="row">
+    @foreach (var uitgave in Model.Stripboeken)
+    {
+        <div style="background: white; border: solid 1px black" class="col-lg-4 col-md-6 col-sm-12 d-flex justify-content-center flex-column">
+            <img class="img-thumbnail" src="@uitgave.afbeelding_url"/>
+            <p class="m-auto">ISBN: @uitgave.isbn</p>
+            <p class="m-auto">Titel: @uitgave.Naam</p>
+            <p class="m-auto">Prijs: €@uitgave.Prijs</p>
+        </div>
+    }
+</div>
+

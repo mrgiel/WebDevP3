@@ -1,5 +1,9 @@
+<<<<<<< HEAD
 using System.ComponentModel.DataAnnotations;
 
+=======
+<<<<<<< HEAD
+>>>>>>> e791a712861f3af4ea0c2193d93d37f8a53ebbe2
 namespace WebApplication1.Models
 
     //voornamelijk giel zn bezit class
@@ -49,5 +53,38 @@ namespace WebApplication1.Models
             this.gebruikersnaam = gebruikersnaam;
             this.isbn = isbn;
         }
+<<<<<<< HEAD
+=======
+
+        public Bezit()
+        {
+            
+        }
+=======
+﻿using System;
+using System.ComponentModel.DataAnnotations;
+
+namespace WebApplication1.Models
+{
+    public class Bezit
+    {
+        public int rating { get; }
+        
+        [Required]
+        public string staat { get; set; }
+
+        public string beschrijving { get; set; }
+
+        public int hoeveelheid { get; set; }
+        
+        [DataType(DataType.Currency)]
+        public float prijs_betaald { get; set; }
+        
+        public string gebruikersnaam { get; set; }
+
+        public int id { get; set; }
+
+>>>>>>> origin/Nigel
+>>>>>>> e791a712861f3af4ea0c2193d93d37f8a53ebbe2
     }
 }

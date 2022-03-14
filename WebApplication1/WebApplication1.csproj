@@ -5,10 +5,8 @@
   </PropertyGroup>
 
   <ItemGroup>
-<<<<<<< HEAD
     <PackageReference Include="Dapper" Version="2.0.123" />
     <PackageReference Include="MySql.Data" Version="8.0.28" />
-=======
     <Folder Include="wwwroot\NewFolder\" />
   </ItemGroup>
 
@@ -20,7 +18,6 @@
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
     </PackageReference>
     <PackageReference Include="Pomelo.EntityFrameworkCore.MySql" Version="5.0.4" />
->>>>>>> origin/login+register
   </ItemGroup>
 
 </Project>

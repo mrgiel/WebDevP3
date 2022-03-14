@@ -45,7 +45,7 @@ using WebApplication1;
 #nullable disable
             WriteLiteral("    <p>\r\n        <strong>Request ID:</strong> <code>");
 #nullable restore
-#line 13 "G:\Mijn Drive\Periode3\Project\Comic2\WebApplication1\Pages\Shared\Error.cshtml"
+#line 13 "G:\Mijn Drive\Periode3\Project\Comic2\WebApplication1\Pages\Error.cshtml"
                 Write(Model.RequestId);
 
 #line default

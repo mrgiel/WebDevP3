@@ -36,7 +36,7 @@ using WebApplication1;
 #nullable disable
             WriteLiteral("<h1>");
 #nullable restore
-#line 6 "G:\Mijn Drive\Periode3\Project\Comic2\WebApplication1\Pages\Privacy.cshtml"
+#line 6 "G:\Mijn Drive\Periode3\Project\Comic2\WebApplication1\Pages\Shared\Privacy.cshtml"
             Write(ViewData["Title"]);
 
 #line default

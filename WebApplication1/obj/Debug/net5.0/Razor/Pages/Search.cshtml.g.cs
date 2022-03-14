@@ -68,7 +68,7 @@ using WebApplication1;
 #nullable disable
             WriteLiteral("\r\n<h1>");
 #nullable restore
-#line 15 "G:\Mijn Drive\Periode3\Project\Comic2\WebApplication1\Pages\Search.cshtml"
+#line 8 "G:\Mijn Drive\Periode3\Project\Comic2\WebApplication1\Pages\Shared\_Layout.cshtml"
             Write(ViewData["Title"]);
 
 #line default
@@ -185,7 +185,7 @@ using WebApplication1;
             WriteLiteral("        <div style=\"background: white; border: solid 1px black\" class=\"col-lg-4 col-md-6 col-sm-12 d-flex justify-content-center flex-column\">\r\n            <img class=\"img-thumbnail\"");
             BeginWriteAttribute("src", " src=\"", 821, "\"", 850, 1);
 #nullable restore
-#line 28 "G:\Mijn Drive\Periode3\Project\Comic2\WebApplication1\Pages\Search.cshtml"
+#line 28 "G:\Mijn Drive\Periode3\Project\Comic2\WebApplication1\Pages\Shared\_Layout.cshtml"
                 WriteAttributeValue("", 827, uitgave.afbeelding_url, 827, 23, false);
 
 #line default
@@ -194,7 +194,7 @@ using WebApplication1;
             EndWriteAttribute();
             WriteLiteral("/>\r\n            <p class=\"m-auto\">ISBN: ");
 #nullable restore
-#line 29 "G:\Mijn Drive\Periode3\Project\Comic2\WebApplication1\Pages\Error.cshtml"
+#line 29 "G:\Mijn Drive\Periode3\Project\Comic2\WebApplication1\Pages\Shared\_Layout.cshtml"
                 Write(uitgave.isbn);
 
 #line default
@@ -202,7 +202,7 @@ using WebApplication1;
 #nullable disable
             WriteLiteral("</p>\r\n            <p class=\"m-auto\">Titel: ");
 #nullable restore
-#line 30 "G:\Mijn Drive\Periode3\Project\Comic2\WebApplication1\Pages\Error.cshtml"
+#line 31 "G:\Mijn Drive\Periode3\Project\Comic2\WebApplication1\Pages\Shared\Search.cshtml"
                 Write(uitgave.Naam);
 
 #line default
@@ -210,7 +210,7 @@ using WebApplication1;
 #nullable disable
             WriteLiteral("</p>\r\n            <p class=\"m-auto\">Prijs: €");
 #nullable restore
-#line 31 "G:\Mijn Drive\Periode3\Project\Comic2\WebApplication1\Pages\Error.cshtml"
+#line 31 "G:\Mijn Drive\Periode3\Project\Comic2\WebApplication1\Pages\Shared\_Layout.cshtml"
                 Write(uitgave.Prijs);
 
 #line default

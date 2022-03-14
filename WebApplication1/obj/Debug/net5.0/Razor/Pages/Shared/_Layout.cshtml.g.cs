@@ -77,7 +77,7 @@ using Microsoft.AspNetCore.Identity;
             __tagHelperExecutionContext = __tagHelperScopeManager.Begin("head", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "84f0a9124d3314a9e87bed98c4243bedd450d2498412", async() => {
                 WriteLiteral("\r\n    <meta charset=\"utf-8\" />\r\n    <meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\" />\r\n    <title>");
 #nullable restore
-#line 8 "G:\Mijn Drive\Periode3\Project\Comic2\WebApplication1\Pages\Layout.cshtml"
+#line 13 "G:\Mijn Drive\Periode3\Project\Comic2\WebApplication1\Pages\Shared\_Layout.cshtml"
                 Write(ViewData["Title"]);
 
 #line default
@@ -239,7 +239,7 @@ using Microsoft.AspNetCore.Identity;
 #nullable disable
                 WriteLiteral("                        </ul>\r\n                </div>\r\n            </div>\r\n        </nav>\r\n    </header>\r\n\r\n    <div class=\"container\">\r\n        <main role=\"main\" class=\"pb-3\">\r\n            ");
 #nullable restore
-#line 78 "G:\Mijn Drive\Periode3\Project\Comic2\WebApplication1\Pages\_Layout.cshtml"
+#line 78 "G:\Mijn Drive\Periode3\Project\Comic2\WebApplication1\Pages\Shared\_Layout.cshtml"
                 Write(RenderBody());
 
 #line default
@@ -304,7 +304,7 @@ __Microsoft_AspNetCore_Mvc_TagHelpers_ScriptTagHelper.AppendVersion = true;
                 __tagHelperExecutionContext = __tagHelperScopeManager.End();
                 WriteLiteral("\r\n\r\n    ");
 #nullable restore
-#line 92 "G:\Mijn Drive\Periode3\Project\Comic2\WebApplication1\Pages\_Layout.cshtml"
+#line 30 "G:\Mijn Drive\Periode3\Project\Comic2\WebApplication1\Pages\Shared\Search.cshtml"
                 Write(await RenderSectionAsync("Scripts", required: false));
 
 #line default

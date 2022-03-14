@@ -240,3 +240,5 @@ G:\Mijn Drive\Periode3\Project\Comic2\WebApplication1\bin\Debug\net5.0\runtimes\
 G:\Mijn Drive\Periode3\Project\Comic2\WebApplication1\obj\Debug\net5.0\WebApplication1.Views.pdb
 G:\Mijn Drive\Periode3\Project\Comic2\WebApplication1\obj\Debug\net5.0\WebApplication1.csproj.CopyComplete
 G:\Mijn Drive\Periode3\Project\Comic2\WebApplication1\obj\Debug\net5.0\WebApplication1.genruntimeconfig.cache
+G:\Mijn Drive\Periode3\Project\Comic2\WebApplication1\obj\Debug\net5.0\Razor\Pages\QueryOmOverzichtTeCreeren.cshtml.g.cs
+G:\Mijn Drive\Periode3\Project\Comic2\WebApplication1\obj\Debug\net5.0\Razor\Pages\Toevoegen.cshtml.g.cs

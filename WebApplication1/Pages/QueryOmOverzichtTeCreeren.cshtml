@@ -1,0 +1,28 @@
+﻿@page
+@using System.Collections
+@model WebApplication1.Pages.QueryOmOverzichtTeCreeren
+
+@{
+    ViewData["Title"] = "QueryOmOverzichtTeCreeren";
+}
+
+<!DOCTYPE html>
+
+<html lang="ne">
+<head>
+    <title>QueryOmOverzichtTeCreeren</title>
+</head>
+<body>
+<div class="text-white">
+    @foreach(var data in Model.data)
+    {
+        <ul>
+            <li>@data.gebruikersnaam</li>
+            <br/>
+            <li>@data.staat</li>
+        </ul>
+        
+    }
+</div>
+</body>
+</html>

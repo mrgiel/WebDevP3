@@ -4,10 +4,10 @@ CREATE TABLE StatusUitgave
 (
     status            BOOL,
     datum_goedkeuring DATE,
-    gebruiker_id    INT NOT NULL,
+    gebruiker_id     varchar(255) NOT NULL,
     uitgave_id                INT NOT NULL,
     PRIMARY KEY (gebruiker_id, uitgave_id),
-    FOREIGN KEY (gebruiker_id) REFERENCES Gebruiker (gebruiker_id),
+    FOREIGN KEY (gebruiker_id) REFERENCES Gebruiker (Id),
     FOREIGN KEY (uitgave_id) REFERENCES Uitgave (uitgave_id)
 );
 

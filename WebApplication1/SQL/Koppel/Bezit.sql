@@ -7,10 +7,10 @@ CREATE TABLE Bezit
     beschrijving VARCHAR(255),
     hoeveelheid INT DEFAULT 1,
     prijs_betaald DECIMAL(6,2) DEFAULT 0.00,
-    gebruiker_id INT NOT NULL,
+    gebruiker_id varchar(255) NOT NULL,
     versie_id INT NOT NULL,
     PRIMARY KEY (gebruiker_id, versie_id),
-    FOREIGN KEY (gebruiker_id) REFERENCES Gebruiker(gebruiker_id),
+    FOREIGN KEY (gebruiker_id) REFERENCES Gebruiker(Id),
     FOREIGN KEY (versie_id) REFERENCES Versie(versie_id)
 );
 

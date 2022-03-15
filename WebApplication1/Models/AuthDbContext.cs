@@ -22,7 +22,7 @@ namespace WebApplication1.Models
             base.OnModelCreating(builder);
             builder.Entity<IdentityUser>(entity =>
             {
-                entity.ToTable(name: "Klant");
+                entity.ToTable(name: "Gebruiker");
             });
             builder.Entity<IdentityRole>(entity =>
             {

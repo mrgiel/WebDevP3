@@ -1,4 +1,6 @@
-﻿CREATE PROCEDURE HaalCollectieOp()
+﻿DROP PROCEDURE IF EXISTS HaalCollectieOp;
+
+CREATE PROCEDURE HaalCollectieOp()
 BEGIN 
 SELECT v.afbeelding_url, u.naam
 FROM Versie v

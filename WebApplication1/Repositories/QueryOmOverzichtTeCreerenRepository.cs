@@ -12,13 +12,12 @@ namespace WebApplication1.Repositories
         public List<Uitgave> HaalCollectieOpRepo()
         {
             const string sql = "HaalCollectieOp";
-            
+
             //connect to database
             using var connection = Connect();
 
-            return (List<Uitgave>) connection.Query(sql);
-
-
+            var results = connection.Query<Uitgave>(sql);
+            return results.ToList();
         }
     }
 }

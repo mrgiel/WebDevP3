@@ -15,4 +15,4 @@ public class Versie
     public Uitgave Uitgave { get; set; }
     
     public Reeks Reeks { get; set; }
-}
+} 

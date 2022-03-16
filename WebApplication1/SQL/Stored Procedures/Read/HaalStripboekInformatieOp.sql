@@ -6,6 +6,7 @@ CREATE PROCEDURE HaalStripboekInformatieOp(versie_id int)
 BEGIN
 SELECT afbeelding_url, isbn, datum, druk, prijs, u.naam, beschrijving, cat_naam, reeks_naam, rol, voornaam, achternaam
 FROM Versie v
+INNER JOIN statusuitgave s on v.Versie_id = s.versie_id
 INNER JOIN Uitgave u ON u.uitgave_id = v.uitgave_id
 INNER JOIN Categorie c ON c.cat_id = u.cat_id
 INNER JOIN Reeks r ON r.reeks_id = u.reeks_id

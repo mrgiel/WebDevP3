@@ -2,7 +2,7 @@
 
 #haalt de persoonlijke collectie op van de gebruiker
 #params: gebruiker_id --> de primairy key van de gebruiker
-CREATE PROCEDURE HaalPersoonlijkeCollectieOp(gebruiker_id int)
+CREATE PROCEDURE HaalPersoonlijkeCollectieOp(gebruiker_id varchar(255))
 BEGIN
     SELECT afbeelding_url, isbn, datum, druk, prijs, rating, staat, b.beschrijving, hoeveelheid, prijs_betaald, naam
     FROM Bezit b

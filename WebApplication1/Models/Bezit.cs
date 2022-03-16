@@ -1,4 +1,8 @@
+using System.ComponentModel.DataAnnotations;
 namespace WebApplication1.Models
+
+    //voornamelijk giel zn bezit class
+
 {
     /// <summary>
     /// Geeft een exacte weergave van de Bezit tafel
@@ -10,9 +14,14 @@ namespace WebApplication1.Models
         public string staat { get; }
         public string beschrijving { get; }
         public int hoeveelheid { get; }
+        [DataType(DataType.Currency)]
         public float prijs_betaald { get; }
         public string gebruikersnaam { get; }
         public string isbn { get; }
+
+        //nigel
+        public int id { get; set; }
+
 
         /// <summary>
         /// Deze constructor haalt de persoonlijke collectie
@@ -38,11 +47,6 @@ namespace WebApplication1.Models
             this.prijs_betaald = prijs_betaald;
             this.gebruikersnaam = gebruikersnaam;
             this.isbn = isbn;
-        }
-
-        public Bezit()
-        {
-            
         }
     }
 }

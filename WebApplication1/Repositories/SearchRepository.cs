@@ -20,8 +20,8 @@ namespace WebApplication1.Repositories
         /// <returns></returns>
         public List<Uitgave> Get(string strZoekterm)
         {
-            using var connection = Connect();
-            var stripboeken = connection
+            using IDbConnection verbinding = Connect();
+            var stripboeken = verbinding
                 .Query<Uitgave>(@"SELECT * 
                              FROM uitgave uitgave 
                              INNER JOIN versie versie on uitgave.uitgave_id = versie.uitgave_id
@@ -73,8 +73,8 @@ namespace WebApplication1.Repositories
                     break;
             }
 
-            using var connection = Connect();
-            var stripboeken = connection
+            using IDbConnection verbinding = Connect();
+            var stripboeken = verbinding
                 .Query<Uitgave>(sql,
                     new {StrZoekterm = strZoekterm, });
             return stripboeken;

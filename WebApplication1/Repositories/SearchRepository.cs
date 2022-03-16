@@ -12,46 +12,71 @@ namespace WebApplication1.Repositories
     public class SearchRepository : DbConnection
     {
 
-        //Basic search function, only searching for a stripbook name.
-        public List<Uitgave> Get(string searchString)
+        /// <summary>
+        /// Basis zoekfunctie, zoekt alleen op naam.
+        /// Haalt gegevens uit de tabellen: uitgever, uitgave en versie
+        /// </summary>
+        /// <param name="strZoekterm">strZoekterm is de zoekterm die de gebruiker invult in de zoekbalk</param>
+        /// <returns></returns>
+        public List<Uitgave> Get(string strZoekterm)
         {
             using var connection = Connect();
             var stripboeken = connection
-                .Query<Uitgave>("SELECT * FROM uitgave WHERE Naam LIKE CONCAT('%',@SearchString,'%'); ",
-                    new {SearchString = searchString});
+                .Query<Uitgave>(@"SELECT * 
+                             FROM uitgave uitgave 
+                             INNER JOIN versie versie on uitgave.uitgave_id = versie.uitgave_id
+                             INNER JOIN uitgever uitgever on versie.uitgever_id = uitgever.uitgever_id
+                             WHERE naam LIKE CONCAT ('%',@StrZoekterm,'%');",
+                    new {StrZoekterm = strZoekterm});
             return stripboeken.ToList();
         }
-
-        //Advanced search. User gives 2 types of input. 
-        //searchString's is the users input
-        //advSearch is the value of the droplist
-        public IEnumerable<Uitgave> AdvSearch(string advSearch, string searchString)
+        /// <summary>
+        /// Geavanceerd zoeken. Gebruiker geeft 2 verschillende input
+        /// </summary>
+        /// <param name="zoekCategorie">zoekCategorie wordt geselecteerd in een droplist en bepaald in wel tabel van de database gezocht wordt.</param>
+        /// <param name="strZoekterm"> strZoekterm is de waarde die wordt ingevuld in de textbalk</param>
+        /// <returns></returns>
+        public IEnumerable<Uitgave> GeavanceerdZoeken(string zoekCategorie, string strZoekterm)
         {
+            var sql = $"";
 
-            //Start of the searchquery
-            var sql = $"SELECT * FROM ";
-
-            switch (advSearch)
+            switch (zoekCategorie)
             {
-                //Complete the searchQuery by the following depending on the user input.
+                //Afhankelijk van gebruikersinput wordt een case uitgevoerd.
                 case "isbn":
-                    sql += "Versie WHERE isbn = @SearchString";
+                    sql += @"SELECT * 
+                             FROM versie versie
+                             INNER JOIN uitgave uitgave on versie.uitgave_id = uitgave.uitgave_id
+                             INNER JOIN uitgever uitgever on versie.uitgever_id = uitgever.uitgever_id
+                             WHERE isbn = @StrZoekterm";
                     break;
                 case "uitgever":
-                    sql += "Uitgever WHERE uitgever = @SearchString";
+                    sql += @"SELECT * 
+                             FROM uitgever uitgever 
+                             INNER JOIN versie versie on uitgever.uitgever_id = versie.uitgever_id
+                             INNER JOIN uitgave uitgave on uitgave.uitgave_id = versie.uitgave_id
+                             WHERE uitgever_naam LIKE CONCAT ('%',@StrZoekterm,'%');";
                     break;
                 case "prijs":
-                    sql += "Versie WHERE prijs = @SearchString";
+                    sql += @"SELECT * 
+                             FROM versie versie
+                             INNER JOIN uitgave uitgave on versie.uitgave_id = uitgave.uitgave_id
+                             INNER JOIN uitgever uitgever on versie.uitgever_id = uitgever.uitgever_id
+                             WHERE prijs = @StrZoekterm";
                     break;
                 case "naam":
-                    sql += "Uitgever WHERE naam LIKE CONCAT ('%',@SearchString,'%');";
+                    sql += @"SELECT *
+                             FROM uitgave uitgave 
+                             INNER JOIN versie versie on uitgave.uitgave_id = versie.uitgave_id
+                             INNER JOIN uitgever uitgever on versie.uitgever_id = uitgever.uitgever_id
+                             WHERE naam LIKE CONCAT ('%',@StrZoekterm,'%');";
                     break;
             }
 
             using var connection = Connect();
             var stripboeken = connection
                 .Query<Uitgave>(sql,
-                    new {SearchString = searchString, });
+                    new {StrZoekterm = strZoekterm, });
             return stripboeken;
         }
     }

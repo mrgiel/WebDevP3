@@ -96,7 +96,6 @@ C:\Users\gbuss\Desktop\WebDevP3\WebApplication1\obj\Debug\net5.0\ref\WebApplicat
 C:\Users\gbuss\Desktop\WebDevP3\WebApplication1\obj\Debug\net5.0\WebApplication1.pdb
 C:\Users\gbuss\Desktop\WebDevP3\WebApplication1\obj\Debug\net5.0\WebApplication1.genruntimeconfig.cache
 C:\Users\gbuss\Desktop\WebDevP3\WebApplication1\obj\Debug\net5.0\WebApplication1.csproj.CopyComplete
-C:\Users\gbuss\Desktop\WebDevP3\WebApplication1\obj\Debug\net5.0\Razor\Pages\Search.cshtml.g.cs
 C:\Users\gbuss\Desktop\WebDevP3\WebApplication1\obj\Debug\net5.0\refint\WebApplication1.dll
 C:\Users\gbuss\Desktop\WebDevP3\WebApplication1\bin\Debug\net5.0\BouncyCastle.Crypto.dll
 C:\Users\gbuss\Desktop\WebDevP3\WebApplication1\bin\Debug\net5.0\Google.Protobuf.dll
@@ -242,3 +241,26 @@ G:\Mijn Drive\Periode3\Project\Comic2\WebApplication1\obj\Debug\net5.0\WebApplic
 G:\Mijn Drive\Periode3\Project\Comic2\WebApplication1\obj\Debug\net5.0\WebApplication1.genruntimeconfig.cache
 G:\Mijn Drive\Periode3\Project\Comic2\WebApplication1\obj\Debug\net5.0\Razor\Pages\QueryOmOverzichtTeCreeren.cshtml.g.cs
 G:\Mijn Drive\Periode3\Project\Comic2\WebApplication1\obj\Debug\net5.0\Razor\Pages\Toevoegen.cshtml.g.cs
+C:\Users\gbuss\Desktop\WebDevP3\WebApplication1\bin\Debug\net5.0\Humanizer.dll
+C:\Users\gbuss\Desktop\WebDevP3\WebApplication1\bin\Debug\net5.0\Microsoft.AspNetCore.Cryptography.Internal.dll
+C:\Users\gbuss\Desktop\WebDevP3\WebApplication1\bin\Debug\net5.0\Microsoft.AspNetCore.Cryptography.KeyDerivation.dll
+C:\Users\gbuss\Desktop\WebDevP3\WebApplication1\bin\Debug\net5.0\Microsoft.AspNetCore.Identity.EntityFrameworkCore.dll
+C:\Users\gbuss\Desktop\WebDevP3\WebApplication1\bin\Debug\net5.0\Microsoft.EntityFrameworkCore.dll
+C:\Users\gbuss\Desktop\WebDevP3\WebApplication1\bin\Debug\net5.0\Microsoft.EntityFrameworkCore.Abstractions.dll
+C:\Users\gbuss\Desktop\WebDevP3\WebApplication1\bin\Debug\net5.0\Microsoft.EntityFrameworkCore.Design.dll
+C:\Users\gbuss\Desktop\WebDevP3\WebApplication1\bin\Debug\net5.0\Microsoft.EntityFrameworkCore.Relational.dll
+C:\Users\gbuss\Desktop\WebDevP3\WebApplication1\bin\Debug\net5.0\Microsoft.Extensions.DependencyInjection.dll
+C:\Users\gbuss\Desktop\WebDevP3\WebApplication1\bin\Debug\net5.0\Microsoft.Extensions.Identity.Core.dll
+C:\Users\gbuss\Desktop\WebDevP3\WebApplication1\bin\Debug\net5.0\Microsoft.Extensions.Identity.Stores.dll
+C:\Users\gbuss\Desktop\WebDevP3\WebApplication1\bin\Debug\net5.0\MySqlConnector.dll
+C:\Users\gbuss\Desktop\WebDevP3\WebApplication1\bin\Debug\net5.0\Pomelo.EntityFrameworkCore.MySql.dll
+C:\Users\gbuss\Desktop\WebDevP3\WebApplication1\bin\Debug\net5.0\System.Diagnostics.DiagnosticSource.dll
+C:\Users\gbuss\Desktop\WebDevP3\WebApplication1\obj\Debug\net5.0\Razor\Pages\adminPagina.cshtml.g.cs
+C:\Users\gbuss\Desktop\WebDevP3\WebApplication1\obj\Debug\net5.0\Razor\Pages\ForgotPassword.cshtml.g.cs
+C:\Users\gbuss\Desktop\WebDevP3\WebApplication1\obj\Debug\net5.0\Razor\Pages\Login.cshtml.g.cs
+C:\Users\gbuss\Desktop\WebDevP3\WebApplication1\obj\Debug\net5.0\Razor\Pages\Logout.cshtml.g.cs
+C:\Users\gbuss\Desktop\WebDevP3\WebApplication1\obj\Debug\net5.0\Razor\Pages\personalCollection.cshtml.g.cs
+C:\Users\gbuss\Desktop\WebDevP3\WebApplication1\obj\Debug\net5.0\Razor\Pages\QueryOmOverzichtTeCreeren.cshtml.g.cs
+C:\Users\gbuss\Desktop\WebDevP3\WebApplication1\obj\Debug\net5.0\Razor\Pages\Register.cshtml.g.cs
+C:\Users\gbuss\Desktop\WebDevP3\WebApplication1\obj\Debug\net5.0\Razor\Pages\Toevoegen.cshtml.g.cs
+C:\Users\gbuss\Desktop\WebDevP3\WebApplication1\obj\Debug\net5.0\Razor\Pages\Zoek.cshtml.g.cs

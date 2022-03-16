@@ -41,7 +41,7 @@ namespace WebApplication1.Repositories
                 uitgave.naam,
                 uitgave.jaar,
                 uitgave.hoogte,
-                uitgave.uitgever,
+                uitgave.uitgever_naam,
                 uitgave.nsfw,
                 prijs = Math.Round(uitgave.prijs, 2),
                 reeksNummer

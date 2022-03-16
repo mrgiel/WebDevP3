@@ -8,7 +8,7 @@ namespace WebApplication1.Pages
 {
     public class QueryOmOverzichtTeCreeren : PageModel
     {
-        public List<Uitgave> data { get; set; }
+        public IEnumerable<Versie> data { get; set; }
 
         public void OnGet()
         {

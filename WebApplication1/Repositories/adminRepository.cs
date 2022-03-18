@@ -6,7 +6,7 @@ using WebApplication1.Models;
 
 namespace WebApplication1.Repositories;
 
-public class adminRepository : DbConnection
+public class AdminRepository : DbConnection
 {
     public List<Uitgave> Get()
     {

@@ -1,15 +1,20 @@
 @page
+@using Microsoft.AspNetCore.Identity
 @model WebApplication1.Pages.AdminPagina
+@inject SignInManager<IdentityUser> SignInManager
 
-<div class="row">
-    @foreach (var uitgave in Model.Stripboeken)
-    {
-        <div style="background: white; border: solid 1px black" class="col-lg-4 col-md-6 col-sm-12 d-flex justify-content-center flex-column">
-            <p class="m-auto">ISBN: @uitgave.isbn</p>
-            <p class="m-auto">Titel: @uitgave.naam</p>
-            <form method="post">
-            <button asp-page="adminPagina" asp-page-handler="Verwijderen" asp-route-id="@uitgave.versie_id">Verwijder</button>
-            </form>
-        </div>
-    }
-</div>
+@if (SignInManager.IsSignedIn(User))
+{
+    <div class="row">
+        @foreach (var uitgave in Model.Stripboeken)
+        {
+            <div style="background: white; border: solid 1px black" class="col-lg-4 col-md-6 col-sm-12 d-flex justify-content-center flex-column">
+                <p class="m-auto">ISBN: @uitgave.isbn</p>
+                <p class="m-auto">Titel: @uitgave.naam</p>
+                <form method="post">
+                    <button asp-page="adminPagina" asp-page-handler="Verwijderen" asp-route-id="@uitgave.versie_id">Verwijder</button>
+                </form>
+            </div>
+        }
+    </div>
+}

@@ -17,12 +17,12 @@ public class AdminPagina : PageModel
 
     public IActionResult OnPostVerwijderen(int id)
     {
-        Stripboeken = new adminRepository().Verwijderen(id);
+        Stripboeken = new AdminRepository().Verwijderen(id);
         return RedirectToPage("AdminPagina");
     }
     public void OnGet()
     {
-        Stripboeken = new adminRepository().Get();
+        Stripboeken = new AdminRepository().Get();
     }
 
 

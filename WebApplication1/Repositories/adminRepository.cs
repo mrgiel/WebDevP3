@@ -21,12 +21,14 @@ public class adminRepository : DbConnection
         return stripboeken.ToList();
     }
 
-    public IEnumerable<Uitgave> Verwijderen(string isbn)
+    public IEnumerable<Uitgave> Verwijderen(int id)
     {
         using IDbConnection verbinding = Connect();
         var stripboeken = verbinding
-            .Query<Uitgave>("DELETE FROM versie WHERE isbn = @Isbn",
-                new {Isbn = isbn, });
+            .Query<Uitgave>(@"DELETE FROM bezit WHERE versie_id = @Id;
+                                 DELETE FROM isgemaaktdoor WHERE versie_id = @Id;
+                                 DELETE FROM versie WHERE versie_id = @Id",
+                new {Id = id, });
         return stripboeken;
     }
 }

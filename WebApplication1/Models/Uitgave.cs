@@ -9,7 +9,7 @@ using System.ComponentModel.DataAnnotations;
         public int id { get; set; }
         public string isbn { get; set; }
         [Required] public string naam { get; set; }
-        public int versie_nr { get; set; }
+        public int versie_id { get; set; }
         [Required] public DateTime jaar { get; set; }
         public int hoogte { get; set; }
         public string afbeelding_url { get; set; }

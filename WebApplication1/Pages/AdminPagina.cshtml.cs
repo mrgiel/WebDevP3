@@ -15,7 +15,7 @@ public class AdminPagina : PageModel
 {
     public IEnumerable<Uitgave> Stripboeken { get; set; }
 
-    public IActionResult OnPostVerwijderen(string id)
+    public IActionResult OnPostVerwijderen(int id)
     {
         Stripboeken = new adminRepository().Verwijderen(id);
         return RedirectToPage("AdminPagina");

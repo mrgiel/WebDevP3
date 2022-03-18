@@ -8,27 +8,21 @@ namespace WebApplication1.Pages
 {
     public class Toevoegen : PageModel
     {
-        [BindProperty] public IEnumerable<Categorie> Categories { get; set; }
-
-        [BindProperty] public IEnumerable<Uitgever> Uitgevers { get; set; }
+        [BindProperty] public IEnumerable<Categorie> Categories { get; set; } = new ToevoegenRepository().HaalCategorieOp();
+        [BindProperty] public IEnumerable<Uitgever> Uitgevers { get; set; } = new ToevoegenRepository().HaalAlleUitgeverOp();
         [BindProperty] public Uitgave Uitgave { get; init; } = new Uitgave();
         [BindProperty] public Versie Versie { get; init; } = new Versie();
-
-        public void OnGet()
-        {
-            //voor nu
-            Categories = new ToevoegenRepository().HaalCategorieOp();
-            Uitgevers = new ToevoegenRepository().HaalAlleUitgeverOp();
-        }
-
+        
         public void OnPostSend()
         {
-            //voor nu
+            //kan beter
             Categories = new ToevoegenRepository().HaalCategorieOp();
             Uitgevers = new ToevoegenRepository().HaalAlleUitgeverOp();
             
+            //check
             if (!ModelState.IsValid) return;
-            //send stripboeken
+            
+            //verstuur stripboeken
             new ToevoegenRepository().VerstuurNieuwStripboek(Uitgave,Uitgave.Reeks ,Versie.Uitgever,Versie,Uitgave.Categorie,new GebruikerId().GetClaims());
         }
 

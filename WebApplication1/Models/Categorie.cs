@@ -6,5 +6,5 @@ public class Categorie
 {
     public int cat_id { get; set; }
     
-    public string cat_naam { get; set; }
+    [Required]public string cat_naam { get; set; }
 }

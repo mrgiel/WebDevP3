@@ -3,86 +3,90 @@
 CREATE PROCEDURE StripboekToevoegen(
 
 #Versie
-    afbeelding_url varchar(200), isbn varchar(50), datum date, druk int, prijs float,
+    afbeelding_urlVAR varchar(200), isbnVAR varchar(50), datumVAR date, drukVAR int, prijsVAR float,
 
 #Uitgave
-    naam VARCHAR(100), hoogte INT, beschrijving VARCHAR(255),
+    naamVAR VARCHAR(100), hoogteVAR INT, beschrijvingVAR VARCHAR(255), nsfwVar bool,
 
 #Reeks
-    reeks_naam varchar(100),
+    reeks_naamVAR varchar(100),
 
 #Categorie
-    cat_naam varchar(30),
+    cat_naamVAR varchar(30),
 
 #Uitgever
-    uitgever_naam varchar(100),
+    uitgever_naamVAR varchar(100),
 
 #Gebruiker
-    gebruiker_id varchar(255)
+    gebruiker_idVAR varchar(255)
 )
     IF (SELECT Id
         FROM gebruiker
-        WHERE gebruiker_id = Id)
+        WHERE gebruiker_idVAR = Id)
     THEN
         BEGIN
 
             #Reeks
             INSERT INTO Reeks(reeks_id, reeks_naam)
-            SELECT null, @reeks_naam
-            WHERE reeks_naam NOT IN (
+            SELECT null, reeks_naamVAR
+            WHERE reeks_naamVAR NOT IN (
                 SELECT reeks.reeks_naam
                 FROM reeks
             );
 
 #Categorie
             INSERT INTO Categorie(cat_id, cat_naam)
-            SELECT null, @cat_naam
-            WHERE cat_naam NOT IN (
+            SELECT null, cat_naamVAR
+            WHERE cat_naamVAR NOT IN (
                 SELECT categorie.cat_naam
                 FROM categorie
             );
 
 #Uitgever
             INSERT INTO Uitgever(uitgever_id, uitgever_naam)
-            SELECT null, @uitgever_naam
-            WHERE uitgever_naam NOT IN (
+            SELECT null, uitgever_naamVAR
+            WHERE uitgever_naamVAR NOT IN (
                 SELECT uitgever.uitgever_naam
                 FROM uitgever
             );
 
             #Uitgave
-            INSERT INTO Uitgave(uitgave_id,naam, hoogte, beschrijving, cat_id, reeks_id)
-            SELECT null,@naam, @hoogte, @beschrijving, cat_id, reeks_id
+            INSERT INTO Uitgave(uitgave_id, naam, hoogte, beschrijving, nsfw, cat_id, reeks_id)
+            SELECT null, naamVAR, hoogteVAR, beschrijvingVAR, nsfwVar, cat_id, reeks_id
             FROM categorie,
                  reeks
-            WHERE naam NOT IN (
+            WHERE naamVAR NOT IN (
                 SELECT Uitgave.naam
                 FROM Uitgave
-            ) AND cat_naam = categorie.cat_naam
-              AND reeks_naam = reeks.reeks_naam;
+            )
+              AND cat_naamVAR = categorie.cat_naam
+              AND reeks_naamVAR = reeks.reeks_naam;
 
-#Versie moet nog iets anders
+            #Versie
             INSERT INTO Versie(Versie_id, afbeelding_url, isbn, datum, druk, prijs, uitgever_id, uitgave_id)
             SELECT null,
-                   @afbeelding_url,
-                   @isbn,
-                   @datum,
-                   @druk,
-                   @prijs,
+                   afbeelding_urlVAR,
+                   isbnVAR,
+                   datumVAR,
+                   drukVAR,
+                   prijsVAR,
                    uitgever_id,
                    uitgave_id
             FROM uitgever,
                  uitgave
-            WHERE isbn NOT IN (
+            WHERE isbnVAR NOT IN (
                 SELECT Versie.isbn
                 FROM Versie
-            ) AND (uitgever_naam = uitgever.uitgever_naam AND naam = uitgave.naam);
+            )
+              AND (uitgever_naamVAR = uitgever.uitgever_naam AND naamVAR = uitgave.naam);
 
-#StatusUitgave
+            #StatusUitgave
             INSERT INTO statusuitgave(gebruiker_id, versie_id)
-            SELECT @gebruiker_id, Versie_id
-            FROM versie
-            WHERE isbn = versie.isbn;
+            SELECT gebruiker_idVAR, Versie.Versie_id
+            FROM versie,
+                 gebruiker
+            WHERE versie.isbn = isbnVAR
+              and gebruiker_idVAR = gebruiker.Id;
 
         END;
     END IF;

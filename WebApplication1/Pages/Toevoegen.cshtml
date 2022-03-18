@@ -1,12 +1,17 @@
 ﻿@page
-@using WebApplication1.Models
-@using WebApplication1.Repositories
-@using Microsoft.EntityFrameworkCore
+@inject SignInManager<IdentityUser> SignInManager
+@using Microsoft.AspNetCore.Identity
 @model WebApplication1.Pages.Toevoegen
-
 @{
     ViewData["Title"] = "Toevoegen";
+    
+
 }
+@if (!SignInManager.IsSignedIn(User))
+{
+    Response.Redirect("Index");
+}
+
 
 <!DOCTYPE html>
 <link rel="stylesheet" href="~/css/toevoegen.css"/>
@@ -24,18 +29,18 @@
             <div class="row">
                 <div class="col-6">
                     <h3 >ISBN</h3>
-                    <input class="form-control" asp-for="Versie.isbn" value="" type="text" placeholder="9032005235"/>
+                    <input class="form-control" asp-for="Versie.isbn" value="" type="text" maxlength="50" placeholder="9032005235"/>
                 </div>
                 <div class="col-6">
                     <h3 >Reeks</h3>
-                    <input class="form-control" asp-for="Uitgave.Reeks.reeks_naam" value="" type="text" placeholder="Donald Duck"/>
+                    <input class="form-control" asp-for="Uitgave.Reeks.reeks_naam" value="" spellcheck="true" maxlength="50" type="text" placeholder="Donald Duck"/>
                     <span asp-validation-for="Uitgave.Reeks.reeks_naam"></span>
                 </div>
             </div>
             <div class="row">
                 <div class="col-6">
                     <h3 >Titel</h3>
-                    <input class="form-control" asp-for="Uitgave.naam" type="text" placeholder="Als Cowboy"/>
+                    <input class="form-control" asp-for="Uitgave.naam" type="text" spellcheck="true" maxlength="50" placeholder="Als Cowboy"/>
                     <span asp-validation-for="Uitgave.naam"></span>
                 </div>
                 <div class="col-6">
@@ -48,7 +53,7 @@
             <div class="row">
                 <div class="col-6">
                     <h3 >Afbeelding</h3>
-                    <input class="form-control" asp-for="Versie.afbeelding_url" value="" type="text" placeholder="https://voorbeeldurl.com/afbeelding123"/>
+                    <input class="form-control" asp-for="Versie.afbeelding_url" value="" type="text" maxlength="100" placeholder="https://voorbeeldurl.com/afbeelding123"/>
                     <span asp-validation-for="Versie.afbeelding_url"></span>
                 </div>
                 <div class="col-6">
@@ -62,17 +67,18 @@
                             </option>
                         }
                     </select>
+                    <span asp-validation-for="Uitgave.Categorie.cat_naam"></span>
                 </div>
             </div>
             <div class="row">
                 <div class="col-6">
                     <h3 >Hoogte</h3>
-                    <input class="form-control" asp-for="Uitgave.hoogte" value="" type="text" placeholder="22 (cm)"/>
+                    <input class="form-control" asp-for="Uitgave.hoogte" value="" type="number" min="0" max="200" placeholder="22 (cm)"/>
                     <span asp-validation-for="Uitgave.hoogte"></span>
                 </div>
                 <div class="col-6">
                     <h3 >Prijs</h3>
-                    <input class="form-control" asp-for="Versie.prijs" value="" pattern="(^[0-9]{0,2}$)|(^[0-9]{0,2}\,[0-9]{0,5}$)" step="any" maxlength="7" placeholder="5,99 (euro)"/>
+                    <input class="form-control" asp-for="Versie.prijs" value="" type="number" pattern="(^[0-9]{0,2}$)|(^[0-9]{0,2}\,[0-9]{0,5}$)" step="any" min="0" max="999999" placeholder="5,99 (euro)"/>
                     <span asp-validation-for="Versie.prijs"></span>
                 </div>
             </div>
@@ -93,17 +99,24 @@
                             </option>
                         }
                     </select>
+                    <span asp-validation-for="Versie.Uitgever.uitgever_naam"></span>
                 </div>
             </div>
             <div class="row">
                 <div class="col-6">
                     <h3 >Beschrijving</h3>
-                    <input class="form-control" asp-for="Uitgave.beschrijving" type="text" placeholder="DPG Media"/>
+                    <input class="form-control" asp-for="Uitgave.beschrijving" maxlength="255" type="text" placeholder="DPG Media"/>
                 </div>
                 <div class="col-6">
                     <h3 class=" mx-auto">Sensueel</h3>
-                    <br/>
-                    <input class="mx-auto" asp-for="Uitgave.nsfw" type="checkbox"/>
+                    <select asp-for="Uitgave.nsfw">
+                        <option value="False">
+                            Nee
+                        </option>
+                        <option value="True">
+                            Ja
+                        </option>
+                    </select>
                 </div>
             </div>
             <br/>

@@ -3,7 +3,7 @@ DROP TABLE IF EXISTS Reeks;
 CREATE TABLE Reeks
 (
     reeks_id   int AUTO_INCREMENT PRIMARY KEY NOT NULL,
-    reeks_naam varchar(100) NULL unique
+    reeks_naam varchar(100) null unique
 );
 
 INSERT INTO Reeks (reeks_naam) VALUE('Suske_Wiske');

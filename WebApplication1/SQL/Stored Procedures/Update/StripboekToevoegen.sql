@@ -20,10 +20,6 @@ CREATE PROCEDURE StripboekToevoegen(
 #Gebruiker
     gebruiker_idVAR varchar(255)
 )
-    IF (SELECT Id
-        FROM gebruiker
-        WHERE gebruiker_idVAR = Id)
-    THEN
         BEGIN
 
             #Reeks
@@ -82,11 +78,10 @@ CREATE PROCEDURE StripboekToevoegen(
 
             #StatusUitgave
             INSERT INTO statusuitgave(gebruiker_id, versie_id)
-            SELECT gebruiker_idVAR, Versie.Versie_id
+            SELECT Id, Versie.Versie_id
             FROM versie,
                  gebruiker
             WHERE versie.isbn = isbnVAR
               and gebruiker_idVAR = gebruiker.Id;
 
         END;
-    END IF;

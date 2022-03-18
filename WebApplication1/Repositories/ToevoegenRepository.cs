@@ -1,65 +1,87 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
+using System.Data;
 using Dapper;
+using Google.Protobuf.WellKnownTypes;
+using MySql.Data.MySqlClient;
 using WebApplication1.Models;
 
 namespace WebApplication1.Repositories
 {
     public class ToevoegenRepository : DbConnection
     {
-        /// <summary>
-        /// zoeks reeks nummer voor reeks naam
-        /// </summary>
-        /// <param name="reeks"></param>
-        /// <returns></returns>
-        public int? ZoekReeksNummer(Reeks reeks)
+        public  IEnumerable<Categorie> HaalCategorieOp()
         {
-            //query
-            var sql = "SELECT reeks_nr FROM Reeks WHERE lower(reeks_naam) = lower(@reeksUser)";
-
-            //param
-            var param = new {reeksUser = reeks.reeks_naam};
+            const string sql = "HaalAlleCategorieenOp";
 
             //connect to database
             using var connection = Connect();
 
-            //als database niet bestaat of null --> return null anders return int
-            return !connection.ExecuteScalar<bool>(sql, param) ? null : connection.QuerySingleOrDefault<int>(sql, param);
-        }
-
-        /// <summary>
-        /// stuur data naar database
-        /// </summary>
-        /// <param name="uitgave"></param>
-        /// <param name="reeksNummer"></param>
-        public void VoegToe(Uitgave uitgave, int? reeksNummer)
-        {
-
-            //param
-            var param = new
-            {
-                uitgave.isbn,
-                uitgave.naam,
-                uitgave.jaar,
-                uitgave.hoogte,
-                uitgave.uitgever,
-                uitgave.nsfw,
-                prijs = Math.Round(uitgave.prijs, 2),
-                reeksNummer
-            };
-
-            //query
-            var sql =
-                "INSERT INTO uitgave(isbn,naam,jaar,hoogte,uitgever,nsfw,prijs, reeks_nr)VALUES(@isbn,@naam,@jaar,@hoogte,@uitgever,@nsfw,@prijs,@reeksNummer)";
-
-            //connect to database
-            using var connection = Connect();
             
-            //check if database exists
-            if (!connection.ExecuteScalar<bool>(sql, param))
-                return;
-
-            //execute
-            connection.Execute(sql, param);
+            
+            var result = connection.Query<Categorie>(sql);
+            return result;
         }
+        
+            public  IEnumerable<Uitgever> HaalAlleUitgeverOp()
+            {
+                const string sql = "HaalAlleUitgeverOp";
+
+                //connect to database
+                using var connection = Connect();
+
+                var result = connection.Query<Uitgever>(sql);
+                return result;
+            }
+
+            /// <summary>
+            /// Verstuurd een stripboek met de bijbehorende parameters
+            /// </summary>
+            /// <param name="uitgave"></param>
+            /// <param name="reeks"></param>
+            /// <param name="uitgever"></param>
+            /// <param name="versie"></param>
+            /// <param name="categorie"></param>
+            /// <param name="gebruiker_id"></param>
+            public async void VerstuurNieuwStripboek(Uitgave uitgave, Reeks reeks, Uitgever uitgever, Versie versie,
+                Categorie categorie, string gebruiker_id)
+            {
+
+                //string
+                const string sql = "StripboekToevoegen";
+                
+                //param
+                var param = new
+                {
+                    //versie
+                    afbeelding_url = versie.afbeelding_url,
+                    isbn = versie.isbn,
+                    datum = versie.datum,
+                    druk = versie.druk,
+                    prijs = versie.prijs,
+                    
+                    //uitgave
+                    naam = uitgave.naam,
+                    hoogte = uitgave.hoogte,
+                    beschrijving = uitgave.beschrijving,
+                    
+                    //reeks
+                    reeks_naam = reeks.reeks_naam,
+                    
+                    //categorie
+                    cat_naam = categorie.cat_naam,
+                    
+                    //uitgever
+                    uitgever_naam = uitgever.uitgever_naam,
+                    gebruiker_id = "2"
+                };
+                
+                //connect to database
+                using var connection = Connect();
+                
+                //execute
+                var result = await connection.ExecuteAsync(sql,param, commandType: System.Data.CommandType.StoredProcedure);
+            }
     }
 }

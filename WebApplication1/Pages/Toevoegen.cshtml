@@ -1,4 +1,7 @@
 ﻿@page
+@using WebApplication1.Models
+@using WebApplication1.Repositories
+@using Microsoft.EntityFrameworkCore
 @model WebApplication1.Pages.Toevoegen
 
 @{
@@ -12,8 +15,7 @@
     <title>Toevoegen</title>
 </head>
 <body>
-<div>
-
+<div class="text-white">
     <div class="container text-white">
         <br/>
         <h1 class="text-center">Stripboek Toevoegen</h1>
@@ -22,46 +24,86 @@
             <div class="row">
                 <div class="col-6">
                     <h3 >ISBN</h3>
-                    <input class="form-control" asp-for="Uitgaves.isbn" value="" type="text" placeholder="9032005235"/>
+                    <input class="form-control" asp-for="Versie.isbn" value="" type="text" placeholder="9032005235"/>
                 </div>
                 <div class="col-6">
                     <h3 >Reeks</h3>
-                    <input class="form-control" asp-for="Reeks.reeks_naam" value="" type="text" placeholder="Donald Duck"/>
-                    <span asp-validation-for="Reeks.reeks_naam"></span>
+                    <input class="form-control" asp-for="Uitgave.Reeks.reeks_naam" value="" type="text" placeholder="Donald Duck"/>
+                    <span asp-validation-for="Uitgave.Reeks.reeks_naam"></span>
                 </div>
             </div>
             <div class="row">
                 <div class="col-6">
                     <h3 >Titel</h3>
-                    <input class="form-control" asp-for="Uitgaves.naam" type="text" placeholder="Als Cowboy"/>
-                    <span asp-validation-for="Uitgaves.naam"></span>
+                    <input class="form-control" asp-for="Uitgave.naam" type="text" placeholder="Als Cowboy"/>
+                    <span asp-validation-for="Uitgave.naam"></span>
                 </div>
                 <div class="col-6">
                     <h3 >Datum</h3>
-                    <input class="form-control" asp-for="Uitgaves.jaar" asp-format="{0:yyyy-MM-dd}"/>
-                    <span asp-validation-for="Uitgaves.jaar"></span>
+                    <input class="form-control" asp-for="Versie.datum" asp-format="{0:yyyy-MM-dd}"/>
+                    <span asp-validation-for="Versie.datum"></span>
                 </div>
 
             </div>
             <div class="row">
                 <div class="col-6">
-                    <h3 >Hoogte</h3>
-                    <input class="form-control" asp-for="Uitgaves.hoogte" value="" type="text" placeholder="22 (cm)"/>
+                    <h3 >Afbeelding</h3>
+                    <input class="form-control" asp-for="Versie.afbeelding_url" value="" type="text" placeholder="https://voorbeeldurl.com/afbeelding123"/>
+                    <span asp-validation-for="Versie.afbeelding_url"></span>
                 </div>
                 <div class="col-6">
-                    <h3 >Prijs</h3>
-                    <input class="form-control" asp-for="Uitgaves.prijs" value="" type="text" placeholder="5,99 (euro)"/>
+                    <h3 >Categorie</h3>
+                    <select asp-for="Uitgave.Categorie.cat_naam" class="form-control">
+                        <option value="">-- Selecteer Categorie --</option>
+                        @foreach (var categorie in @Model.Categories)
+                        {
+                            <option asp-items="@categorie.cat_naam">
+                                @categorie.cat_naam
+                            </option>
+                        }
+                    </select>
                 </div>
             </div>
             <div class="row">
                 <div class="col-6">
-                    <h3 >Uitgever</h3>
-                    <input class="form-control" asp-for="Uitgaves.uitgever" type="text" placeholder="DPG Media"/>
+                    <h3 >Hoogte</h3>
+                    <input class="form-control" asp-for="Uitgave.hoogte" value="" type="text" placeholder="22 (cm)"/>
+                    <span asp-validation-for="Uitgave.hoogte"></span>
+                </div>
+                <div class="col-6">
+                    <h3 >Prijs</h3>
+                    <input class="form-control" asp-for="Versie.prijs" value="" pattern="(^[0-9]{0,2}$)|(^[0-9]{0,2}\,[0-9]{0,5}$)" step="any" maxlength="7" placeholder="5,99 (euro)"/>
+                    <span asp-validation-for="Versie.prijs"></span>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-6">
+                    <h3 >Druk</h3>
+                    <input class="form-control" asp-for="Versie.druk" type="number" min="1" max="99" placeholder="Als Cowboy"/>
+                    <span asp-validation-for="Versie.druk"></span>
+                </div>
+                <div class="col-6">
+                    <h3>Uitgever</h3>
+                    <select asp-for="Versie.Uitgever.uitgever_naam" class="form-control">
+                        <option value="">-- Selecteer Uitgever --</option>
+                        @foreach (var uitgever in @Model.Uitgevers)
+                        {
+                            <option asp-items="@uitgever.uitgever_naam">
+                                @uitgever.uitgever_naam
+                            </option>
+                        }
+                    </select>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-6">
+                    <h3 >Beschrijving</h3>
+                    <input class="form-control" asp-for="Uitgave.beschrijving" type="text" placeholder="DPG Media"/>
                 </div>
                 <div class="col-6">
                     <h3 class=" mx-auto">Sensueel</h3>
                     <br/>
-                    <input class="mx-auto" asp-for="Uitgaves.nsfw" type="checkbox"/>
+                    <input class="mx-auto" asp-for="Uitgave.nsfw" type="checkbox"/>
                 </div>
             </div>
             <br/>

@@ -19,6 +19,15 @@ using System.ComponentModel.DataAnnotations;
         public bool nsfw { get; set; }
         public float prijs { get; set; }
 
+        //new
+        public string beschrijving { get; set; }
+
+        public Categorie Categorie { get; set; }
+
+        public Reeks Reeks { get; set; }
+
+        public Versie Versie { get; set; }
+
         //giel
         public string Naam { get; set; }
         public float Prijs { get; set; }

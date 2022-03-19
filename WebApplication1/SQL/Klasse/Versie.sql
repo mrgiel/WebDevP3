@@ -4,7 +4,7 @@ CREATE TABLE Versie
 (
     Versie_id INT NOT NULL PRIMARY KEY  AUTO_INCREMENT,
     afbeelding_url varchar(200),
-    isbn VARCHAR(50) UNIQUE ,
+    isbn VARCHAR(50),
     datum DATE,
     druk INT NOT NULL,
     prijs decimal(6,2),

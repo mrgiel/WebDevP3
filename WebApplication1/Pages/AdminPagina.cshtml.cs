@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.VisualBasic;
 using MySql.Data.MySqlClient;
 using WebApplication1.Models;
+using WebApplication1.Models.Klasse;
 using WebApplication1.Repositories;
 
 namespace WebApplication1.Pages;

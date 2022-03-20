@@ -5,6 +5,7 @@ using Dapper;
 using Google.Protobuf.WellKnownTypes;
 using MySql.Data.MySqlClient;
 using WebApplication1.Models;
+using WebApplication1.Models.Klasse;
 
 namespace WebApplication1.Repositories
 {

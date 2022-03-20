@@ -1,28 +1,18 @@
 ﻿@page
-@using System.Collections
 @model WebApplication1.Pages.QueryOmOverzichtTeCreeren
 
 @{
-    ViewData["Title"] = "QueryOmOverzichtTeCreeren";
+    Layout = "Shared/_Layout";
 }
 
-<!DOCTYPE html>
-
-<html lang="ne">
-<head>
-    <title>QueryOmOverzichtTeCreeren</title>
-</head>
-<body>
-<div class="text-white">
-    @foreach(var data in Model.data)
+<div class="row text-white">
+    @foreach (var stripboek in Model.data)
     {
-        <ul>
-            <li>@data.gebruikersnaam</li>
-            <br/>
-            <li>@data.staat</li>
-        </ul>
-        
+        <div class="col-lg-4 col-md-6 col-sm-12">
+            <div class="row">
+                <img src="@stripboek.afbeelding_url" style="width: 300px; height: 300px" alt=""/>
+            </div>
+            <p class="">@stripboek.Uitgave.Reeks.reeks_naam @stripboek.Uitgave.naam</p>
+            </div>
     }
 </div>
-</body>
-</html>

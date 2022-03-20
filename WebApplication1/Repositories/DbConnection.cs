@@ -1,7 +1,7 @@
 
 using System.Data;
 using Microsoft.AspNetCore.Connections;
-﻿using System.Data;
+ using System.Data;
 using MySql.Data.MySqlClient;
 
 namespace WebApplication1.Repositories

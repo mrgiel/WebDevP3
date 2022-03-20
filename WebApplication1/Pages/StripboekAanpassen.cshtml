@@ -1,0 +1,117 @@
+﻿@page
+@using WebApplication1.Repositories
+@model WebApplication1.Pages.StripboekAanpassen
+@inject SignInManager<IdentityUser> SignInManager
+@using Microsoft.AspNetCore.Identity
+
+@{
+    ViewData["Title"] = "Stripboek Aanpassen";
+}
+@if (new GebruikerRepo().HaalRolOp() != "admin")
+    {
+        Response.Redirect("Index");
+    }
+
+<!DOCTYPE html>
+
+<html lang="ne">
+<head>
+    <title></title>
+</head>
+<body>
+<div class="text-white">
+    @if (Model.StripboekInformatie != null)
+    {
+        @if (Model.StripboekInformatie.Any())
+        {
+
+            <form method="post">
+                    <input asp-for="Versie.versie_id" value="@Model.StripboekInformatie.First().versie_id" type="hidden"/>
+                    <div class="row">
+                        <div class="col-6">
+                            <h3 >ISBN</h3>
+                            <input asp-for="Versie.isbn" value="@Model.StripboekInformatie.First().isbn" class="form-control" type="text" minlength="1" maxlength="50"/>
+                        </div>
+                        <div class="col-6">
+                            <h3 >Reeks</h3>
+                            <input asp-for="Versie.Uitgave.Reeks.reeks_naam" value="@Model.StripboekInformatie.First().Uitgave.Reeks.reeks_naam" spellcheck="true" minlength="1" maxlength="50" class="form-control" type="text"/>
+                            <span asp-validation-for="Versie.Uitgave.Reeks.reeks_naam"></span>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-6">
+                            <h3 >Titel</h3>
+                            <input asp-for="Versie.Uitgave.naam" value="@Model.StripboekInformatie.First().Uitgave.naam" class="form-control" type="text" spellcheck="true" minlength="1" maxlength="50"/>
+                            <span asp-validation-for="Versie.Uitgave.naam"></span>
+                        </div>
+                        <div class="col-6">
+                            <h3 >Datum</h3>
+                            <input asp-for="Versie.datum" value="@Model.StripboekInformatie.First().datum" class="form-control" type="text"/>
+                            <span asp-validation-for="Versie.datum"></span>
+                        </div>
+
+                    </div>
+                    <div class="row">
+                        <div class="col-6">
+                            <h3 >Afbeelding</h3>
+                            <input asp-for="Versie.afbeelding_url" value="@Model.StripboekInformatie.First().afbeelding_url" class="form-control" type="text" minlength="1" maxlength="100"/>
+                            <span asp-validation-for="Versie.afbeelding_url"></span>
+                        </div>
+                        <div class="col-6">
+                            <h3 >Categorie</h3>
+                            <input asp-for="Versie.Uitgave.Categorie.cat_naam" value="@Model.StripboekInformatie.First().Uitgave.Categorie.cat_naam" class="form-control" type="text" spellcheck="true" minlength="1" maxlength="50"/>
+                            <span asp-validation-for="Versie.Uitgave.Categorie.cat_naam"></span>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-6">
+                            <h3 >Hoogte</h3>
+                            <input asp-for="Versie.Uitgave.hoogte" value="@Model.StripboekInformatie.First().Uitgave.hoogte" class="form-control" type="number" min="0" max="200"/>
+                            <span asp-validation-for="Versie.Uitgave.hoogte"></span>
+                        </div>
+                        <div class="col-6">
+                            <h3 >Prijs</h3>
+                            <input asp-for="Versie.prijs" value="@Model.StripboekInformatie.First().prijs" class="form-control" type="number" pattern="(^[0-9]{0,2}$)|(^[0-9]{0,2}\,[0-9]{0,5}$)" step="any" min="0" max="999999"/>
+                            <span asp-validation-for="Versie.prijs"></span>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-6">
+                            <h3 >Druk</h3>
+                            <input asp-for="Versie.druk" value="@Model.StripboekInformatie.First().druk" class="form-control" type="number" min="1" max="99"/>
+                            <span asp-validation-for="Versie.druk"></span>
+                        </div>
+                        <div class="col-6">
+                            <h3>Uitgever</h3>
+                            <input asp-for="Versie.Uitgever.uitgever_naam" value="@Model.StripboekInformatie.First().Uitgever.uitgever_naam" class="form-control" type="text" spellcheck="true" minlength="1" maxlength="50"/>
+                            <span asp-validation-for="Versie.Uitgever.uitgever_naam"></span>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-6">
+                            <h3 >Beschrijving</h3>
+                            <input class="form-control" asp-for="Versie.Uitgave.beschrijving" value="@Model.StripboekInformatie.First().Uitgave.beschrijving" minlength="1" maxlength="255" type="text"/>
+                        </div>
+                        <div class="col-6">
+                            <h3 class=" mx-auto">Sensueel</h3>
+                            <select asp-for="Versie.Uitgave.nsfw">
+                                <option value="False">
+                                    Nee
+                                </option>
+                                <option value="True">
+                                    Ja
+                                </option>
+                            </select>
+                            <p>Waarde : @Model.StripboekInformatie.First().Uitgave.nsfw</p>
+                        </div>
+                    </div>
+                    <br/>
+                    <div class="col-3 mx-auto">
+                        <button type="submit" class="form-control align-content-center" asp-page-handler="Send">Updaten</button>
+                    </div>
+                </form>
+        }
+    }
+</div>
+</body>
+</html>

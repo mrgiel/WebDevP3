@@ -6,10 +6,10 @@
 <div class="container mt-5">
     <div class="row justify-content-center align-items-center">
         <div class="col-sm-12 col-md-12 col-lg-4">
-            <h1 class="mb-3 text-white">Login</h1>
+            <h1 class="mb-3 text-white">Inloggen</h1>
             <form method="post">
                 <div class="mb-3">
-                    <label class="form-label text-white" asp-for="Model.UserName">Email Address</label>
+                    <label class="form-label text-white" asp-for="Model.UserName">Gebruikers Naam</label>
                     <input type="text" asp-for="Model.UserName" class="form-control" />
                     <span asp-validation-for="Model.UserName" class="text-danger"></span>
                 </div>
@@ -20,7 +20,7 @@
                 </div>
                 <div class="mb-3 form-check">
                     <input type="checkbox" asp-for="Model.RememberMe" class="form-check-input" />
-                    <label class="form-check-label text-white" asp-for="Model.RememberMe">Remember me?</label>
+                    <label class="form-check-label text-white" asp-for="Model.RememberMe">Onthoud mij?</label>
                 </div>
                 <div class="mb-3">
                     <button type="submit" class="btn btn-primary">Login</button>

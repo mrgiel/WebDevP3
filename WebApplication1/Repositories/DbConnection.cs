@@ -1,5 +1,7 @@
+
 using System.Data;
 using Microsoft.AspNetCore.Connections;
+ using System.Data;
 using MySql.Data.MySqlClient;
 
 namespace WebApplication1.Repositories
@@ -18,9 +20,9 @@ namespace WebApplication1.Repositories
             return new MySqlConnection(
                 @"Server=127.0.0.1;
                 Port=3306;
-                Database=stripboeken_collectie;
-                Uid=ruho;
-                Pwd=toegangTotKernwapens123!;");
+                Database=stripboekendb;
+                Uid=root;
+                Pwd=Test1234!@;");
         }
     }
 }

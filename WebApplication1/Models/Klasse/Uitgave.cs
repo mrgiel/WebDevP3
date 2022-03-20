@@ -7,7 +7,7 @@ namespace WebApplication1.Models.Klasse
     {
         //nigel
         public int uitgave_id { get; set; }
-        public int isbn { get; set; }
+        public string isbn { get; set; }
         [Required] public string naam { get; set; }
         public int versie_id { get; set; }
         [Required] public DateTime jaar { get; set; }

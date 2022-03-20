@@ -1,9 +1,13 @@
 @page
 @using Microsoft.AspNetCore.Identity
+@using WebApplication1.Repositories
 @model WebApplication1.Pages.AdminPagina
 @inject SignInManager<IdentityUser> SignInManager
 
-@if (SignInManager.IsSignedIn(User))
+@if (new GebruikerRepo().HaalRolOp() != "admin")
+{
+    Response.Redirect("Index");
+} else 
 {
     <div class="row">
         @foreach (var uitgave in Model.Stripboeken)

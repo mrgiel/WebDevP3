@@ -26,7 +26,8 @@ public class AdminRepository : DbConnection
     {
         using IDbConnection verbinding = Connect();
         var stripboeken = verbinding
-            .Query<Uitgave>(@"DELETE FROM bezit WHERE versie_id = @Id;
+            .Query<Uitgave>(@"DELETE FROM statusuitgave WHERE versie_id = @Id;
+                                 DELETE FROM bezit WHERE versie_id = @Id;
                                  DELETE FROM isgemaaktdoor WHERE versie_id = @Id;
                                  DELETE FROM versie WHERE versie_id = @Id",
                 new {Id = id, });

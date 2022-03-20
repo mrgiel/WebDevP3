@@ -262,5 +262,6 @@ C:\Users\gbuss\Desktop\WebDevP3\WebApplication1\obj\Debug\net5.0\Razor\Pages\Log
 C:\Users\gbuss\Desktop\WebDevP3\WebApplication1\obj\Debug\net5.0\Razor\Pages\personalCollection.cshtml.g.cs
 C:\Users\gbuss\Desktop\WebDevP3\WebApplication1\obj\Debug\net5.0\Razor\Pages\QueryOmOverzichtTeCreeren.cshtml.g.cs
 C:\Users\gbuss\Desktop\WebDevP3\WebApplication1\obj\Debug\net5.0\Razor\Pages\Register.cshtml.g.cs
-C:\Users\gbuss\Desktop\WebDevP3\WebApplication1\obj\Debug\net5.0\Razor\Pages\Toevoegen.cshtml.g.cs
 C:\Users\gbuss\Desktop\WebDevP3\WebApplication1\obj\Debug\net5.0\Razor\Pages\Zoek.cshtml.g.cs
+C:\Users\gbuss\Desktop\WebDevP3\WebApplication1\obj\Debug\net5.0\Razor\Pages\StripboekAanpassen.cshtml.g.cs
+C:\Users\gbuss\Desktop\WebDevP3\WebApplication1\obj\Debug\net5.0\Razor\Pages\StripboekToevoegen.cshtml.g.cs

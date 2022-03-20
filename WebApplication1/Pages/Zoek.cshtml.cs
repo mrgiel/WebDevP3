@@ -14,7 +14,7 @@ namespace WebApplication1.Pages
     public class Zoek : PageModel
     { 
 
-        public IEnumerable<Uitgave> Stripboeken { get; set; }
+        public List<Uitgave> Stripboeken { get; set; }
 
         /// <summary>
         /// Basis zoekfunctie, zoekt alleen op naam.

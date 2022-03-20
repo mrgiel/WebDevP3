@@ -37,7 +37,7 @@ namespace WebApplication1.Repositories
         /// <param name="zoekCategorie">zoekCategorie wordt geselecteerd in een droplist en bepaald in wel tabel van de database gezocht wordt.</param>
         /// <param name="strZoekterm"> strZoekterm is de waarde die wordt ingevuld in de textbalk</param>
         /// <returns></returns>
-        public IEnumerable<Uitgave> GeavanceerdZoeken(string zoekCategorie, string strZoekterm)
+        public List<Uitgave> GeavanceerdZoeken(string zoekCategorie, string strZoekterm)
         {
             var sql = $"";
 
@@ -78,7 +78,7 @@ namespace WebApplication1.Repositories
             var stripboeken = verbinding
                 .Query<Uitgave>(sql,
                     new {StrZoekterm = strZoekterm, });
-            return stripboeken;
+            return stripboeken.ToList();
         }
     }
 }

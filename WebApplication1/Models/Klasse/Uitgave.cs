@@ -1,12 +1,12 @@
 using System;
 using System.ComponentModel.DataAnnotations;
 
-﻿namespace WebApplication1.Models
+namespace WebApplication1.Models.Klasse
 {
     public class Uitgave
     {
         //nigel
-        public int id { get; set; }
+        public int uitgave_id { get; set; }
         public int isbn { get; set; }
         [Required] public string naam { get; set; }
         public int versie_nr { get; set; }
@@ -22,6 +22,7 @@ using System.ComponentModel.DataAnnotations;
         //new
         public string beschrijving { get; set; }
 
+        //multi-mapping
         public Categorie Categorie { get; set; }
 
         public Reeks Reeks { get; set; }

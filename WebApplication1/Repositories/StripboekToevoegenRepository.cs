@@ -1,11 +1,11 @@
 ﻿using System.Collections.Generic;
 using System.Data;
 using Dapper;
-using WebApplication1.Models;
+using WebApplication1.Models.Klasse;
 
 namespace WebApplication1.Repositories
 {
-    public class ToevoegenRepository : DbConnection
+    public class StripboekToevoegenRepository : DbConnection
     {
         /// <summary>
         /// Haal alle categorieen op
@@ -13,6 +13,8 @@ namespace WebApplication1.Repositories
         /// <returns>IEnumerable van Categorie</returns>
         public IEnumerable<Categorie> HaalCategorieOp()
         {
+            //kan beter via multi-mapping
+
             const string sql = "HaalAlleCategorieenOp";
 
             //connect to database
@@ -29,6 +31,8 @@ namespace WebApplication1.Repositories
         /// <returns>IEnumerable van Uitgever</returns>
         public IEnumerable<Uitgever> HaalAlleUitgeverOp()
         {
+            //kan beter via multi-mapping
+
             const string sql = "HaalAlleUitgeverOp";
 
             //connect to database
@@ -50,7 +54,7 @@ namespace WebApplication1.Repositories
         public async void VerstuurNieuwStripboek(Uitgave uitgave, Reeks reeks, Uitgever uitgever, Versie versie,
             Categorie categorie, string gebruiker_id)
         {
-            //Stored Procedure
+            //Stored Procedure van toevoegen
             const string sql = "StripboekToevoegen";
 
             //Param

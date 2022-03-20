@@ -3,6 +3,7 @@ using System.Data;
 using System.Linq;
 using Dapper;
 using WebApplication1.Models;
+using WebApplication1.Models.Klasse;
 
 namespace WebApplication1.Repositories
 {

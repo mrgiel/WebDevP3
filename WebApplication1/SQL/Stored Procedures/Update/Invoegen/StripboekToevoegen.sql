@@ -1,4 +1,7 @@
-﻿DROP PROCEDURE IF EXISTS StripboekToevoegen;
+﻿#Voegt alles van stripboeken toe via inser intos
+#Alleen moet de auteur/tekenaar nog toevoegen
+
+DROP PROCEDURE IF EXISTS StripboekToevoegen;
 
 CREATE PROCEDURE StripboekToevoegen(
 

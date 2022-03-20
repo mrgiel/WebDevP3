@@ -6,6 +6,7 @@ using Dapper;
 using Microsoft.AspNetCore.Mvc.Formatters.Xml;
 using Microsoft.EntityFrameworkCore.Query.Internal;
 using WebApplication1.Models;
+using WebApplication1.Models.Klasse;
 
 namespace WebApplication1.Repositories
 {
@@ -13,6 +14,7 @@ namespace WebApplication1.Repositories
     {
         public IEnumerable<Versie> HaalCollectieOpRepo()
         {
+            //stored procedure van haal collectie op
             const string sql = "HaalCollectieOp";
 
             //connect to database
@@ -22,9 +24,9 @@ namespace WebApplication1.Repositories
             var results = connection.Query<Versie, Uitgave, Reeks, Versie>(sql, (versie, uitgave, reeks) =>
             {
                 versie.Uitgave = uitgave;
-                versie.Reeks = reeks;
+                versie.Uitgave.Reeks = reeks;
                 return versie;
-            },splitOn: "naam, reeks_naam");
+            }, splitOn: "naam, reeks_naam");
             return results;
         }
     }

@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using WebApplication1.Models;
+using WebApplication1.Models.Klasse;
 using WebApplication1.Repositories;
 
 namespace WebApplication1.Pages
@@ -12,6 +13,7 @@ namespace WebApplication1.Pages
 
         public void OnGet()
         {
+            //vul data
             data = new QueryOmOverzichtTeCreerenRepository().HaalCollectieOpRepo();
         }
     }

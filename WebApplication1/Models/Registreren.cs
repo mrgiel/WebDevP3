@@ -8,7 +8,7 @@ using Microsoft.AspNetCore.Mvc.RazorPages;
 
 namespace WebApplication1.Models
 {
-    public class Register
+    public class Registreren
     {
         [Required]
         [DataType(DataType.EmailAddress)]

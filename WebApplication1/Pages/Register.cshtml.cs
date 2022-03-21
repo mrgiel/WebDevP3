@@ -20,7 +20,7 @@ namespace WebApplication1.Pages
 
         [BindProperty]
         public Registreren Model { get; set; }
-
+        
         public RegisterModel(UserManager<IdentityUser> userManager, SignInManager<IdentityUser> signInManager)
         {
             this.userManager = userManager;
@@ -33,6 +33,7 @@ namespace WebApplication1.Pages
 
         public async Task<IActionResult> OnPostAsync()
         {
+            //kijk of modelstate is valid
             if (ModelState.IsValid)
             {
                 var user = new IdentityUser()
@@ -41,11 +42,11 @@ namespace WebApplication1.Pages
                     Email = Model.Email
                 };
 
-                //check registration was succesfull
+                //kijk of registratie van succesvol
                 var result = await userManager.CreateAsync(user, Model.Password);
                 if (result.Succeeded)
                 {
-                    //once signed in succesfully. return home
+                    //wanneer er sucecesvol is ingelogd. return home
                     await signInManager.SignInAsync(user, false);
                     return RedirectToPage("Index");
                 }

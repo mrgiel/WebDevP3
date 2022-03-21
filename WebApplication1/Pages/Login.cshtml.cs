@@ -17,7 +17,7 @@ namespace WebApplication1.Pages
 
         public Inloggen Model { get; set; }
 
-        //call this to use it function. assign property
+        //signin manager aanroepen
         public LoginModel(SignInManager<IdentityUser> signInManager)
         {
             this.signInManager = signInManager;
@@ -27,18 +27,18 @@ namespace WebApplication1.Pages
         {
         }
 
-        //Redirect to the return url
+        //als er een returnUrl is redirect gebruiker dan naar returnUrl
         public async Task<IActionResult> OnPostAsync(string returnUrl = null)
         {
-            //call sign in manager
+            //roep sign in manager
             if (!ModelState.IsValid) return Page();
             var identityResult = await signInManager.PasswordSignInAsync(Model.UserName, Model.Password, Model.RememberMe, false);
 
-            //check if password username correct
+            //kijk of wachtwoord en gebruikersnaam is correct
             if (identityResult.Succeeded)
                 return RedirectToPage(returnUrl is null or "/" ? "Index" : returnUrl);
 
-            //if no success
+            // error
             ModelState.AddModelError("", "Username or password inccorect");
             return Page();
         }

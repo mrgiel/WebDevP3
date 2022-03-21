@@ -15,7 +15,10 @@ namespace WebApplication1.Pages
 {
     public class RegisterModel : PageModel
     {
+        // Usermanager : Managed the user. Deze class creëert , update , verwijdert de gebruikers
         private readonly UserManager<IdentityUser> userManager;
+
+        //Sign in manager: Is verantwoordelijk voor verifiëren van een gebruiker
         private readonly SignInManager<IdentityUser> signInManager;
 
         [BindProperty]

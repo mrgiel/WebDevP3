@@ -30,10 +30,11 @@ namespace WebApplication1
             services.AddSingleton<GebruikerRepo>();
             
             services.AddRazorPages();
-            //new
-
+            
+            //Mysql Versie
             var serverVersion = new MySqlServerVersion(new Version(8, 0, 27));
 
+            //DB connectie en identity gecombineerd 
             services.AddDbContext<AuthDbContext>(options => options.UseMySql(Configuration.GetConnectionString("AuthConnectionString"), serverVersion));
             services.AddIdentity<IdentityUser, IdentityRole>().AddEntityFrameworkStores<AuthDbContext>();
 

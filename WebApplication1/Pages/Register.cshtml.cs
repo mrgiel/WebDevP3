@@ -15,13 +15,15 @@ namespace WebApplication1.Pages
 {
     public class RegisterModel : PageModel
     {
+        // Usermanager : Managed the user. Deze class creëert , update , verwijdert de gebruikers
         private readonly UserManager<IdentityUser> userManager;
+
+        //Sign in manager: Is verantwoordelijk voor verifiëren van een gebruiker
         private readonly SignInManager<IdentityUser> signInManager;
 
         [BindProperty]
-
-        public Register Model { get; set; }
-
+        public Registreren Model { get; set; }
+        
         public RegisterModel(UserManager<IdentityUser> userManager, SignInManager<IdentityUser> signInManager)
         {
             this.userManager = userManager;
@@ -34,6 +36,7 @@ namespace WebApplication1.Pages
 
         public async Task<IActionResult> OnPostAsync()
         {
+            //kijk of modelstate is valid
             if (ModelState.IsValid)
             {
                 var user = new IdentityUser()
@@ -42,11 +45,11 @@ namespace WebApplication1.Pages
                     Email = Model.Email
                 };
 
-                //check registration was succesfull
+                //kijk of registratie van succesvol
                 var result = await userManager.CreateAsync(user, Model.Password);
                 if (result.Succeeded)
                 {
-                    //once signed in succesfully. return home
+                    //wanneer er sucecesvol is ingelogd. return home
                     await signInManager.SignInAsync(user, false);
                     return RedirectToPage("Index");
                 }

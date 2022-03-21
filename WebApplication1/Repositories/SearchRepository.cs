@@ -46,31 +46,49 @@ namespace WebApplication1.Repositories
                 //Afhankelijk van gebruikersinput wordt een case uitgevoerd.
                 case "isbn":
                     sql += @"SELECT * 
-                             FROM versie versie
-                             INNER JOIN uitgave uitgave on versie.uitgave_id = uitgave.uitgave_id
-                             INNER JOIN uitgever uitgever on versie.uitgever_id = uitgever.uitgever_id
+                             FROM versie v
+                             INNER JOIN uitgave uitgave on v.uitgave_id = uitgave.uitgave_id
+                             INNER JOIN uitgever uitgever on v.uitgever_id = uitgever.uitgever_id
                              WHERE isbn = @StrZoekterm";
                     break;
                 case "uitgever":
                     sql += @"SELECT * 
                              FROM uitgever uitgever 
-                             INNER JOIN versie versie on uitgever.uitgever_id = versie.uitgever_id
-                             INNER JOIN uitgave uitgave on uitgave.uitgave_id = versie.uitgave_id
+                             INNER JOIN versie v on uitgever.uitgever_id = v.uitgever_id
+                             INNER JOIN uitgave uitgave on uitgave.uitgave_id = v.uitgave_id
                              WHERE uitgever_naam LIKE CONCAT ('%',@StrZoekterm,'%');";
                     break;
                 case "prijs":
                     sql += @"SELECT * 
-                             FROM versie versie
-                             INNER JOIN uitgave uitgave on versie.uitgave_id = uitgave.uitgave_id
-                             INNER JOIN uitgever uitgever on versie.uitgever_id = uitgever.uitgever_id
+                             FROM versie v
+                             INNER JOIN uitgave uitgave on v.uitgave_id = uitgave.uitgave_id
+                             INNER JOIN uitgever uitgever on v.uitgever_id = uitgever.uitgever_id
                              WHERE prijs = @StrZoekterm";
                     break;
                 case "naam":
                     sql += @"SELECT *
                              FROM uitgave uitgave 
-                             INNER JOIN versie versie on uitgave.uitgave_id = versie.uitgave_id
-                             INNER JOIN uitgever uitgever on versie.uitgever_id = uitgever.uitgever_id
+                             INNER JOIN versie v on uitgave.uitgave_id = v.uitgave_id
+                             INNER JOIN uitgever uitgever on v.uitgever_id = uitgever.uitgever_id
                              WHERE naam LIKE CONCAT ('%',@StrZoekterm,'%');";
+                    break;
+                case "auteur":
+                    sql += @"SELECT *
+                             FROM persoon p
+                             INNER JOIN isgemaaktdoor i on p.persoon_id = i.persoon_id
+                             INNER JOIN versie v on i.versie_id = v.Versie_id
+                             INNER JOIN uitgave uitgave on v.uitgave_id = uitgave.uitgave_id
+                             INNER JOIN uitgever uitgever on v.uitgever_id = uitgever.uitgever_id
+                             WHERE i.rol = 'Auteur' && voornaam || achternaam LIKE CONCAT ('%',@StrZoekterm,'%')";
+                    break;
+                case "tekenaar":
+                    sql += @"SELECT *
+                             FROM persoon p
+                             INNER JOIN isgemaaktdoor i on p.persoon_id = i.persoon_id
+                             INNER JOIN versie v on i.versie_id = v.Versie_id
+                             INNER JOIN uitgave uitgave on v.uitgave_id = uitgave.uitgave_id
+                             INNER JOIN uitgever uitgever on v.uitgever_id = uitgever.uitgever_id
+                             WHERE i.rol = 'Tekenaar' && voornaam || achternaam LIKE CONCAT ('%',@StrZoekterm,'%')";
                     break;
             }
 

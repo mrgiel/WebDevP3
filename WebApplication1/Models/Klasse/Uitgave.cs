@@ -18,7 +18,7 @@ namespace WebApplication1.Models.Klasse
         public int categorie_nummer { get; set; }
         public bool nsfw { get; set; }
         public float prijs { get; set; }
-
+        
         //new
         public string beschrijving { get; set; }
 

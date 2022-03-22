@@ -19,7 +19,7 @@ namespace WebApplication1.Pages
 
         public IActionResult OnPostVerwijderen(int id)
         {
-            Stripboeken = new AdminRepository().Verwijderen(id);
+            new AdminRepository().Verwijderen(id);
             return RedirectToPage("AdminPagina");
         }
 

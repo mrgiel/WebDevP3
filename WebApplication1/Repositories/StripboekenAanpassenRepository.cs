@@ -82,7 +82,7 @@ namespace WebApplication1.Repositories
                     versie.IsGemaaktDoor = isGemaaktDoor;
                     versie.IsGemaaktDoor.Persoon = persoon;
                     return versie;
-                }, param, splitOn: "naam, uitgever_naam, cat_naam, reeks_naam, rol, voornaam",
+                }, param, splitOn: "split, split, split, split, split, split",
                 commandType: CommandType.StoredProcedure);
 
             //return

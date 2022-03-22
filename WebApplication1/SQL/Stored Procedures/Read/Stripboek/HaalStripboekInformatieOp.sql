@@ -16,38 +16,34 @@ BEGIN
         prijs,
 
         #Uitgave
-        u.uitgave_id,
-        naam,
+        naam as split,
         beschrijving,
         hoogte,
         nsfw,
 
         #Uitgever
-           u2.uitgever_id,
-        uitgever_naam,
+        uitgever_naam as split,
 
         #Categorie
-           c.cat_id,
-        cat_naam,
+        cat_naam as split,
 
         #Reeks
-           r.reeks_id,
-        reeks_naam,
+        reeks_naam as split,
 
         #IsGemaaktDoor
-        i.rol,
+        i.rol as split,
 
         #Persoon
-        p.voornaam,
+        p.voornaam as split,
         achternaam
 
     FROM Versie v
-             INNER JOIN statusuitgave s on v.Versie_id = s.versie_id
-             INNER JOIN Uitgave u ON u.uitgave_id = v.uitgave_id
-             INNER JOIN uitgever u2 on v.uitgever_id = u2.uitgever_id
-             INNER JOIN Categorie c ON c.cat_id = u.cat_id
-             INNER JOIN Reeks r ON r.reeks_id = u.reeks_id
-             INNER JOIN isgemaaktdoor i on v.Versie_id = i.versie_id
-             INNER JOIN persoon p ON p.persoon_id = i.persoon_id
+             LEFT JOIN statusuitgave s on v.Versie_id = s.versie_id
+             LEFT JOIN Uitgave u ON u.uitgave_id = v.uitgave_id
+             LEFT JOIN uitgever u2 on v.uitgever_id = u2.uitgever_id
+             LEFT JOIN Categorie c ON c.cat_id = u.cat_id
+             LEFT JOIN Reeks r ON r.reeks_id = u.reeks_id
+             LEFT JOIN isgemaaktdoor i on v.Versie_id = i.versie_id
+             LEFT JOIN persoon p ON p.persoon_id = i.persoon_id
     WHERE v.Versie_id = versie_idVAR;
 END

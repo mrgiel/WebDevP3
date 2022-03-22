@@ -1,15 +1,13 @@
 @page
-@using Microsoft.AspNetCore.Identity
 @using WebApplication1.Repositories
 @model WebApplication1.Pages.AdminPagina
-@inject SignInManager<IdentityUser> SignInManager
 
 @if (new GebruikerRepo().HaalRolOp() != "admin")
 {
     Response.Redirect("Index");
-} else 
-{
-    <table style="color: white" class="table">
+} 
+
+    <table class="table text-white">
         <thead>
         <tr>
             <th scope="col">#</th>
@@ -22,18 +20,18 @@
         @foreach (var uitgave in Model.Stripboeken)
         {
             <tr>
-                <th scope="row">@uitgave.versie_id</th>
-                <td>@uitgave.isbn</td>
+                <th scope="row">@uitgave.Versie.versie_id</th>
+                <td>@uitgave.Versie.isbn</td>
                 <td>@uitgave.naam</td>
-                <td>@uitgave.status</td>
+                <td>@uitgave.Versie.StatusUitgave.status</td>
                 <td>
                     <form method="post">
-                        <button asp-page="AdminPagina" asp-page-handler="Verwijderen" asp-route-id="@uitgave.versie_id">Verwijder</button>
+                        <button asp-page="AdminPagina" asp-page-handler="Verwijderen" asp-route-id="@uitgave.Versie.versie_id">Verwijder</button>
                     </form>
                 </td>
                 <td>
                     <form method="post">
-                        <button asp-page="StripboekAanpassen" asp-page-handler="Aanpassen" asp-route-id="@uitgave.versie_id">Aanpassen</button>
+                        <button asp-page="StripboekAanpassen" asp-page-handler="Aanpassen" asp-route-id="@uitgave.Versie.versie_id">Aanpassen</button>
                     </form>
                 </td>
             </tr>
@@ -52,4 +50,3 @@
         }
         </tbody>
     </table>
-}

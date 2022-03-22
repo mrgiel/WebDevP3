@@ -20,10 +20,13 @@ namespace WebApplication1.Models.Klasse
 
         public DateTime? datum { get; init; }
 
+        //multi-mapping
         public Uitgave Uitgave { get; set; }
 
         public Uitgever Uitgever { get; set; }
 
         public IsGemaaktDoor IsGemaaktDoor { get; set; }
+
+        public StatusUitgave StatusUitgave { get; set; }
     }
 }

@@ -28,5 +28,6 @@ namespace WebApplication1.Models.Klasse
         public Reeks Reeks { get; set; }
 
         public Versie Versie { get; set; }
+        public int status { get; set; }
         }
 }

@@ -3,7 +3,7 @@ DROP TABLE IF EXISTS Gebruiker;
 CREATE TABLE Gebruiker
 (
     Id varchar(255) not null,
-    rol ENUM('admin', 'gebruiker', 'moderator') NOT NULL,
+    rol ENUM('admin', 'gebruiker', 'moderator') NOT NULL DEFAULT 'gebruiker',
     18_plus BOOLEAN DEFAULT FALSE NOT NULL,
     
     UserName varchar(256) null,

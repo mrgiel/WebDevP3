@@ -10,21 +10,22 @@ using WebApplication1.Models;
 using WebApplication1.Models.Klasse;
 using WebApplication1.Repositories;
 
-namespace WebApplication1.Pages;
-
-public class AdminPagina : PageModel
+namespace WebApplication1.Pages
 {
-    public IEnumerable<Uitgave> Stripboeken { get; set; }
 
-    public IActionResult OnPostVerwijderen(int id)
+    public class AdminPagina : PageModel
     {
-        Stripboeken = new AdminRepository().Verwijderen(id);
-        return RedirectToPage("AdminPagina");
-    }
-    public void OnGet()
-    {
-        Stripboeken = new AdminRepository().Get();
-    }
+        public IEnumerable<Uitgave> Stripboeken { get; set; }
 
+        public IActionResult OnPostVerwijderen(int id)
+        {
+            Stripboeken = new AdminRepository().Verwijderen(id);
+            return RedirectToPage("AdminPagina");
+        }
 
+        public void OnGet()
+        {
+            Stripboeken = new AdminRepository().Get();
+        }
+    }
 }

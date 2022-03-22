@@ -19,8 +19,8 @@
                     <form method="post">
                         <button asp-page="AdminPagina" asp-page-handler="Verwijderen" asp-route-id="@uitgave.versie_id">Verwijder</button>
                     </form>
-                    <form method="get">
-                        <button asp-page="stripboekaanpassen" asp-route-id="@uitgave.versie_id">Aanpassen</button>
+                    <form method="post">
+                        <button asp-page="StripboekAanpassen" asp-page-handler="Aanpassen" asp-route-id="@uitgave.versie_id">Aanpassen</button>
                     </form>
                 </div>
             </div>

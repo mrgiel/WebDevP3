@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\gbuss\\Desktop\\WebDevP3\\WebApplication1\\WebApplication1.csproj": {}
+    "C:\\Users\\gbuss\\Documents\\GitHub\\WebDevP3\\WebApplication1\\WebApplication1.csproj": {}
   },
   "projects": {
-    "C:\\Users\\gbuss\\Desktop\\WebDevP3\\WebApplication1\\WebApplication1.csproj": {
+    "C:\\Users\\gbuss\\Documents\\GitHub\\WebDevP3\\WebApplication1\\WebApplication1.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\gbuss\\Desktop\\WebDevP3\\WebApplication1\\WebApplication1.csproj",
+        "projectUniqueName": "C:\\Users\\gbuss\\Documents\\GitHub\\WebDevP3\\WebApplication1\\WebApplication1.csproj",
         "projectName": "WebApplication1",
-        "projectPath": "C:\\Users\\gbuss\\Desktop\\WebDevP3\\WebApplication1\\WebApplication1.csproj",
+        "projectPath": "C:\\Users\\gbuss\\Documents\\GitHub\\WebDevP3\\WebApplication1\\WebApplication1.csproj",
         "packagesPath": "C:\\Users\\gbuss\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\gbuss\\Desktop\\WebDevP3\\WebApplication1\\obj\\",
+        "outputPath": "C:\\Users\\gbuss\\Documents\\GitHub\\WebDevP3\\WebApplication1\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages",
@@ -91,12 +91,6 @@
           ],
           "assetTargetFallback": true,
           "warn": true,
-          "downloadDependencies": [
-            {
-              "name": "Microsoft.NETCore.App.Host.win-x64",
-              "version": "[5.0.14, 5.0.14]"
-            }
-          ],
           "frameworkReferences": {
             "Microsoft.AspNetCore.App": {
               "privateAssets": "none"
@@ -105,7 +99,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.200\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.400\\RuntimeIdentifierGraph.json"
         }
       }
     }

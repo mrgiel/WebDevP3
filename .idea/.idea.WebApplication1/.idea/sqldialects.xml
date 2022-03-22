@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="SqlDialectMappings">
+    <file url="file://$PROJECT_DIR$/WebApplication1/Repositories/SearchRepository.cs" dialect="GenericSQL" />
+    <file url="file://$PROJECT_DIR$/WebApplication1/SQL/Klasse/Categorie.sql" dialect="MySQL" />
+    <file url="file://$PROJECT_DIR$/WebApplication1/SQL/Klasse/Gebruiker.sql" dialect="MySQL" />
+    <file url="file://$PROJECT_DIR$/WebApplication1/SQL/Klasse/MigrationSQL/Role.sql" dialect="MySQL" />
+    <file url="file://$PROJECT_DIR$/WebApplication1/SQL/Klasse/MigrationSQL/Roleclaims.sql" dialect="MySQL" />
+    <file url="file://$PROJECT_DIR$/WebApplication1/SQL/Klasse/MigrationSQL/Userclaims.sql" dialect="MySQL" />
+    <file url="file://$PROJECT_DIR$/WebApplication1/SQL/Klasse/MigrationSQL/Userlogins.sql" dialect="MySQL" />
+    <file url="file://$PROJECT_DIR$/WebApplication1/SQL/Klasse/MigrationSQL/Userroles.sql" dialect="MySQL" />
+    <file url="file://$PROJECT_DIR$/WebApplication1/SQL/Klasse/MigrationSQL/Usertokens.sql" dialect="MySQL" />
+    <file url="file://$PROJECT_DIR$/WebApplication1/SQL/Klasse/MigrationSQL/_efmigrationhistory.sql" dialect="MySQL" />
+    <file url="file://$PROJECT_DIR$/WebApplication1/SQL/Klasse/Persoon.sql" dialect="MySQL" />
+    <file url="file://$PROJECT_DIR$/WebApplication1/SQL/Klasse/Reeks.sql" dialect="MySQL" />
+    <file url="file://$PROJECT_DIR$/WebApplication1/SQL/Klasse/Uitgave.sql" dialect="MySQL" />
+    <file url="file://$PROJECT_DIR$/WebApplication1/SQL/Klasse/Uitgever.sql" dialect="MySQL" />
+    <file url="file://$PROJECT_DIR$/WebApplication1/SQL/Klasse/Versie.sql" dialect="MySQL" />
+    <file url="file://$PROJECT_DIR$/WebApplication1/SQL/Koppel/Bezit.sql" dialect="MySQL" />
+    <file url="file://$PROJECT_DIR$/WebApplication1/SQL/Koppel/IsGemaaktDoor.sql" dialect="MySQL" />
+    <file url="file://$PROJECT_DIR$/WebApplication1/SQL/Koppel/StatusUitgave.sql" dialect="MySQL" />
+    <file url="file://$PROJECT_DIR$/WebApplication1/SQL/Stored Procedures/Read/Gebruiker/HaalPersoonlijkeCollectieOp.sql" dialect="MySQL" />
+    <file url="file://$PROJECT_DIR$/WebApplication1/SQL/Stored Procedures/Read/Gebruiker/PersoonlijkeInformatie.sql" dialect="MySQL" />
+    <file url="file://$PROJECT_DIR$/WebApplication1/SQL/Stored Procedures/Read/Stripboek/HaalAlleCategorieenOp.sql" dialect="MySQL" />
+    <file url="file://$PROJECT_DIR$/WebApplication1/SQL/Stored Procedures/Read/Stripboek/HaalAlleUitgeverOp.sql" dialect="MySQL" />
+    <file url="file://$PROJECT_DIR$/WebApplication1/SQL/Stored Procedures/Read/Stripboek/HaalCollectieOp.sql" dialect="MySQL" />
+    <file url="file://$PROJECT_DIR$/WebApplication1/SQL/Stored Procedures/Read/Stripboek/HaalStripboekInformatieOp.sql" dialect="MySQL" />
+    <file url="file://$PROJECT_DIR$/WebApplication1/SQL/Stored Procedures/Update/Aanpassen/StripboekAanpassen.sql" dialect="MySQL" />
+    <file url="file://$PROJECT_DIR$/WebApplication1/SQL/Stored Procedures/Update/Invoegen/StripboekToevoegen.sql" dialect="MySQL" />
+  </component>
+</project>

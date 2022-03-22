@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "O3qAeoF1rSUIvUl261ZuydTadBxavYpOt9NSFpuvHq3VxMfrmOIQXxd6B6vUP/8Ds7W3h8rsDy5tHtC14bB8ZA==",
+  "dgSpecHash": "uac2CfWUX8SsKnYyoJVBBcisUY3O1SmdJsFC5M/Q1QHtrmd34R5PB8UDBoPe/dJHRG4XtnZWXFeb0axoTF5dLg==",
   "success": true,
-  "projectFilePath": "C:\\Users\\gbuss\\Documents\\GitHub\\WebDevP3\\WebApplication1\\WebApplication1.csproj",
+  "projectFilePath": "C:\\Users\\gbuss\\Desktop\\WebDevP3\\WebApplication1\\WebApplication1.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\gbuss\\.nuget\\packages\\bouncycastle.netcore\\1.8.5\\bouncycastle.netcore.1.8.5.nupkg.sha512",
     "C:\\Users\\gbuss\\.nuget\\packages\\dapper\\2.0.123\\dapper.2.0.123.nupkg.sha512",
@@ -50,7 +50,8 @@
     "C:\\Users\\gbuss\\.nuget\\packages\\system.security.permissions\\4.7.0\\system.security.permissions.4.7.0.nupkg.sha512",
     "C:\\Users\\gbuss\\.nuget\\packages\\system.security.principal.windows\\4.7.0\\system.security.principal.windows.4.7.0.nupkg.sha512",
     "C:\\Users\\gbuss\\.nuget\\packages\\system.text.encoding.codepages\\4.4.0\\system.text.encoding.codepages.4.4.0.nupkg.sha512",
-    "C:\\Users\\gbuss\\.nuget\\packages\\system.windows.extensions\\4.7.0\\system.windows.extensions.4.7.0.nupkg.sha512"
+    "C:\\Users\\gbuss\\.nuget\\packages\\system.windows.extensions\\4.7.0\\system.windows.extensions.4.7.0.nupkg.sha512",
+    "C:\\Users\\gbuss\\.nuget\\packages\\microsoft.netcore.app.host.win-x64\\5.0.14\\microsoft.netcore.app.host.win-x64.5.0.14.nupkg.sha512"
   ],
   "logs": []
 }

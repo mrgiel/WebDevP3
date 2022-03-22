@@ -9,10 +9,35 @@
     Response.Redirect("Index");
 } else 
 {
-    <div class="row">
+    <table style="color: white" class="table">
+        <thead>
+        <tr>
+            <th scope="col">#</th>
+            <th scope="col">ISBN</th>
+            <th scope="col">Titel</th>
+            <th scope="col">Status</th>
+        </tr>
+        </thead>
+        <tbody>
         @foreach (var uitgave in Model.Stripboeken)
         {
-            <div style="background: white; border: solid 1px black" class="col-lg-4 col-md-6 col-sm-12 d-flex justify-content-center flex-column">
+            <tr>
+                <th scope="row">@uitgave.versie_id</th>
+                <td>@uitgave.isbn</td>
+                <td>@uitgave.naam</td>
+                <td>@uitgave.status</td>
+                <td>
+                    <form method="post">
+                        <button asp-page="AdminPagina" asp-page-handler="Verwijderen" asp-route-id="@uitgave.versie_id">Verwijder</button>
+                    </form>
+                </td>
+                <td>
+                    <form method="post">
+                        <button asp-page="StripboekAanpassen" asp-page-handler="Aanpassen" asp-route-id="@uitgave.versie_id">Aanpassen</button>
+                    </form>
+                </td>
+            </tr>
+            @*<div style="background: white; border: solid 1px black" class="col-lg-4 col-md-6 col-sm-12 d-flex justify-content-center flex-column">
                 <p class="m-auto">ISBN: @uitgave.isbn</p>
                 <p class="m-auto">Titel: @uitgave.naam</p>
                 <div>
@@ -23,7 +48,8 @@
                         <button asp-page="StripboekAanpassen" asp-page-handler="Aanpassen" asp-route-id="@uitgave.versie_id">Aanpassen</button>
                     </form>
                 </div>
-            </div>
+            </div>*@
         }
-    </div>
+        </tbody>
+    </table>
 }

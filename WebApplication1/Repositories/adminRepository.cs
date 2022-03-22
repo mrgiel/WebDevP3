@@ -18,7 +18,8 @@ namespace WebApplication1.Repositories
                              FROM uitgave uitgave 
                              INNER JOIN versie versie on uitgave.uitgave_id = versie.uitgave_id
                              INNER JOIN uitgever uitgever on versie.uitgever_id = uitgever.uitgever_id
-                             ORDER BY versie.isbn");
+                             INNER JOIN statusuitgave s on versie.Versie_id = s.versie_id
+                             ORDER BY versie.Versie_id");
 
             return stripboeken.ToList();
         }

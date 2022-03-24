@@ -7,49 +7,68 @@
 @if (new GebruikerRepo().HaalRolOp() != "admin")
 {
     Response.Redirect("Index");
-} else 
-{
-    <table style="color: white" class="table">
-        <thead>
-        <tr>
-            <th scope="col">#</th>
-            <th scope="col">ISBN</th>
-            <th scope="col">Titel</th>
-            <th scope="col">Status</th>
-        </tr>
-        </thead>
-        <tbody>
-        @foreach (var uitgave in Model.Stripboeken)
-        {
-            <tr>
-                <th scope="row">@uitgave.versie_id</th>
-                <td>@uitgave.isbn</td>
-                <td>@uitgave.naam</td>
-                <td>@uitgave.status</td>
-                <td>
-                    <form method="post">
-                        <button asp-page="AdminPagina" asp-page-handler="Verwijderen" asp-route-id="@uitgave.versie_id">Verwijder</button>
-                    </form>
-                </td>
-                <td>
-                    <form method="post">
-                        <button asp-page="StripboekAanpassen" asp-page-handler="Aanpassen" asp-route-id="@uitgave.versie_id">Aanpassen</button>
-                    </form>
-                </td>
-            </tr>
-            @*<div style="background: white; border: solid 1px black" class="col-lg-4 col-md-6 col-sm-12 d-flex justify-content-center flex-column">
-                <p class="m-auto">ISBN: @uitgave.isbn</p>
-                <p class="m-auto">Titel: @uitgave.naam</p>
-                <div>
-                    <form method="post">
-                        <button asp-page="AdminPagina" asp-page-handler="Verwijderen" asp-route-id="@uitgave.versie_id">Verwijder</button>
-                    </form>
-                    <form method="post">
-                        <button asp-page="StripboekAanpassen" asp-page-handler="Aanpassen" asp-route-id="@uitgave.versie_id">Aanpassen</button>
-                    </form>
-                </div>
-            </div>*@
-        }
-        </tbody>
-    </table>
 }
+else
+{
+
+<div class="content">
+    <div class="row">
+        <div class="col-md-2">
+            <div class="menu-style">
+                <ul class="menu">
+                    <li><a href="#">Gebruikers</a></li>
+                    <li><a href="#">Stripboeken</a></li>
+                    <li><a href="#">Categorieen</a></li>
+                    <li><a href="#">Reeksen</a></li>
+                    <li><a href="#">Personen</a></li>
+                </ul>
+            </div>
+          </div>
+     
+ 
+        <div class="col-md-10">
+            <table>
+                <thead>
+                    <tr>
+                        <th scope="col">#</th>
+                        <th scope="col">ISBN</th>
+                        <th scope="col">Titel</th>
+                        <th scope="col">Status</th>
+                        <th scope="col">Verwijderen</th>
+                        <th scope="col">Aanpassen</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var uitgave in Model.Stripboeken)
+                    {
+                        <tr>
+                            <td data-label="#">@uitgave.versie_id</td>
+                            <td data-label="ISBN">@uitgave.isbn</td>
+                            <td data-label="Titel">@uitgave.naam</td>
+                            <td data-label="Status">@uitgave.status</td>
+                            <td data-label="Verwijderen">
+                                <form method="post">
+                                    <button asp-page="AdminPagina" asp-page-handler="Verwijderen" asp-route-id="@uitgave.versie_id">Verwijder</button>
+                                </form>
+                            </td>
+                            <td data-label="Aanpassen">
+                                <form method="post">
+                                    <button asp-page="StripboekAanpassen" asp-page-handler="Aanpassen" asp-route-id="@uitgave.versie_id">Aanpassen</button>
+                                </form>
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+ </div>
+        
+    
+        
+
+
+
+
+}
+    

@@ -98,6 +98,13 @@ a.navbar-brand {
     cursor: pointer;
     z-index: 1;
 }
+.kut-imgs img{
+    height: auto;
+    width: 100%;
+    width: -moz-available;  height: auto;
+    padding: 0 20px;
+    
+}
 
 .expSearchBox span {
     background: #ffffff none repeat scroll 0 0;

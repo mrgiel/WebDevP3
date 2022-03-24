@@ -10,7 +10,7 @@
             <h4>Nieuwste comics</h4>
         </div>
     </div>
-    
+    <div class="kut-imgs">
     <div class="new-content">
         <div class="row">
             @foreach (var stripboek in Model.data)
@@ -19,7 +19,7 @@
                     <div class="mt-4">
                         <div class="image">
                             <p class="text-white text-center" style="">
-                                <img src="@stripboek.afbeelding_url" style="width: auto; height: auto" alt="" border="0">
+                                <img src="@stripboek.afbeelding_url"  alt="" border="0">
                                 <div class="text-white text-center"><span>@stripboek.Uitgave.naam (2017)</span></div>
                             </p>
                         </div>
@@ -47,7 +47,7 @@
                     <div class="mt-4">
                         <div class="image">
                             <p class="text-white text-center" style="">
-                                <img src="@stripboek.afbeelding_url" style="width: auto; height: auto" alt="" border="0">
+                                <img src="@stripboek.afbeelding_url"  alt="" border="0">
                                 <div class="text-white text-center"><span>@stripboek.Uitgave.naam (2017)</span></div>
                             </p>
                         </div>
@@ -56,6 +56,6 @@
             }
         </div>
     </div>
-
+</div>
 </div>
 

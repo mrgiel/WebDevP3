@@ -4,44 +4,48 @@
 @{
     ViewData["Title"] = "Geavanceerd zoeken";
 }
+<div class="content">
+    <div class="banner-1">
+        <div class="banner-b1">
+            <h4>@ViewData["Title"]</h4>
+        </div>
+    </div>
+    <form method="post">
+        <p>
+            <input type="text" name="strZoekterm">
+            <select name="zoekCategorie">
+                <option value="naam">Naam</option>
+                <option value="isbn">ISBN</option>
+                <option value="uitgever">Uitgever</option>
+                <option value="prijs">Prijs</option>
+                <option value="auteur">Auteur</option>
+                <option value="tekenaar">Tekenaar</option>
+            </select>
+            <button type="submit" asp-page-handler="GeavanceerdZoeken">Zoeken</button>
+        </p>
+    </form>
 
-<h1>@ViewData["Title"]</h1>
-
-<form method="post">
-    <p>
-        <input type="text" name="strZoekterm">
-        <select name="zoekCategorie">
-            <option value="naam">Naam</option>
-            <option value="isbn">ISBN</option>
-            <option value="uitgever">Uitgever</option>
-            <option value="prijs">Prijs</option>
-            <option value="auteur">Auteur</option>
-            <option value="tekenaar">Tekenaar</option>
-        </select>
-        <button type="submit" asp-page-handler="GeavanceerdZoeken">Zoeken</button>
-    </p>
-</form>
-
-@if (Model.Stripboeken.Count == 0 )
-        {
-            <p style="color: white">Er zijn geen boeken.</p>
-        }
-<div class="kut-imgs">
-    <div class="new-content">
-        <div class="row">
-            @foreach (var uitgave in Model.Stripboeken)
+    @if (Model.Stripboeken.Count == 0 )
             {
-                <div class="col-xl-3 col-lg-4 col-md-6 mb-3">
-                    <div class="mt-4">
-                        <div class="image">
-                            <p class="text-white text-center" style="">
-                                <img src="@uitgave.afbeelding_url"  alt="" border="0">
-                                <div class="text-white text-center"><span>@uitgave.naam (@uitgave.datum.Year)</span></div>
-                            </p>
+                <p style="color: white">Er zijn geen boeken.</p>
+            }
+    <div class="kut-imgs">
+        <div class="new-content">
+            <div class="row">
+                @foreach (var uitgave in Model.Stripboeken)
+                {
+                    <div class="col-xl-3 col-lg-4 col-md-6 mb-3">
+                        <div class="mt-4">
+                            <div class="image">
+                                <p class="text-white text-center" style="">
+                                    <img src="@uitgave.afbeelding_url"  alt="" border="0">
+                                    <div class="text-white text-center"><span>@uitgave.naam (@uitgave.datum.Year)</span></div>
+                                </p>
+                            </div>
                         </div>
                     </div>
-                </div>
-            }
+                }
+            </div>
         </div>
     </div>
 </div>

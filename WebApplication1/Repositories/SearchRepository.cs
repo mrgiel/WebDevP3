@@ -28,7 +28,7 @@ namespace WebApplication1.Repositories
                              INNER JOIN versie versie on uitgave.uitgave_id = versie.uitgave_id
                              INNER JOIN uitgever uitgever on versie.uitgever_id = uitgever.uitgever_id
                              INNER JOIN reeks r on uitgave.reeks_id = r.reeks_id
-                             WHERE naam || r.reeks_naam LIKE CONCAT ('%',@StrZoekterm,'%');",
+                             WHERE naam LIKE CONCAT ('%',@StrZoekterm,'%') || r.reeks_naam LIKE CONCAT ('%',@StrZoekterm,'%');",
                     new {StrZoekterm = strZoekterm});
             return stripboeken.ToList();
         }
@@ -75,7 +75,7 @@ namespace WebApplication1.Repositories
                              INNER JOIN versie v on uitgave.uitgave_id = v.uitgave_id
                              INNER JOIN uitgever uitgever on v.uitgever_id = uitgever.uitgever_id
                              INNER JOIN reeks r on uitgave.reeks_id = r.reeks_id
-                             WHERE naam || r.reeks_naam LIKE CONCAT ('%',@StrZoekterm,'%');";
+                             WHERE naam LIKE CONCAT ('%',@StrZoekterm,'%') || r.reeks_naam LIKE CONCAT ('%',@StrZoekterm,'%');";
                     break;
                 case "auteur":
                     sql += @"SELECT *

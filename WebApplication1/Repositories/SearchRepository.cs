@@ -27,7 +27,8 @@ namespace WebApplication1.Repositories
                              FROM uitgave uitgave 
                              INNER JOIN versie versie on uitgave.uitgave_id = versie.uitgave_id
                              INNER JOIN uitgever uitgever on versie.uitgever_id = uitgever.uitgever_id
-                             WHERE naam LIKE CONCAT ('%',@StrZoekterm,'%');",
+                             INNER JOIN reeks r on uitgave.reeks_id = r.reeks_id
+                             WHERE naam || r.reeks_naam LIKE CONCAT ('%',@StrZoekterm,'%');",
                     new {StrZoekterm = strZoekterm});
             return stripboeken.ToList();
         }
@@ -49,6 +50,7 @@ namespace WebApplication1.Repositories
                              FROM versie v
                              INNER JOIN uitgave uitgave on v.uitgave_id = uitgave.uitgave_id
                              INNER JOIN uitgever uitgever on v.uitgever_id = uitgever.uitgever_id
+                             INNER JOIN reeks r on uitgave.reeks_id = r.reeks_id
                              WHERE isbn = @StrZoekterm";
                     break;
                 case "uitgever":
@@ -56,6 +58,7 @@ namespace WebApplication1.Repositories
                              FROM uitgever uitgever 
                              INNER JOIN versie v on uitgever.uitgever_id = v.uitgever_id
                              INNER JOIN uitgave uitgave on uitgave.uitgave_id = v.uitgave_id
+                             INNER JOIN reeks r on uitgave.reeks_id = r.reeks_id
                              WHERE uitgever_naam LIKE CONCAT ('%',@StrZoekterm,'%');";
                     break;
                 case "prijs":
@@ -63,6 +66,7 @@ namespace WebApplication1.Repositories
                              FROM versie v
                              INNER JOIN uitgave uitgave on v.uitgave_id = uitgave.uitgave_id
                              INNER JOIN uitgever uitgever on v.uitgever_id = uitgever.uitgever_id
+                             INNER JOIN reeks r on uitgave.reeks_id = r.reeks_id
                              WHERE prijs = @StrZoekterm";
                     break;
                 case "naam":
@@ -70,7 +74,8 @@ namespace WebApplication1.Repositories
                              FROM uitgave uitgave 
                              INNER JOIN versie v on uitgave.uitgave_id = v.uitgave_id
                              INNER JOIN uitgever uitgever on v.uitgever_id = uitgever.uitgever_id
-                             WHERE naam LIKE CONCAT ('%',@StrZoekterm,'%');";
+                             INNER JOIN reeks r on uitgave.reeks_id = r.reeks_id
+                             WHERE naam || r.reeks_naam LIKE CONCAT ('%',@StrZoekterm,'%');";
                     break;
                 case "auteur":
                     sql += @"SELECT *
@@ -79,6 +84,7 @@ namespace WebApplication1.Repositories
                              INNER JOIN versie v on i.versie_id = v.Versie_id
                              INNER JOIN uitgave uitgave on v.uitgave_id = uitgave.uitgave_id
                              INNER JOIN uitgever uitgever on v.uitgever_id = uitgever.uitgever_id
+                             INNER JOIN reeks r on uitgave.reeks_id = r.reeks_id
                              WHERE i.rol = 'Auteur' && voornaam || achternaam LIKE CONCAT ('%',@StrZoekterm,'%')";
                     break;
                 case "tekenaar":
@@ -88,6 +94,7 @@ namespace WebApplication1.Repositories
                              INNER JOIN versie v on i.versie_id = v.Versie_id
                              INNER JOIN uitgave uitgave on v.uitgave_id = uitgave.uitgave_id
                              INNER JOIN uitgever uitgever on v.uitgever_id = uitgever.uitgever_id
+                             INNER JOIN reeks r on uitgave.reeks_id = r.reeks_id
                              WHERE i.rol = 'Tekenaar' && voornaam || achternaam LIKE CONCAT ('%',@StrZoekterm,'%')";
                     break;
             }

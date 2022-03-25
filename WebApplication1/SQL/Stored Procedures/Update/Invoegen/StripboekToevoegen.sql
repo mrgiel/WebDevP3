@@ -23,6 +23,9 @@ CREATE PROCEDURE StripboekToevoegen(
 #Gebruiker
     gebruiker_idVAR varchar(255),
 
+#isgemaaktdoor
+    rolARRAY varchar(200),
+
 #Persoon
     voornaamARRAY varchar(200),
     achternaamARRAY varchar(200))
@@ -90,102 +93,88 @@ BEGIN
     WHERE versie.isbn = isbnVAR
       and gebruiker_idVAR = gebruiker.Id;
 
-    DROP PROCEDURE IF EXISTS Test;
-
-    CREATE PROCEDURE Test(
-    )
-        DROP PROCEDURE IF EXISTS Test;
-
-    CREATE PROCEDURE Test(
-    )
     BEGIN
-        BEGIN
-            #declare
-            DECLARE counter INT DEFAULT 1;
-            DECLARE voornaamSingle varchar(50);
-            DECLARE achternaamSingle varchar(50);
-            DECLARE persoon_idLAST int;
-
-            #temp
-            DECLARE voornaamARRAY varchar(255);
-            DECLARE achternaamARRAY varchar(255);
-            DECLARE rolARRAY varchar(255);
-            SET rolARRAY = 'tekenaar,tekenaar, auteur';
-            SET voornaamARRAY = 'adis,dolop,sal';
-            SET achternaamARRAY = 'lop,igr,fsfes';
-            #temp
+        #declare
+        DECLARE counter INT DEFAULT 1;
+        DECLARE voornaamSingle varchar(50);
+        DECLARE achternaamSingle varchar(50);
+        DECLARE rolSingle varchar(50);
 
 #while loop (kan misschien nog in een declare?)
-            WHILE counter <= 3
-                DO
-                    SET voornaamSingle = substring_index(
-                            substring_index(voornaamARRAY, ',', counter)
-                        , ',', -1);
-                    SET achternaamSingle = substring_index(
-                            substring_index(achternaamARRAY, ',', counter)
-                        , ',', -1);
+        WHILE counter <= (SELECT count(i.persoon_id)
+                          from persoon
+                                   INNER JOIN isgemaaktdoor i on persoon.persoon_id = i.persoon_id)
+            DO
+                SET voornaamSingle = substring_index(
+                        substring_index(voornaamARRAY, ',', counter)
+                    , ',', -1);
+                SET achternaamSingle = substring_index(
+                        substring_index(achternaamARRAY, ',', counter)
+                    , ',', -1);
+                SET rolSingle = substring_index(
+                        substring_index(rolARRAY, ',', counter)
+                    , ',', -1);
 
-                    #als voornaam/achternaam niet bestaat
-                    if (
-                                voornaamSingle NOT IN (
-                                SELECT voornaam
-                                FROM persoon
-                            )
-                            and achternaamSingle NOT IN (
-                            SELECT achternaam
-                            FROM persoon))
+                #als voornaam/achternaam niet bestaat
+                if (
+                            voornaamSingle NOT IN (
+                            SELECT voornaam
+                            FROM persoon
+                        )
+                        and achternaamSingle NOT IN (
+                        SELECT achternaam
+                        FROM persoon))
 
-                        #insert into individueel id per met voornaam achternaam
-                    THEN
-                        INSERT INTO persoon(persoon_id, voornaam, achternaam)
-                        SELECT
+                    #insert into individueel id per met voornaam achternaam
+                THEN
+                    INSERT INTO persoon(persoon_id, voornaam, achternaam)
+                    SELECT
 
-                            #persoon_id
-                            null,
+                        #persoon_id
+                        null,
 
-                            #voornaam
-                            voornaamSingle,
+                        #voornaam
+                        voornaamSingle,
 
-                            #achternaam
-                            achternaamSingle;
+                        #achternaam
+                        achternaamSingle;
 
-                        INSERT INTO isgemaaktdoor(rol, persoon_id, versie_id)
-                        SELECT
+                    INSERT INTO isgemaaktdoor(rol, persoon_id, versie_id)
+                    SELECT
 
-                            #rol
-                            'tekenaar',
+                        #rol
+                        rolSingle,
 
-                            #persoon_id
-                            (SELECT LAST_INSERT_ID()
-                             FROM persoon
-                             LIMIT 1),
+                        #persoon_id
+                        (SELECT LAST_INSERT_ID()
+                         FROM persoon
+                         LIMIT 1),
 
-                            #versie_id
-                            3;
+                        #versie_id
+                        versie_idVAR;
 
-                        #als de voornaam/achternaam wel bestaat
-                    else
-                        insert into isgemaaktdoor(rol, persoon_id, versie_id)
-                        SELECT
+                    #als de voornaam/achternaam wel bestaat
+                else
+                    insert into isgemaaktdoor(rol, persoon_id, versie_id)
+                    SELECT
 
-                            #rol
-                            'tekenaar',
+                        #rol
+                        rolSingle,
 
-                            #persoon_id
-                            (SELECT persoon_id
-                             FROM persoon
-                             WHERE voornaam = voornaamSingle
-                               and achternaam = achternaamSingle),
+                        #persoon_id
+                        (SELECT persoon_id
+                         FROM persoon
+                         WHERE voornaam = voornaamSingle
+                           and achternaam = achternaamSingle),
 
-                            #versie_id
-                            3;
+                        #versie_id
+                        versie_idVAR
+                    ON DUPLICATE KEY UPDATE rol = rolSingle;
 
-                    end if;
+                end if;
 
-                    #counter++
-                    SET counter = counter + 1;
-                END WHILE;
-        end;
+                #counter++
+                SET counter = counter + 1;
+            END WHILE;
     end;
-    call test();
 END;

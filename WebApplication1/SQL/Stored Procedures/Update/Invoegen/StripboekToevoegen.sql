@@ -92,58 +92,100 @@ BEGIN
 
     DROP PROCEDURE IF EXISTS Test;
 
-#     CREATE PROCEDURE Test(
-#     )
-#     BEGIN
-#         BEGIN
-#             #declare
-#             DECLARE counter INT DEFAULT 1;
-#             DECLARE voornaamSingle varchar(50);
-#             DECLARE achternaamSingle varchar(50);
-#             DECLARE voornaamARRAY varchar(255);
-#             DECLARE achternaamARRAY varchar(255);
-#             DECLARE persoon_idVAR int;
-#             SET voornaamARRAY = 'adis,dolop,sal';
-#             SET achternaamARRAY = 'lop,igr,fsfes';
-# 
-# 
-# #while loop (kan misschien nog in een declare?)
-#             WHILE counter <= 3
-#                 DO
-#                     SET voornaamSingle = substring_index(
-#                             substring_index(voornaamARRAY, ',', counter)
-#                         , ',', -1);
-#                     SET achternaamSingle = substring_index(
-#                             substring_index(achternaamARRAY, ',', counter)
-#                         , ',', -1);
-# 
-#                     if (
-#                                 voornaamSingle NOT IN (
-#                                 SELECT voornaam
-#                                 FROM persoon
-#                             )
-#                             and achternaamSingle NOT IN (
-#                             SELECT achternaam
-#                             FROM persoon
-#                         ))
-#                     THEN
-#                         INSERT INTO persoon(persoon_id, voornaam, achternaam)
-#                         SELECT null,
-#                                voornaamSingle,
-#                                achternaamSingle;
-#                         SELECT LAST_INSERT_ID()
-#                         FROM persoon LIMIT 1;
-#                     else
-#                         SELECT persoon_id FROM persoon WHERE voornaam = voornaamSingle and achternaam = achternaamSingle INTO @persoon_id;
-#                         SET persoon_idVAR = @persoon_id;
-#                         insert into isgemaaktdoor(rol, persoon_id, versie_id)
-#                         SELECT 'tekenaar',persoon_idVAR, 3;
-#                     end if;
-# 
-# #counter++
-#                     SET counter = counter + 1;
-#                 END WHILE;
-#         end;
-#     end;
-#     call test();
+    CREATE PROCEDURE Test(
+    )
+        DROP PROCEDURE IF EXISTS Test;
+
+    CREATE PROCEDURE Test(
+    )
+    BEGIN
+        BEGIN
+            #declare
+            DECLARE counter INT DEFAULT 1;
+            DECLARE voornaamSingle varchar(50);
+            DECLARE achternaamSingle varchar(50);
+            DECLARE persoon_idLAST int;
+
+            #temp
+            DECLARE voornaamARRAY varchar(255);
+            DECLARE achternaamARRAY varchar(255);
+            DECLARE rolARRAY varchar(255);
+            SET rolARRAY = 'tekenaar,tekenaar, auteur';
+            SET voornaamARRAY = 'adis,dolop,sal';
+            SET achternaamARRAY = 'lop,igr,fsfes';
+            #temp
+
+#while loop (kan misschien nog in een declare?)
+            WHILE counter <= 3
+                DO
+                    SET voornaamSingle = substring_index(
+                            substring_index(voornaamARRAY, ',', counter)
+                        , ',', -1);
+                    SET achternaamSingle = substring_index(
+                            substring_index(achternaamARRAY, ',', counter)
+                        , ',', -1);
+
+                    #als voornaam/achternaam niet bestaat
+                    if (
+                                voornaamSingle NOT IN (
+                                SELECT voornaam
+                                FROM persoon
+                            )
+                            and achternaamSingle NOT IN (
+                            SELECT achternaam
+                            FROM persoon))
+
+                        #insert into individueel id per met voornaam achternaam
+                    THEN
+                        INSERT INTO persoon(persoon_id, voornaam, achternaam)
+                        SELECT
+
+                            #persoon_id
+                            null,
+
+                            #voornaam
+                            voornaamSingle,
+
+                            #achternaam
+                            achternaamSingle;
+
+                        INSERT INTO isgemaaktdoor(rol, persoon_id, versie_id)
+                        SELECT
+
+                            #rol
+                            'tekenaar',
+
+                            #persoon_id
+                            (SELECT LAST_INSERT_ID()
+                             FROM persoon
+                             LIMIT 1),
+
+                            #versie_id
+                            3;
+
+                        #als de voornaam/achternaam wel bestaat
+                    else
+                        insert into isgemaaktdoor(rol, persoon_id, versie_id)
+                        SELECT
+
+                            #rol
+                            'tekenaar',
+
+                            #persoon_id
+                            (SELECT persoon_id
+                             FROM persoon
+                             WHERE voornaam = voornaamSingle
+                               and achternaam = achternaamSingle),
+
+                            #versie_id
+                            3;
+
+                    end if;
+
+                    #counter++
+                    SET counter = counter + 1;
+                END WHILE;
+        end;
+    end;
+    call test();
 END;

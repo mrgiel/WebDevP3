@@ -11,7 +11,7 @@ CREATE PROCEDURE StripboekAanpassen(
     isbnVAR varchar(50),
     datumVAR date,
     drukVAR int,
-    prijsVAR decimal(6, 2),
+    prijsVAR float,
 
     #Uitgave
     naamVAR varchar(100),

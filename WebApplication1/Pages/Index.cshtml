@@ -4,16 +4,58 @@
     ViewData["Title"] = "Home page";
 }
 
-<div class="text-center">
-    <div class="row text-white">
-        @foreach (var stripboek in Model.data)
-        {
-            <div class="col-lg-4 col-md-6 col-sm-12">
-                <div class="row">
-                    <img src="@stripboek.afbeelding_url" style="width: 300px; height: 300px" alt=""/>
+<div class="content">
+    <div class="banner-1">
+        <div class="banner-b1">
+            <h4>Nieuwste comics</h4>
+        </div>
+    </div>
+    <div class="kut-imgs">
+    <div class="new-content">
+        <div class="row">
+            @foreach (var stripboek in Model.data)
+            {
+                <div class="col-xl-3 col-lg-4 col-md-6 mb-3">
+                    <div class="mt-4">
+                        <div class="image">
+                            <p class="text-white text-center" style="">
+                                <img src="@stripboek.afbeelding_url"  alt="" border="0">
+                                <div class="text-white text-center"><span>@stripboek.Uitgave.naam (2017)</span></div>
+                            </p>
+                        </div>
+                    </div>
+
                 </div>
-                <p class="">@stripboek.Uitgave.Reeks.reeks_naam @stripboek.Uitgave.naam</p>
+            }
+        </div>
+    </div>
+
+    <a href="/personalCollection"></a>
+
+    <div class="banner-2">
+        <div class="banner-b2">
+           <a href="/StripboekToevoegen"><i style="float:right" class="fa-solid fa-upload"></i><h5>Upload</h5></a>
+            <h4>Alle comics</h4>
+        </div>
+        
+    </div>
+    <div class="strip-content">
+        <div class="row">
+            @foreach (var stripboek in Model.data)
+            {
+                <div class="col-xl-3 col-lg-4 col-md-6 mb-3">
+                    <div class="mt-4">
+                        <div class="image">
+                            <p class="text-white text-center" style="">
+                                <img src="@stripboek.afbeelding_url"  alt="" border="0">
+                                <div class="text-white text-center"><span>@stripboek.Uitgave.naam (2017)</span></div>
+                            </p>
+                        </div>
+                    </div>
                 </div>
-        }
+            }
+        </div>
     </div>
 </div>
+</div>
+

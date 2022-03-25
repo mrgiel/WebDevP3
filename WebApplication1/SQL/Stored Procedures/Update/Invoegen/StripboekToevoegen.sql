@@ -81,7 +81,7 @@ CREATE PROCEDURE StripboekToevoegen(
 
             #StatusUitgave
             INSERT INTO statusuitgave(status,gebruiker_id, versie_id)
-            SELECT null,Id, Versie.Versie_id
+            SELECT false,Id, Versie.Versie_id
             FROM versie,
                  gebruiker
             WHERE versie.isbn = isbnVAR

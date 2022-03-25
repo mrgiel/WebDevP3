@@ -4,7 +4,7 @@
 @model WebApplication1.Pages.StripboekToevoegen
 @{
     ViewData["Title"] = "Toevoegen";
-    
+
 
 }
 @if (!SignInManager.IsSignedIn(User))
@@ -45,7 +45,7 @@
                 </div>
                 <div class="col-6">
                     <h3 >Datum</h3>
-                    <input class="form-control" asp-for="Versie.datum" asp-format="{0:yyyy-MM-dd}"/>
+                    <input class="form-control" type="date" asp-for="Versie.datum" asp-format="{0:yyyy-MM-dd}"/>
                     <span asp-validation-for="Versie.datum"></span>
                 </div>
 
@@ -58,8 +58,7 @@
                 </div>
                 <div class="col-6">
                     <h3 >Categorie</h3>
-                    <select asp-for="Uitgave.Categorie.cat_naam" class="form-control">
-                        <option value="">-- Selecteer Categorie --</option>
+                    <select asp-for="Uitgave.Categorie.cat_naam"class="form-control">
                         @foreach (var categorie in @Model.Categories)
                         {
                             <option asp-items="@categorie.cat_naam">
@@ -91,7 +90,6 @@
                 <div class="col-6">
                     <h3>Uitgever</h3>
                     <select asp-for="Versie.Uitgever.uitgever_naam" class="form-control">
-                        <option value="">-- Selecteer Uitgever --</option>
                         @foreach (var uitgever in @Model.Uitgevers)
                         {
                             <option asp-items="@uitgever.uitgever_naam">

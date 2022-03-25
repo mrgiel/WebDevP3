@@ -29,5 +29,7 @@ namespace WebApplication1.Models.Klasse
 
         public Versie Versie { get; set; }
         public int status { get; set; }
+        public string reeks_naam { get; set; }
+
         }
 }

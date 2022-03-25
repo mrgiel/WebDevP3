@@ -71,18 +71,16 @@ namespace WebApplication1.Repositories
             using var connection = Connect();
 
             //haal alles op
-            var result = connection.Query<Versie, Uitgave, Uitgever, Categorie, Reeks, IsGemaaktDoor, Persoon, Versie>(
+            var result = connection.Query<Versie, Uitgave, Uitgever, Categorie, Reeks, Versie>(
                 sql,
-                (versie, uitgave, uitgever, categorie, reeks, isGemaaktDoor, persoon) =>
+                (versie, uitgave, uitgever, categorie, reeks) =>
                 {
                     versie.Uitgave = uitgave;
                     versie.Uitgever = uitgever;
                     versie.Uitgave.Categorie = categorie;
                     versie.Uitgave.Reeks = reeks;
-                    versie.IsGemaaktDoor = isGemaaktDoor;
-                    versie.IsGemaaktDoor.Persoon = persoon;
                     return versie;
-                }, param, splitOn: "naam, uitgever_naam, cat_naam, reeks_naam, rol, voornaam",
+                }, param, splitOn: "naam, uitgever_naam, cat_naam, reeks_naam",
                 commandType: CommandType.StoredProcedure);
 
             //return

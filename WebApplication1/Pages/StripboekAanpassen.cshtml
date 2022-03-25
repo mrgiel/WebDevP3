@@ -71,7 +71,7 @@
                         </div>
                         <div class="col-6">
                             <h3 >Prijs</h3>
-                            <input asp-for="Versie.prijs" value="@Model.StripboekInformatie.First().prijs" class="form-control" type="number" pattern="(^[0-9]{0,2}$)|(^[0-9]{0,2}\,[0-9]{0,5}$)" step="any" min="0" max="999999"/>
+                            <input asp-for="Versie.prijs" value="@Model.StripboekInformatie.First().prijs" class="form-control" type="number" pattern="(^[0-9]{0,2}$)|(^[0-9]{0,2}\,[0-9]{0,5}$)" step="any" min="0" max="9999"/>
                             <span asp-validation-for="Versie.prijs"></span>
                         </div>
                     </div>
@@ -94,7 +94,7 @@
                         </div>
                         <div class="col-6">
                             <h3 class=" mx-auto">Sensueel</h3>
-                            <select asp-for="Versie.Uitgave.nsfw">
+                            <select class="form-control" asp-for="Versie.Uitgave.nsfw">
                                 <option value="False">
                                     Nee
                                 </option>

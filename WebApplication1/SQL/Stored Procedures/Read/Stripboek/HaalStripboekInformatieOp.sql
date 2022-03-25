@@ -32,14 +32,7 @@ BEGIN
 
         #Reeks
            r.reeks_id,
-        reeks_naam,
-
-        #IsGemaaktDoor
-        i.rol,
-
-        #Persoon
-        p.voornaam,
-        achternaam
+        reeks_naam
 
     FROM Versie v
              INNER JOIN statusuitgave s on v.Versie_id = s.versie_id
@@ -47,7 +40,5 @@ BEGIN
              INNER JOIN uitgever u2 on v.uitgever_id = u2.uitgever_id
              INNER JOIN Categorie c ON c.cat_id = u.cat_id
              INNER JOIN Reeks r ON r.reeks_id = u.reeks_id
-             INNER JOIN isgemaaktdoor i on v.Versie_id = i.versie_id
-             INNER JOIN persoon p ON p.persoon_id = i.persoon_id
     WHERE v.Versie_id = versie_idVAR;
 END

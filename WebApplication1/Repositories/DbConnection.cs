@@ -22,7 +22,7 @@ namespace WebApplication1.Repositories
                 Port=3306;
                 Database=stripboekendb;
                 Uid=root;
-                Pwd=Test1234!@;");
+                Pwd=Test123;");
         }
     }
 }

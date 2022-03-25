@@ -5,6 +5,8 @@ namespace WebApplication1.Models.Klasse
 {
     public class Uitgave
     {
+        public string reeks_naam;
+
         //nigel
         public int uitgave_id { get; set; }
         public string isbn { get; set; }
@@ -29,7 +31,6 @@ namespace WebApplication1.Models.Klasse
 
         public Versie Versie { get; set; }
         public int status { get; set; }
-        public string reeks_naam { get; set; }
-
-        }
+        public DateTime datum { get; init; }
+    }
 }

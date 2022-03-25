@@ -9,6 +9,7 @@ BEGIN
         afbeelding_url,
         isbn,
         druk,
+        datum,
 
         #Uitgave
         naam,

@@ -87,7 +87,7 @@ INSERT INTO statusuitgave(status,gebruiker_id, versie_id) VALUE('1','1','5');
 INSERT INTO IsGemaaktDoor (rol, persoon_id, versie_id) VALUES ('Auteur', '1', '5');
 INSERT INTO IsGemaaktDoor (rol, persoon_id, versie_id) VALUES ('Tekenaar', '6', '5');
 
-INSERT INTO Uitgave (naam,hoogte,beschrijving, nsfw, cat_id, reeks_id) VALUE('als Sportman',56,'dit is een beschrijving van een stripboek jaja', FALSE,'2','2'  );
+INSERT INTO Uitgave (naam,hoogte,beschrijving, nsfw, cat_id, reeks_id) VALUE('als Kustwachter',56,'dit is een beschrijving van een stripboek jaja', FALSE,'2','2'  );
 INSERT INTO Versie(Versie_id, afbeelding_url, isbn, datum, druk, prijs, uitgever_id, uitgave_id) VALUE('6','https://www.stripinfo.be/image.php?i=88856&s=12419&m=440','9032005480', '1979-3-4','1','3.30','11','6' );
 INSERT INTO statusuitgave(status,gebruiker_id, versie_id) VALUE('1','1','6');
 INSERT INTO IsGemaaktDoor (rol, persoon_id, versie_id) VALUES ('Auteur', '1', '6');
@@ -128,3 +128,9 @@ INSERT INTO Versie(Versie_id, afbeelding_url, isbn, datum, druk, prijs, uitgever
 INSERT INTO statusuitgave(status,gebruiker_id, versie_id) VALUE('1','1','12');
 INSERT INTO IsGemaaktDoor (rol, persoon_id, versie_id) VALUES ('Auteur', '3', '12');
 INSERT INTO IsGemaaktDoor (rol, persoon_id, versie_id) VALUES ('Tekenaar', '8', '12');
+
+INSERT INTO Uitgave (naam,hoogte,beschrijving, nsfw, cat_id, reeks_id) VALUE('witte Swan en zwarte Swan',48,'dit is een beschrijving van een stripboek jaja', True,'9','1'  );
+INSERT INTO Versie(Versie_id, afbeelding_url, isbn, datum, druk, prijs, uitgever_id, uitgave_id) VALUE('13','https://www.stripboekenhandel.nl/wp-content/uploads/2019/06/140320.jpg?m=440','69420123', '2022-1-2','1','4.20','3','13' );
+INSERT INTO statusuitgave(status,gebruiker_id, versie_id) VALUE('1','1','13');
+INSERT INTO IsGemaaktDoor (rol, persoon_id, versie_id) VALUES ('Auteur', '5', '13');
+INSERT INTO IsGemaaktDoor (rol, persoon_id, versie_id) VALUES ('Tekenaar', '1', '13');

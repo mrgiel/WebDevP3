@@ -18,7 +18,7 @@ namespace WebApplication1.Models.Klasse
 
         [Required] public string afbeelding_url { get; init; }
 
-        public DateTime? datum { get; init; }
+        public DateTime datum { get; init; }
 
         public Uitgave Uitgave { get; set; }
 

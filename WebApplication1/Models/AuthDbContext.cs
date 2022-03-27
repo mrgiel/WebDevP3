@@ -5,6 +5,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using WebApplication1.Models.Klasse;
 
 namespace WebApplication1.Models
 {
@@ -12,10 +13,6 @@ namespace WebApplication1.Models
     {
         public AuthDbContext(DbContextOptions<AuthDbContext> options) : base(options)
         { }
-
-        //public AuthDbContext()
-        //{
-        //}
 
         protected override void OnModelCreating(ModelBuilder builder)
         {

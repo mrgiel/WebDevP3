@@ -1,15 +1,8 @@
-@page
-@using Microsoft.AspNetCore.Identity
-@using WebApplication1.Repositories
-@model WebApplication1.Pages.AdminPagina
-@inject SignInManager<IdentityUser> SignInManager
-
-@if (new GebruikerRepo().HaalRolOp() != "admin")
-{
-    Response.Redirect("Login");
+﻿@page
+@model WebApplication1.Pages.GebruikerPaginaModel
+@using WebApplication1.Models.Klasse
+@{
 }
-else
-{
 
 <div class="content">
     <div class="row">
@@ -21,52 +14,53 @@ else
                     <li><a href="#">Personen</a></li>
                 </ul>
             </div>
-          </div>
-     
- 
+        </div>
+
+
         <div class="col-md-10">
             <table>
                 <thead>
                     <tr>
                         <th scope="col">#</th>
-                        <th scope="col">ISBN</th>
-                        <th scope="col">Titel</th>
-                        <th scope="col">Status</th>
+                        <th scope="col">Email</th>
+                        <th scope="col">Username</th>
+                        <th scope="col">Rol</th>
                         <th scope="col">Verwijderen</th>
                         <th scope="col">Aanpassen</th>
                     </tr>
                 </thead>
                 <tbody>
-                    @foreach (var uitgave in Model.Stripboeken)
+                    @foreach (var item in Model.model)
                     {
                         <tr>
-                            <td data-label="#">@uitgave.versie_id</td>
-                            <td data-label="ISBN">@uitgave.isbn</td>
-                            <td data-label="Titel">@uitgave.naam</td>
-                            <td data-label="Status">@uitgave.status</td>
+                            <td data-label="#">@item.Id</td>
+                            <td data-label="Email"> @item.Email</td>
+                            <td data-label="Username">@item.UserName</td>
+                            <td data-label="Rol">@item.rol </td>
+
                             <td data-label="Verwijderen">
                                 <form method="post">
-                                    <button asp-page="AdminPagina" asp-page-handler="Verwijderen" asp-route-id="@uitgave.versie_id">Verwijder</button>
+                                    <button asp-page="GebruikerPagina" asp-page-handler="Delete" asp-route-id="@item.Id">Verwijder</button>
                                 </form>
                             </td>
+
                             <td data-label="Aanpassen">
                                 <form method="post">
-                                    <button asp-page="StripboekAanpassen" asp-page-handler="Aanpassen" asp-route-id="@uitgave.versie_id">Aanpassen</button>
+                                    <button asp-page="GebruikersAanpassen" asp-route-id="@item.Id">Aanpassen</button>
                                 </form>
                             </td>
                         </tr>
                     }
+                    <tr>
+                        <td>
+                            Gebruiker Toevoegen (Coming Soon)
+                        </td>
+                        
+                    </tr>
                 </tbody>
             </table>
         </div>
+       <div>
     </div>
- </div>
-        
-    
-        
-
-
-
-
-}
-    
+  </div>
+</div>

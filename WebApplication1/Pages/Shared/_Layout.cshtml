@@ -13,6 +13,21 @@
 
 </head>
 <body>
+
+    @if (!SignInManager.IsSignedIn(User))
+    {
+        <style>
+
+            .navbar-nav.login {
+                margin-right: 0px !important;
+            }
+
+            .navbar-nav {
+                margin-right: 43px !important;
+            }
+        </style>
+    }
+
     <header>
         <a href="./ "><img src="~/Images/banner2.png" class="d-none d-sm-block img-page" /></a>
         <nav class="navbar navbar-expand-lg navbar-light red-bg">
@@ -48,7 +63,7 @@
                         </li>
                     </ul>
 
-                    <ul class="navbar-nav login ul-two mx-auto">
+                    <ul class="login navbar-nav ul-two mx-auto">
                         @if (!SignInManager.IsSignedIn(User))
                         {
                             <li class="nav-item">
@@ -58,16 +73,16 @@
                                 <a class="nav-link" href="/Register">Registreren</a>
                             </li>
                         }
+                        <li class="nav-item">
+                            <a class="nav-link" href="/AdminPagina"><i class="fa-solid fa-user"></i></a>
+                        </li>
+                        @if (SignInManager.IsSignedIn(User))
+                        {
                             <li class="nav-item">
-                                <a class="nav-link" href="/AdminPagina"><i class="fa-solid fa-user"></i></a>
+                                <a class="nav-link" href="/Logout">Logout</a>
                             </li>
-                            @if (SignInManager.IsSignedIn(User))
-                            {
-                                <li class="nav-item">
-                                    <a class="nav-link" href="/Logout">Logout</a>
-                                </li>
-                            }
-                        </ul>
+                        }
+                    </ul>
                 </div>
             </div>
         </nav>
@@ -81,7 +96,7 @@
 
     <footer class="border-top footer text-muted">
         <div class="container">
-            &copy; 2022 - WebApplication1 - <a asp-area="" asp-page="/Privacy">Privacy</a>
+            &copy; 2022 - Stripboeken Collectie <a asp-area="" asp-page="/Privacy">Privacy</a>
         </div>
     </footer>
 

@@ -1,6 +1,7 @@
 ﻿@page
 @inject SignInManager<IdentityUser> SignInManager
 @using Microsoft.AspNetCore.Identity
+@using WebApplication1.Repositories
 @model WebApplication1.Pages.StripboekToevoegen
 @{
     ViewData["Title"] = "Toevoegen";
@@ -9,7 +10,7 @@
 }
 @if (!SignInManager.IsSignedIn(User))
 {
-    Response.Redirect("Index");
+    Response.Redirect("Login");
 }
 
 
@@ -29,11 +30,11 @@
             <div class="row">
                 <div class="col-6">
                     <h3 >ISBN</h3>
-                    <input class="form-control" asp-for="Versie.isbn" value="" type="text" maxlength="50" placeholder="9032005235"/>
+                    <input class="form-control" asp-for="Versie.isbn" type="text" maxlength="50" placeholder="9032005235"/>
                 </div>
                 <div class="col-6">
                     <h3 >Reeks</h3>
-                    <input class="form-control" asp-for="Uitgave.Reeks.reeks_naam" value="" spellcheck="true" maxlength="50" type="text" placeholder="Donald Duck"/>
+                    <input class="form-control" asp-for="Uitgave.Reeks.reeks_naam" spellcheck="true" maxlength="50" type="text" placeholder="Donald Duck"/>
                     <span asp-validation-for="Uitgave.Reeks.reeks_naam"></span>
                 </div>
             </div>
@@ -53,13 +54,13 @@
             <div class="row">
                 <div class="col-6">
                     <h3 >Afbeelding</h3>
-                    <input class="form-control" asp-for="Versie.afbeelding_url" value="" type="text" maxlength="100" placeholder="https://voorbeeldurl.com/afbeelding123"/>
+                    <input class="form-control" asp-for="Versie.afbeelding_url" type="text" maxlength="100" placeholder="https://voorbeeldurl.com/afbeelding123"/>
                     <span asp-validation-for="Versie.afbeelding_url"></span>
                 </div>
                 <div class="col-6">
                     <h3 >Categorie</h3>
-                    <select asp-for="Uitgave.Categorie.cat_naam"class="form-control">
-                        @foreach (var categorie in @Model.Categories)
+                    <select asp-for="Uitgave.Categorie.cat_naam" class="form-control">
+                        @foreach (var categorie in new StripboekToevoegenRepository().HaalCategorieOp())
                         {
                             <option asp-items="@categorie.cat_naam">
                                 @categorie.cat_naam
@@ -72,12 +73,12 @@
             <div class="row">
                 <div class="col-6">
                     <h3 >Hoogte</h3>
-                    <input class="form-control" asp-for="Uitgave.hoogte" value="" type="number" min="0" max="200" placeholder="22 (cm)"/>
+                    <input class="form-control" asp-for="Uitgave.hoogte" type="number" min="0" max="200" placeholder="22 (cm)"/>
                     <span asp-validation-for="Uitgave.hoogte"></span>
                 </div>
                 <div class="col-6">
                     <h3 >Prijs</h3>
-                    <input class="form-control" asp-for="Versie.prijs" value="" type="number" pattern="(^[0-9]{0,2}$)|(^[0-9]{0,2}\,[0-9]{0,5}$)" step="any" min="0" max="9999" placeholder="5,99 (euro)"/>
+                    <input class="form-control" asp-for="Versie.prijs" type="number" pattern="(^[0-9]{0,2}$)|(^[0-9]{0,2}\,[0-9]{0,5}$)" step="any" min="0" max="9999" placeholder="5,99 (euro)"/>
                     <span asp-validation-for="Versie.prijs"></span>
                 </div>
             </div>
@@ -90,7 +91,7 @@
                 <div class="col-6">
                     <h3>Uitgever</h3>
                     <select asp-for="Versie.Uitgever.uitgever_naam" class="form-control">
-                        @foreach (var uitgever in @Model.Uitgevers)
+                        @foreach (var uitgever in new StripboekToevoegenRepository().HaalAlleUitgeverOp())
                         {
                             <option asp-items="@uitgever.uitgever_naam">
                                 @uitgever.uitgever_naam
@@ -98,6 +99,48 @@
                         }
                     </select>
                     <span asp-validation-for="Versie.Uitgever.uitgever_naam"></span>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-6">
+                    <div class="row">
+                        <h3>Tekenaar</h3>
+                        <div class="col-6" id="voornaamTekenaar">
+                        </div>
+                        <div class="col-6" id="achternaamTekenaar">
+
+                        </div>
+                        <div class="col-12">
+                            <div class="row">
+                                <div class="col-6">
+                                    <button type="button" onclick="addTekenaar(1)" class="btn btn-primary">Extra</button>
+                                </div>
+                                <div class="col-6">
+                                    <button type="button" onclick="verwijderTekenaar()" class="btn btn-danger">Verwijderen</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-6">
+                    <div class="row">
+                        <h3>Auteur</h3>
+                        <div class="col-6" id="voornaamAuteur">
+                        </div>
+                        <div class="col-6" id="achternaamAuteur">
+
+                        </div>
+                        <div class="col-12">
+                            <div class="row">
+                                <div class="col-6">
+                                    <button type="button" onclick="addAuteur(1)" class="btn btn-primary">Extra</button>
+                                </div>
+                                <div class="col-6">
+                                    <button type="button" onclick="verwijderAuteur()" class="btn btn-danger">Verwijderen</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
             <div class="row">
@@ -119,13 +162,27 @@
             </div>
             <br/>
             <div class="col-3 mx-auto">
-                <button type="submit" class="form-control align-content-center" asp-page-handler="Send">Versturen</button>
+                <input type="hidden" asp-for="AuteurArray" id="hiddenAuteur"/>
+                <input type="hidden" asp-for="RolArray" id="hiddenRol"/>
+                <input type="hidden" asp-for="PersoonArray" id="hiddenTekenaar"/>
+                <button onclick="send();" type="submit" class="form-control align-content-center" asp-page-handler="Send">Versturen</button>
             </div>
         </form>
 
     </div>
+    @{
+        var length = Model.PersoonArray != null ? (Model.PersoonArray.Split(',').Length - 1) / 2 : 1;
+    }
 
+    @section Scripts{
+        <script> 
+         addTekenaar(@length);
+         addAuteur(@length);
+         fill('@Model.PersoonArray');
+        </script>
+    }
 
+    <script asp-append-version="true" src="~/js/StripboekToevoegen.js"></script>
 </div>
 </body>
 </html>

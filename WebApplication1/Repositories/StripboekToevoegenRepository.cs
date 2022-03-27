@@ -2,6 +2,7 @@
 using System.Data;
 using Dapper;
 using WebApplication1.Models.Klasse;
+using WebApplication1.Pages;
 
 namespace WebApplication1.Repositories
 {
@@ -50,9 +51,14 @@ namespace WebApplication1.Repositories
         /// <param name="uitgever"></param>
         /// <param name="versie"></param>
         /// <param name="categorie"></param>
+        /// <param name="voornaamArray"></param>
+        /// <param name="rolArray"></param>
+        /// <param name="achternaamArray"></param>
+        /// <param name="count"></param>
         /// <param name="gebruiker_id"></param>
         public async void VerstuurNieuwStripboek(Uitgave uitgave, Reeks reeks, Uitgever uitgever, Versie versie,
-            Categorie categorie, string gebruiker_id)
+            Categorie categorie, string voornaamArray, string rolArray, string achternaamArray, int count,
+            string gebruiker_id)
         {
             //Stored Procedure van toevoegen
             const string sql = "StripboekToevoegen";
@@ -83,7 +89,16 @@ namespace WebApplication1.Repositories
                 uitgever_naamVAR = uitgever.uitgever_naam,
 
                 //gebruiker
-                gebruiker_idVAR = gebruiker_id
+                gebruiker_idVAR = gebruiker_id,
+
+                rolARRAY = rolArray,
+
+                //Persoon
+                voornaamARRAY = voornaamArray,
+                achternaamARRAY = achternaamArray,
+
+                //length
+                length = count
             };
 
             //connect to database

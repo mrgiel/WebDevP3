@@ -110,15 +110,37 @@
                         <div class="col-6" id="achternaamTekenaar">
 
                         </div>
-                        <input type="hidden" asp-for="PersoonArray" id="hiddenTekenaar"/>
-                        <div class="col-2">
-                            <button type="button" onclick="add(1)" class="btn btn-primary">Extra</button>
+                        <div class="col-12">
+                            <div class="row">
+                                <div class="col-6">
+                                    <button type="button" onclick="addTekenaar(1)" class="btn btn-primary">Extra</button>
+                                </div>
+                                <div class="col-6">
+                                    <button type="button" onclick="verwijderTekenaar()" class="btn btn-danger">Verwijderen</button>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
                 <div class="col-6">
-                    <h3>Auteur</h3>
-                    <input class="form-control" type="number" pattern="(^[0-9]{0,2}$)|(^[0-9]{0,2}\,[0-9]{0,5}$)" step="any" min="0" max="9999" placeholder="5,99 (euro)"/>
+                    <div class="row">
+                        <h3>Auteur</h3>
+                        <div class="col-6" id="voornaamAuteur">
+                        </div>
+                        <div class="col-6" id="achternaamAuteur">
+
+                        </div>
+                        <div class="col-12">
+                            <div class="row">
+                                <div class="col-6">
+                                    <button type="button" onclick="addAuteur(1)" class="btn btn-primary">Extra</button>
+                                </div>
+                                <div class="col-6">
+                                    <button type="button" onclick="verwijderAuteur()" class="btn btn-danger">Verwijderen</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
             <div class="row">
@@ -140,6 +162,9 @@
             </div>
             <br/>
             <div class="col-3 mx-auto">
+                <input type="hidden" asp-for="AuteurArray" id="hiddenAuteur"/>
+                <input type="hidden" asp-for="RolArray" id="hiddenRol"/>
+                <input type="hidden" asp-for="PersoonArray" id="hiddenTekenaar"/>
                 <button onclick="send();" type="submit" class="form-control align-content-center" asp-page-handler="Send">Versturen</button>
             </div>
         </form>
@@ -148,15 +173,16 @@
     @{
         var length = Model.PersoonArray != null ? (Model.PersoonArray.Split(',').Length - 1) / 2 : 1;
     }
-    
-@section Scripts{
-    <script> 
-         add(@length);
+
+    @section Scripts{
+        <script> 
+         addTekenaar(@length);
+         addAuteur(@length);
          fill('@Model.PersoonArray');
         </script>
-}
+    }
 
-<script asp-append-version="true" src="~/js/StripboekToevoegen.js" ></script>
+    <script asp-append-version="true" src="~/js/StripboekToevoegen.js"></script>
 </div>
 </body>
 </html>

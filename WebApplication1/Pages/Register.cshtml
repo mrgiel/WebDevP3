@@ -1,6 +1,13 @@
 ﻿@page
 @model RegisterModel
+@inject SignInManager<IdentityUser> SignInManager
+@using Microsoft.AspNetCore.Identity
 @{
+}
+
+@if (SignInManager.IsSignedIn(User))
+{
+    Response.Redirect("Index");
 }
 
 <div class="container mt-5">
@@ -11,28 +18,28 @@
                 <div asp-validation-summary="All" class="text-danger"></div>
 
                 <div class="mb-3">
-                    <label class="form-label text-white" asp-for="Model.UserName">Username</label>
+                    <label class="form-label text-white" asp-for="Model.UserName">Gebruikersnaam</label>
                     <input type="text" asp-for="Model.UserName" class="form-control" />
                     <span asp-validation-for="Model.UserName" class="text-danger"></span>
                 </div>
 
                 <div class="mb-3">
-                    <label class="form-label text-white" asp-for="Model.Email">Email Address</label>
+                    <label class="form-label text-white" asp-for="Model.Email">E-mail</label>
                     <input type="email" asp-for="Model.Email" class="form-control" />
                     <span asp-validation-for="Model.Email" class="text-danger"></span>
                 </div>
 
                 <div class="mb-3">
-                    <label class="form-label text-white" asp-for="Model.Password">Password</label>
+                    <label class="form-label text-white" asp-for="Model.Password">Wachtwoord</label>
                     <input type="password" asp-for="Model.Password" class="form-control" />
                     <span asp-validation-for="Model.Password" class="text-danger"></span>
 
-                    <div class="mb-3">
-                        <label class="form-label text-white" asp-for="Model.ConfirmPassword">Confirm Password</label>
+                    <div class="mt-3">
+                        <label class="form-label text-white" asp-for="Model.ConfirmPassword">Bevestig Wachtwoord</label>
                         <input type="password" asp-for="Model.ConfirmPassword" class="form-control" />
                         <span asp-validation-for="Model.ConfirmPassword" class="text-danger"></span>
                     </div>
-                    <div class="mb-3">
+                    <div class="mt-3">
                         <button type="submit" class="btn btn-primary">Register</button>
                     </div>
                 </div>

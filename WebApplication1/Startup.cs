@@ -43,6 +43,25 @@ namespace WebApplication1
             {
                 config.LoginPath = "/Login";
             });
+
+            services.Configure<SecurityStampValidatorOptions>(options =>
+            {
+                options.ValidationInterval = TimeSpan.FromMinutes(0);
+            });
+
+            services.AddAuthorization(options =>
+            {
+                options.AddPolicy("Users-Create", policy => policy.RequireClaim("Users-View"));
+                options.AddPolicy("Users-View", policy => policy.RequireClaim("Users-View"));
+                options.AddPolicy("Users-Details", policy => policy.RequireClaim("Users-Details"));
+                options.AddPolicy("Users-Edit", policy => policy.RequireClaim("Users-Edit"));
+                options.AddPolicy("Users-Delete", policy => policy.RequireClaim("Users-Delete"));
+                options.AddPolicy("Roles-Create", policy => policy.RequireClaim("Roles-View"));
+                options.AddPolicy("Roles-View", policy => policy.RequireClaim("Roles-View"));
+                options.AddPolicy("Roles-Details", policy => policy.RequireClaim("Roles-Details"));
+                options.AddPolicy("Roles-Edit", policy => policy.RequireClaim("Roles-Edit"));
+                options.AddPolicy("Roles-Delete", policy => policy.RequireClaim("Roles-Delete"));
+            });
         }
 
          // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

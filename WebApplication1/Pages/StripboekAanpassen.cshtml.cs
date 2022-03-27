@@ -24,11 +24,16 @@ namespace WebApplication1.Pages
             return RedirectToPage("StripboekAanpassen", new {id = id});
         }
 
-        public void OnPostSend()
+        public IActionResult OnPostSend()
         {
             if (StripboekInformatie != null)
+            {
                 new StripboekenAanpassenRepository().StripboekAanpassen(Versie);
-        }
+                return RedirectToPage("AdminPagina");
+            }
+            return Page();
 
+
+        }
     }
 }

@@ -6,7 +6,7 @@ DROP PROCEDURE IF EXISTS StripboekToevoegen;
 CREATE PROCEDURE StripboekToevoegen(
 
 #Versie
-    versie_idVAR int, afbeelding_urlVAR varchar(200), isbnVAR varchar(50), datumVAR date, drukVAR int, prijsVAR float,
+    afbeelding_urlVAR varchar(200), isbnVAR varchar(50), datumVAR date, drukVAR int, prijsVAR float,
 
 #Uitgave
     naamVAR VARCHAR(100), hoogteVAR INT, beschrijvingVAR VARCHAR(255), nsfwVar bool,
@@ -28,7 +28,11 @@ CREATE PROCEDURE StripboekToevoegen(
 
 #Persoon
     voornaamARRAY varchar(200),
-    achternaamARRAY varchar(200))
+    achternaamARRAY varchar(200),
+
+#length
+    length int)
+
 BEGIN
 
     #Reeks
@@ -66,115 +70,117 @@ BEGIN
     )
       AND cat_naamVAR = categorie.cat_naam
       AND reeks_naamVAR = reeks.reeks_naam;
+    
+        #Versie
+        INSERT ignore Versie(Versie_id, afbeelding_url, isbn, datum, druk, prijs, uitgever_id, uitgave_id)
+        SELECT null,
+               afbeelding_urlVAR,
+               isbnVAR,
+               datumVAR,
+               drukVAR,
+               prijsVAR,
+               uitgever_id,
+               uitgave_id
+        FROM uitgever,
+             uitgave
+        WHERE isbnVAR NOT IN (
+            SELECT isbn
+            from versie);
 
-    #Versie
-    INSERT INTO Versie(Versie_id, afbeelding_url, isbn, datum, druk, prijs, uitgever_id, uitgave_id)
-    SELECT null,
-           afbeelding_urlVAR,
-           isbnVAR,
-           datumVAR,
-           drukVAR,
-           prijsVAR,
-           uitgever_id,
-           uitgave_id
-    FROM uitgever,
-         uitgave
-    WHERE isbnVAR NOT IN (
-        SELECT Versie.isbn
-        FROM Versie
-    )
-      AND (uitgever_naamVAR = uitgever.uitgever_naam AND naamVAR = uitgave.naam);
+        #StatusUitgave
+        INSERT INTO statusuitgave(status, gebruiker_id, versie_id)
+        SELECT false, Id, Versie.Versie_id
+        FROM versie,
+             gebruiker
+        WHERE versie.isbn = isbnVAR
+          and gebruiker_idVAR = gebruiker.Id;
 
-    #StatusUitgave
-    INSERT INTO statusuitgave(status, gebruiker_id, versie_id)
-    SELECT false, Id, Versie.Versie_id
-    FROM versie,
-         gebruiker
-    WHERE versie.isbn = isbnVAR
-      and gebruiker_idVAR = gebruiker.Id;
+        BEGIN
+            #declare
+            DECLARE counter INT DEFAULT 1;
+            DECLARE voornaamSingle varchar(50);
+            DECLARE achternaamSingle varchar(50);
+            DECLARE rolSingle varchar(50);
+            DECLARE versieID int;
+            SET versieID = @versie_id;
+            SELECT versieID;
 
-    BEGIN
-        #declare
-        DECLARE counter INT DEFAULT 1;
-        DECLARE voornaamSingle varchar(50);
-        DECLARE achternaamSingle varchar(50);
-        DECLARE rolSingle varchar(50);
+            #while loop
+            WHILE counter <= length
+                DO
+                    #haal array uit elkaar
+                    SET voornaamSingle = substring_index(
+                            substring_index(voornaamARRAY, ',', counter)
+                        , ',', -1);
+                    SET achternaamSingle = substring_index(
+                            substring_index(achternaamARRAY, ',', counter)
+                        , ',', -1);
+                    SET rolSingle = substring_index(
+                            substring_index(rolARRAY, ',', counter)
+                        , ',', -1);
+                    
+                    #als voornaam en achternaam niet bestaat
+                    if (
+                                voornaamSingle NOT IN (
+                                SELECT voornaam
+                                FROM persoon
+                            ) or achternaamSingle NOT IN (
+                            SELECT achternaam
+                            FROM persoon))
 
-#while loop (kan misschien nog in een declare?)
-        WHILE counter <= (SELECT count(i.persoon_id)
-                          from persoon
-                                   INNER JOIN isgemaaktdoor i on persoon.persoon_id = i.persoon_id)
-            DO
-                SET voornaamSingle = substring_index(
-                        substring_index(voornaamARRAY, ',', counter)
-                    , ',', -1);
-                SET achternaamSingle = substring_index(
-                        substring_index(achternaamARRAY, ',', counter)
-                    , ',', -1);
-                SET rolSingle = substring_index(
-                        substring_index(rolARRAY, ',', counter)
-                    , ',', -1);
+                        #insert into individueel id per met voornaam achternaam
+                    THEN
+                        INSERT INTO persoon(persoon_id, voornaam, achternaam)
+                        SELECT
 
-                #als voornaam/achternaam niet bestaat
-                if (
-                            voornaamSingle NOT IN (
-                            SELECT voornaam
-                            FROM persoon
-                        )
-                        and achternaamSingle NOT IN (
-                        SELECT achternaam
-                        FROM persoon))
+                            #persoon_id
+                            null,
 
-                    #insert into individueel id per met voornaam achternaam
-                THEN
-                    INSERT INTO persoon(persoon_id, voornaam, achternaam)
-                    SELECT
+                            #voornaam
+                            voornaamSingle,
 
-                        #persoon_id
-                        null,
+                            #achternaam
+                            achternaamSingle;
 
-                        #voornaam
-                        voornaamSingle,
+                        INSERT INTO isgemaaktdoor(rol, persoon_id, versie_id)
+                        SELECT
 
-                        #achternaam
-                        achternaamSingle;
+                            #rol
+                            rolSingle,
 
-                    INSERT INTO isgemaaktdoor(rol, persoon_id, versie_id)
-                    SELECT
+                            #persoon_id
+                            (SELECT LAST_INSERT_ID()
+                             FROM persoon
+                             LIMIT 1),
 
-                        #rol
-                        rolSingle,
+                            #versie_id
+                            (select Versie_id
+                             from versie
+                             where isbn = isbnVAR limit 1);
+                        #als de voornaam/achternaam wel bestaat
 
-                        #persoon_id
-                        (SELECT LAST_INSERT_ID()
-                         FROM persoon
-                         LIMIT 1),
 
-                        #versie_id
-                        versie_idVAR;
+                    else
 
-                    #als de voornaam/achternaam wel bestaat
-                else
-                    insert into isgemaaktdoor(rol, persoon_id, versie_id)
-                    SELECT
+                        insert ignore isgemaaktdoor(rol, persoon_id, versie_id)
+                        SELECT
+                            #rol
+                            rolSingle,
 
-                        #rol
-                        rolSingle,
+                            #persoon_id
+                            (SELECT persoon_id
+                             FROM persoon
+                             WHERE voornaam = voornaamSingle
+                               and achternaam = achternaamSingle),
 
-                        #persoon_id
-                        (SELECT persoon_id
-                         FROM persoon
-                         WHERE voornaam = voornaamSingle
-                           and achternaam = achternaamSingle),
-
-                        #versie_id
-                        versie_idVAR
-                    ON DUPLICATE KEY UPDATE rol = rolSingle;
-
-                end if;
-
-                #counter++
-                SET counter = counter + 1;
-            END WHILE;
-    end;
-END;
+                            #versie_id
+                        (select Versie_id
+                        from versie
+                        where isbn = isbnVAR limit 1)
+                        ON DUPLICATE KEY UPDATE rol = rolSingle;
+                    end if;
+                    #counter++
+                    SET counter = counter + 1;
+                END WHILE;
+        end;
+END

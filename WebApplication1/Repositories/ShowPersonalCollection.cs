@@ -9,15 +9,24 @@ namespace WebApplication1.Repositories
 {
     public class ShowPersonalCollection : DbConnection
     {
-        public List<Bezit> GetCollection(Bezit bezit)
+        public List<Bezit> GetCollection(string gebruikerId)
         {
             using IDbConnection verbinding = Connect();
+                const string procudure = "HaalPersoonlijkeCollectieOp";
 
-            IEnumerable<Bezit> personalCollection = verbinding.Query<Bezit>(
-                @"SELECT rating, staat, Bezit.beschrijving, hoeveelheid, prijs_betaald, k.gebruikersnaam, u.* FROM ((Bezit
-                        INNER JOIN klant k on Bezit.gebruikersnaam = k.gebruikersnaam)
-                        INNER JOIN uitgave u on Bezit.isbn = u.isbn)
-                        WHERE k.gebruikersnaam = 'sjonnie4332';", bezit);
+            var param = new
+            {
+                gebruiker_id = gebruikerId
+            };
+
+            IEnumerable<Bezit> personalCollection = verbinding.Query<Bezit, Versie, Uitgave, Bezit>(
+                procudure,
+                (bezit, versie, uitgave) =>
+                {
+                    bezit.Versie = versie;
+                    bezit.Uitgave = uitgave;
+                    return bezit;
+                }, param, splitOn:"Versie_id, uitgave_id", commandType: CommandType.StoredProcedure);
 
             return personalCollection.ToList();
         }

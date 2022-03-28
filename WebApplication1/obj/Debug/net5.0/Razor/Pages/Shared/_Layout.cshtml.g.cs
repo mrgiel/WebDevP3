@@ -13,14 +13,14 @@ namespace WebApplication1.Pages.Shared
     using Microsoft.AspNetCore.Mvc.Rendering;
     using Microsoft.AspNetCore.Mvc.ViewFeatures;
 #nullable restore
-#line 1 "C:\Users\gbuss\Desktop\WebDevP3\WebApplication1\Pages\_ViewImports.cshtml"
+#line 1 "/home/ruho/Documents/WebDevP3/WebApplication1/Pages/_ViewImports.cshtml"
 using WebApplication1;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 1 "C:\Users\gbuss\Desktop\WebDevP3\WebApplication1\Pages\Shared\_Layout.cshtml"
+#line 1 "/home/ruho/Documents/WebDevP3/WebApplication1/Pages/Shared/_Layout.cshtml"
 using Microsoft.AspNetCore.Identity;
 
 #line default
@@ -67,9 +67,9 @@ using Microsoft.AspNetCore.Identity;
         private global::Microsoft.AspNetCore.Mvc.Razor.TagHelpers.HeadTagHelper __Microsoft_AspNetCore_Mvc_Razor_TagHelpers_HeadTagHelper;
         private global::Microsoft.AspNetCore.Mvc.Razor.TagHelpers.UrlResolutionTagHelper __Microsoft_AspNetCore_Mvc_Razor_TagHelpers_UrlResolutionTagHelper;
         private global::Microsoft.AspNetCore.Mvc.Razor.TagHelpers.BodyTagHelper __Microsoft_AspNetCore_Mvc_Razor_TagHelpers_BodyTagHelper;
+        private global::Microsoft.AspNetCore.Mvc.TagHelpers.AnchorTagHelper __Microsoft_AspNetCore_Mvc_TagHelpers_AnchorTagHelper;
         private global::Microsoft.AspNetCore.Mvc.TagHelpers.FormTagHelper __Microsoft_AspNetCore_Mvc_TagHelpers_FormTagHelper;
         private global::Microsoft.AspNetCore.Mvc.TagHelpers.RenderAtEndOfFormTagHelper __Microsoft_AspNetCore_Mvc_TagHelpers_RenderAtEndOfFormTagHelper;
-        private global::Microsoft.AspNetCore.Mvc.TagHelpers.AnchorTagHelper __Microsoft_AspNetCore_Mvc_TagHelpers_AnchorTagHelper;
         private global::Microsoft.AspNetCore.Mvc.TagHelpers.ScriptTagHelper __Microsoft_AspNetCore_Mvc_TagHelpers_ScriptTagHelper;
         #pragma warning disable 1998
         public async override global::System.Threading.Tasks.Task ExecuteAsync()
@@ -78,7 +78,19 @@ using Microsoft.AspNetCore.Identity;
             __tagHelperExecutionContext = __tagHelperScopeManager.Begin("head", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "0366e3c6cda38547cf404d0261d6264c710084e58069", async() => {
                 WriteLiteral("\r\n    <meta charset=\"utf-8\" />\r\n    <meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\" />\r\n    <title>");
 #nullable restore
-#line (8,13)-(8,30) 6 "C:\Users\gbuss\Desktop\WebDevP3\WebApplication1\Pages\Shared\_Layout.cshtml"
+#line 5 "/home/ruho/Documents/WebDevP3/WebApplication1/Pages/Shared/_Layout.cshtml"
+  
+    GebruikerRepo gebruiker = new();
+    string gebruikerId = gebruiker.HaalIdOp();
+
+#line default
+#line hidden
+#nullable disable
+            WriteLiteral("<!DOCTYPE html>\n<html lang=\"en\">\n");
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("head", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "38a369b64c8c6a535ca63b987d1623243428aed69614", async() => {
+                WriteLiteral("\n    <meta charset=\"utf-8\" />\n    <meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\" />\n    <title>");
+#nullable restore
+#line (14,13)-(14,30) 6 "/home/ruho/Documents/WebDevP3/WebApplication1/Pages/Shared/_Layout.cshtml"
 Write(ViewData["Title"]);
 
 #line default
@@ -114,7 +126,7 @@ Write(ViewData["Title"]);
                 }
                 Write(__tagHelperExecutionContext.Output);
                 __tagHelperExecutionContext = __tagHelperScopeManager.End();
-                WriteLiteral("\r\n\r\n\r\n");
+                WriteLiteral("\n\n\n");
             }
             );
             __Microsoft_AspNetCore_Mvc_Razor_TagHelpers_HeadTagHelper = CreateTagHelper<global::Microsoft.AspNetCore.Mvc.Razor.TagHelpers.HeadTagHelper>();
@@ -203,11 +215,11 @@ Write(ViewData["Title"]);
                 __tagHelperExecutionContext.Add(__Microsoft_AspNetCore_Mvc_TagHelpers_FormTagHelper);
                 __Microsoft_AspNetCore_Mvc_TagHelpers_RenderAtEndOfFormTagHelper = CreateTagHelper<global::Microsoft.AspNetCore.Mvc.TagHelpers.RenderAtEndOfFormTagHelper>();
                 __tagHelperExecutionContext.Add(__Microsoft_AspNetCore_Mvc_TagHelpers_RenderAtEndOfFormTagHelper);
-                __tagHelperExecutionContext.AddHtmlAttribute(__tagHelperAttribute_5);
-                __tagHelperExecutionContext.AddHtmlAttribute(__tagHelperAttribute_6);
                 __tagHelperExecutionContext.AddHtmlAttribute(__tagHelperAttribute_7);
-                __Microsoft_AspNetCore_Mvc_TagHelpers_FormTagHelper.Method = (string)__tagHelperAttribute_8.Value;
-                __tagHelperExecutionContext.AddTagHelperAttribute(__tagHelperAttribute_8);
+                __tagHelperExecutionContext.AddHtmlAttribute(__tagHelperAttribute_8);
+                __tagHelperExecutionContext.AddHtmlAttribute(__tagHelperAttribute_9);
+                __Microsoft_AspNetCore_Mvc_TagHelpers_FormTagHelper.Method = (string)__tagHelperAttribute_10.Value;
+                __tagHelperExecutionContext.AddTagHelperAttribute(__tagHelperAttribute_10);
                 await __tagHelperRunner.RunAsync(__tagHelperExecutionContext);
                 if (!__tagHelperExecutionContext.Output.IsContentModified)
                 {
@@ -282,10 +294,10 @@ Write(RenderBody());
                 );
                 __Microsoft_AspNetCore_Mvc_TagHelpers_AnchorTagHelper = CreateTagHelper<global::Microsoft.AspNetCore.Mvc.TagHelpers.AnchorTagHelper>();
                 __tagHelperExecutionContext.Add(__Microsoft_AspNetCore_Mvc_TagHelpers_AnchorTagHelper);
-                __Microsoft_AspNetCore_Mvc_TagHelpers_AnchorTagHelper.Area = (string)__tagHelperAttribute_9.Value;
-                __tagHelperExecutionContext.AddTagHelperAttribute(__tagHelperAttribute_9);
-                __Microsoft_AspNetCore_Mvc_TagHelpers_AnchorTagHelper.Page = (string)__tagHelperAttribute_10.Value;
-                __tagHelperExecutionContext.AddTagHelperAttribute(__tagHelperAttribute_10);
+                __Microsoft_AspNetCore_Mvc_TagHelpers_AnchorTagHelper.Area = (string)__tagHelperAttribute_11.Value;
+                __tagHelperExecutionContext.AddTagHelperAttribute(__tagHelperAttribute_11);
+                __Microsoft_AspNetCore_Mvc_TagHelpers_AnchorTagHelper.Page = (string)__tagHelperAttribute_12.Value;
+                __tagHelperExecutionContext.AddTagHelperAttribute(__tagHelperAttribute_12);
                 await __tagHelperRunner.RunAsync(__tagHelperExecutionContext);
                 if (!__tagHelperExecutionContext.Output.IsContentModified)
                 {
@@ -325,7 +337,7 @@ __Microsoft_AspNetCore_Mvc_TagHelpers_ScriptTagHelper.AppendVersion = true;
                 }
                 Write(__tagHelperExecutionContext.Output);
                 __tagHelperExecutionContext = __tagHelperScopeManager.End();
-                WriteLiteral("\r\n\r\n    ");
+                WriteLiteral("\n\n    ");
 #nullable restore
 #line (112,6)-(112,58) 6 "C:\Users\gbuss\Desktop\WebDevP3\WebApplication1\Pages\Shared\_Layout.cshtml"
 Write(await RenderSectionAsync("Scripts", required: false));
@@ -333,7 +345,7 @@ Write(await RenderSectionAsync("Scripts", required: false));
 #line default
 #line hidden
 #nullable disable
-                WriteLiteral("\r\n");
+                WriteLiteral("\n");
             }
             );
             __Microsoft_AspNetCore_Mvc_Razor_TagHelpers_BodyTagHelper = CreateTagHelper<global::Microsoft.AspNetCore.Mvc.Razor.TagHelpers.BodyTagHelper>();
@@ -345,7 +357,7 @@ Write(await RenderSectionAsync("Scripts", required: false));
             }
             Write(__tagHelperExecutionContext.Output);
             __tagHelperExecutionContext = __tagHelperScopeManager.End();
-            WriteLiteral("\r\n</html>\r\n");
+            WriteLiteral("\n</html>\n");
         }
         #pragma warning restore 1998
         #nullable restore

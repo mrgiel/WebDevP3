@@ -1,0 +1,103 @@
+@page
+@using Microsoft.AspNetCore.Identity
+@using WebApplication1.Models.Klasse
+@using WebApplication1.Repositories
+@model WebApplication1.Pages.StripboekGoedkeuren
+@inject SignInManager<IdentityUser> SignInManager
+
+@if (new GebruikerRepo().HaalRolOp() != "admin")
+{
+    Response.Redirect("Login");
+}
+else
+{
+    <div class="content">
+        @foreach (var uitgave in Model.Stripboeken)
+        {
+            <div class="row">
+                <div class="col-md-12">
+                    
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-4"><img class="mx-auto d-block" src="@uitgave.afbeelding_url"></img></div>
+                <div class="col-md-8">
+                    <table>
+                        <thead>
+                        <tr>
+                            <th scope="col">ISBN</th>
+                            <th scope="col">Druk</th>
+                            <th scope="col">Reeks</th>
+                            <th scope="col">Titel</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        {
+                        <tr>
+                            <td data-label="ISBN">@uitgave.isbn</td>
+                            <td data-label="Druk">@uitgave.druk</td>
+                            <td data-label="Reeks">@uitgave.Uitgave.Reeks.reeks_naam</td>
+                            <td data-label="Titel">@uitgave.Uitgave.naam</td>
+                        </tr>
+                        </tbody>
+                        <thead>
+                        <tr>
+                            <th scope="col">Datum</th>
+                            <th scope="col">Prijs</th>
+                            <th scope="col">Hoogte</th>
+                            <th scope="col">NSFW</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr>
+                            <td data-label="Datum">@uitgave.datum.ToString("dd/MM/yyyy")</td>
+                            <td data-label="Prijs">€@uitgave.prijs</td>
+                            <td data-label="Hoogte">@uitgave.Uitgave.hoogte cm</td>
+                            <td data-label="nsfw">@uitgave.Uitgave.nsfw</td>
+                        </tr>
+                        </tbody>
+                        <thead>
+                        <tr>
+                            <th scope="col">Uitgever</th>
+                            <th scope="col">Categorie</th>
+                            <th scope="col">Schrijver</th>
+                            <th scope="col">Tekenaar</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr>
+                            <td data-label="Uitgever">@uitgave.Uitgever.uitgever_naam</td>
+                            <td data-label="Categorie">@uitgave.Uitgave.Categorie.cat_naam</td>
+                            <td data-label="Schrijver">
+                                @if (@uitgave.IsGemaaktDoor.rol == RolPersoon.auteur)
+                                {<text>@uitgave.IsGemaaktDoor.Persoon.voornaam @uitgave.IsGemaaktDoor.Persoon.achternaam</text>}
+                            </td>
+                            <td data-label="Tekenaar">
+                                @if (@uitgave.IsGemaaktDoor.rol == RolPersoon.tekenaar)
+                                {<text>@uitgave.IsGemaaktDoor.Persoon.voornaam @uitgave.IsGemaaktDoor.Persoon.achternaam</text>}
+                            </td>
+                        </tr>
+                        </tbody>
+                        <thead>
+                        <tr>
+                            <th scope="col" colspan="4">Beschrijving</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr>
+                            <td colspan="4" data-label="Beschrijving">@uitgave.Uitgave.beschrijving</td>
+                        </tr>
+                        </tbody>
+                        }
+                    </table>
+                      <form method="post">
+                          <button asp-page="StripboekGoedkeuren" asp-page-handler="Goedkeuren" asp-route-id="@uitgave.versie_id">Goedkeuren</button>
+                      </form>
+                    <form method="post">
+                        <button asp-page="AdminPagina" asp-page-handler="Verwijderen" asp-route-id="@uitgave.versie_id">Afwijzen</button>
+                    </form>
+                </div>
+            </div>
+        }
+    </div>
+}

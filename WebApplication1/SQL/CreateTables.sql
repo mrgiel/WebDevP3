@@ -125,7 +125,7 @@ CREATE TABLE IsGemaaktDoor
     rol ENUM('Auteur', 'Tekenaar') NOT NULL,
     persoon_id INT NOT NULL,
     versie_id INT NOT NULL,
-    PRIMARY KEY (persoon_id, versie_id),
+    PRIMARY KEY (rol, persoon_id, versie_id),
     FOREIGN KEY (persoon_id) REFERENCES Persoon (persoon_id),
     FOREIGN KEY (versie_id) REFERENCES Versie(versie_id)
 );

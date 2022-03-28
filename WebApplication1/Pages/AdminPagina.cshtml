@@ -34,6 +34,7 @@ else
                         <th scope="col">Status</th>
                         <th scope="col">Verwijderen</th>
                         <th scope="col">Aanpassen</th>
+                        <th scope="col">Goedkeuren</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -53,6 +54,11 @@ else
                             <td data-label="Aanpassen">
                                 <form method="post">
                                     <button asp-page="StripboekAanpassen" asp-page-handler="Aanpassen" asp-route-id="@uitgave.versie_id">Aanpassen</button>
+                                </form>
+                            </td>
+                            <td data-label="Goedkeuren">
+                                <form method="post">
+                                    <button asp-page="StripboekGoedkeuren" asp-route-versie_id="@uitgave.versie_id">Goedkeuren</button>
                                 </form>
                             </td>
                         </tr>

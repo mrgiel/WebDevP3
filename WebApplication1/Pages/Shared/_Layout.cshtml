@@ -1,5 +1,11 @@
 ﻿@using Microsoft.AspNetCore.Identity
+@using WebApplication1.Models.Klasse
+@using WebApplication1.Repositories
 @inject SignInManager<IdentityUser> SignInManager
+@{
+    GebruikerRepo gebruiker = new();
+    string gebruikerId = gebruiker.HaalIdOp();
+}
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -47,6 +53,12 @@
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="#">Nieuwste comics</a>
+                        </li>
+                        <li class="nav-item">
+                            @if (SignInManager.IsSignedIn(User))
+                            {
+                                <a class="nav-link" asp-route-id="@gebruikerId" asp-page="personalCollection">Mijn collectie</a>
+                            }
                         </li>
                         <li class="nav-item">
                             <div class="expSearchBox">

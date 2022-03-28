@@ -172,13 +172,14 @@
     </div>
     @{
         var length = Model.PersoonArray != null ? (Model.PersoonArray.Split(',').Length - 1) / 2 : 1;
+        var lengthAuteur = Model.AuteurArray != null ? (Model.AuteurArray.Split(',').Length - 1) / 2 : 1;
     }
 
     @section Scripts{
         <script> 
          addTekenaar(@length);
-         addAuteur(@length);
-         fill('@Model.PersoonArray');
+         addAuteur(@lengthAuteur);
+         fill('@Model.PersoonArray', '@Model.AuteurArray');
         </script>
     }
 

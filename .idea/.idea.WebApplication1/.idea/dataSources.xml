@@ -1,18 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="DataSourceManagerImpl" format="xml" multifile-model="true">
-    <data-source source="LOCAL" name="DbExample@localhost" uuid="f4c1be42-69dd-452a-a443-f9b98b1b6240">
+    <data-source source="LOCAL" name="stripboeken" uuid="cf856301-f4d2-4176-9f27-6de848940923">
       <driver-ref>mysql.8</driver-ref>
       <synchronize>true</synchronize>
       <jdbc-driver>com.mysql.cj.jdbc.Driver</jdbc-driver>
-      <jdbc-url>jdbc:mysql://localhost:3306/DbExample</jdbc-url>
-      <working-dir>$ProjectFileDir$</working-dir>
-    </data-source>
-    <data-source source="LOCAL" name="stripboekendb@localhost" uuid="b390907a-c325-4abb-8bab-2b20afdd6827">
-      <driver-ref>mysql.8</driver-ref>
-      <synchronize>true</synchronize>
-      <jdbc-driver>com.mysql.cj.jdbc.Driver</jdbc-driver>
-      <jdbc-url>jdbc:mysql://localhost:3306/stripboekendb</jdbc-url>
+      <jdbc-url>jdbc:mysql://localhost:3306/stripboeken</jdbc-url>
       <working-dir>$ProjectFileDir$</working-dir>
     </data-source>
   </component>

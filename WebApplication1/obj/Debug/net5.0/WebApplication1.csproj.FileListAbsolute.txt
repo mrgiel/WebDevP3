@@ -292,3 +292,4 @@ C:\Users\gbuss\Documents\GitHub\WebDevP3\WebApplication1\obj\Debug\net5.0\Razor\
 C:\Users\gbuss\Documents\GitHub\WebDevP3\WebApplication1\obj\Debug\net5.0\Razor\Pages\Zoek.cshtml.g.cs
 C:\Users\gbuss\Desktop\WebDevP3\WebApplication1\obj\Debug\net5.0\Razor\Pages\GebruikerPagina.cshtml.g.cs
 C:\Users\gbuss\Desktop\WebDevP3\WebApplication1\obj\Debug\net5.0\Razor\Pages\GebruikersAanpassen.cshtml.g.cs
+C:\Users\gbuss\Desktop\WebDevP3\WebApplication1\obj\Debug\net5.0\Razor\Pages\StripboekGoedkeuren.cshtml.g.cs

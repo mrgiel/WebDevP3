@@ -6,6 +6,7 @@ namespace WebApplication1.Models.Klasse
 
     public class Versie
     {
+        public string reeks_naam;
         public int versie_id { get; init; }
 
         public int id { get; set; }
@@ -25,5 +26,6 @@ namespace WebApplication1.Models.Klasse
         public Uitgever Uitgever { get; set; }
 
         public IsGemaaktDoor IsGemaaktDoor { get; set; }
+        public  Reeks Reeks { get; set; }
     }
 }

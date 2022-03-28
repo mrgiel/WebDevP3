@@ -7,11 +7,21 @@ using Microsoft.AspNetCore.Mvc.Formatters.Xml;
 using Microsoft.EntityFrameworkCore.Query.Internal;
 using WebApplication1.Models;
 using WebApplication1.Models.Klasse;
+using WebApplication1.Pages;
 
 namespace WebApplication1.Repositories
 {
     public class QueryOmOverzichtTeCreerenRepository : DbConnection
     {
+        public void VoegToeAanCollectie()
+        {
+            //stored procedure van haal collectie op
+            const string sql = "VoegToeAanCollectie";
+            
+            //connect to database
+            using var connection = Connect();
+        }
+
         public IEnumerable<Versie> HaalCollectieOpRepo()
         {
             //stored procedure van haal collectie op

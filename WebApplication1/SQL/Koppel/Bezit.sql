@@ -3,7 +3,7 @@ DROP TABLE IF EXISTS BEZIT;
 CREATE TABLE Bezit
 (
     rating INT DEFAULT 1,
-    staat ENUM('slecht', 'gemiddeld', 'goed') NOT NULL,
+    staat ENUM('slecht', 'gemiddeld', 'goed'),
     beschrijving VARCHAR(255),
     hoeveelheid INT DEFAULT 1,
     prijs_betaald DECIMAL(6,2) DEFAULT 0.00,

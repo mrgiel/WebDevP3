@@ -9,6 +9,8 @@
     <PackageReference Include="Dapper" Version="2.0.123" />
     <PackageReference Include="MySql.Data" Version="8.0.28" />
     <Folder Include="wwwroot\NewFolder\" />
+    <PackageReference Include="SkiaSharp.Svg" Version="1.60.0" />
+    <PackageReference Include="Svg" Version="3.4.1" />
   </ItemGroup>
 
   <ItemGroup>

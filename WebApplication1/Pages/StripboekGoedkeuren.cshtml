@@ -51,9 +51,9 @@ else
                         <tbody>
                         <tr>
                             <td data-label="Datum">@uitgave.datum.ToString("dd/MM/yyyy")</td>
-                            <td data-label="Prijs">€@uitgave.prijs</td>
+                            <td data-label="Prijs">€@uitgave.prijs.ToString("0.00")</td>
                             <td data-label="Hoogte">@uitgave.Uitgave.hoogte cm</td>
-                            <td data-label="nsfw">@uitgave.Uitgave.nsfw</td>
+                            <td data-label="nsfw">@if (@uitgave.Uitgave.nsfw){<span>Ja</span>}Nee</td>
                         </tr>
                         </tbody>
                         <thead>

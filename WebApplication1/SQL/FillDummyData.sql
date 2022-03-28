@@ -1,19 +1,19 @@
 INSERT INTO Gebruiker (Id, UserName, rol, Email, 18_plus, PasswordHash) VALUES ('1','ruho20', 'moderator', 'ruben.hoekuma@hotmail.com', True, MD5('wachtwoord1'));
 
-INSERT INTO Categorie (cat_naam) VALUE ('drama');
-INSERT INTO Categorie (cat_naam) VALUE ('comedy');
-INSERT INTO Categorie (cat_naam) VALUE ('avontuur');
-INSERT INTO Categorie (cat_naam) VALUE ('actie');
-INSERT INTO Categorie (cat_naam) VALUE ('horror');
-INSERT INTO Categorie (cat_naam) VALUE ('romance');
-INSERT INTO Categorie (cat_naam) VALUE ('educatief');
-INSERT INTO Categorie (cat_naam) VALUE ('manga');
-INSERT INTO Categorie (cat_naam) VALUE ('sensueel');
-INSERT INTO Categorie (cat_naam) VALUE ('historisch');
-INSERT INTO Categorie (cat_naam) VALUE ('zwart-wit');
-INSERT INTO Categorie (cat_naam) VALUE ('kleur');
-INSERT INTO Categorie (cat_naam) VALUE ('kinder');
-INSERT INTO Categorie (cat_naam) VALUE ('anime');
+INSERT INTO Categorie (cat_naam) VALUE ('Drama');
+INSERT INTO Categorie (cat_naam) VALUE ('Comedy');
+INSERT INTO Categorie (cat_naam) VALUE ('Avontuur');
+INSERT INTO Categorie (cat_naam) VALUE ('Actie');
+INSERT INTO Categorie (cat_naam) VALUE ('Horror');
+INSERT INTO Categorie (cat_naam) VALUE ('Romance');
+INSERT INTO Categorie (cat_naam) VALUE ('Educatief');
+INSERT INTO Categorie (cat_naam) VALUE ('Manga');
+INSERT INTO Categorie (cat_naam) VALUE ('Sensueel');
+INSERT INTO Categorie (cat_naam) VALUE ('Historisch');
+INSERT INTO Categorie (cat_naam) VALUE ('Zwart-wit');
+INSERT INTO Categorie (cat_naam) VALUE ('Kleur');
+INSERT INTO Categorie (cat_naam) VALUE ('Kinder');
+INSERT INTO Categorie (cat_naam) VALUE ('Anime');
 
 INSERT INTO Reeks (reeks_naam) VALUE('Suske & Wiske');
 INSERT INTO Reeks (reeks_naam) VALUE ('Donald Duck');

@@ -186,7 +186,6 @@ G:\Mijn Drive\Periode3\Project\Comic2\WebApplication1\obj\Debug\net5.0\Razor\Pag
 G:\Mijn Drive\Periode3\Project\Comic2\WebApplication1\obj\Debug\net5.0\Razor\Pages\personalCollection.cshtml.g.cs
 G:\Mijn Drive\Periode3\Project\Comic2\WebApplication1\obj\Debug\net5.0\Razor\Pages\Privacy.cshtml.g.cs
 G:\Mijn Drive\Periode3\Project\Comic2\WebApplication1\obj\Debug\net5.0\Razor\Pages\Register.cshtml.g.cs
-G:\Mijn Drive\Periode3\Project\Comic2\WebApplication1\obj\Debug\net5.0\Razor\Pages\Search.cshtml.g.cs
 G:\Mijn Drive\Periode3\Project\Comic2\WebApplication1\obj\Debug\net5.0\Razor\Pages\Shared\_Layout.cshtml.g.cs
 G:\Mijn Drive\Periode3\Project\Comic2\WebApplication1\obj\Debug\net5.0\Razor\Pages\Shared\_ValidationScriptsPartial.cshtml.g.cs
 G:\Mijn Drive\Periode3\Project\Comic2\WebApplication1\obj\Debug\net5.0\Razor\Pages\_ViewImports.cshtml.g.cs
@@ -205,7 +204,6 @@ G:\Mijn Drive\Periode3\Project\Comic2\WebApplication1\bin\Debug\net5.0\WebApplic
 G:\Mijn Drive\Periode3\Project\Comic2\WebApplication1\bin\Debug\net5.0\WebApplication1.runtimeconfig.json
 G:\Mijn Drive\Periode3\Project\Comic2\WebApplication1\bin\Debug\net5.0\WebApplication1.runtimeconfig.dev.json
 G:\Mijn Drive\Periode3\Project\Comic2\WebApplication1\bin\Debug\net5.0\WebApplication1.dll
-G:\Mijn Drive\Periode3\Project\Comic2\WebApplication1\bin\Debug\net5.0\ref\WebApplication1.dll
 G:\Mijn Drive\Periode3\Project\Comic2\WebApplication1\bin\Debug\net5.0\WebApplication1.pdb
 G:\Mijn Drive\Periode3\Project\Comic2\WebApplication1\bin\Debug\net5.0\WebApplication1.Views.dll
 G:\Mijn Drive\Periode3\Project\Comic2\WebApplication1\bin\Debug\net5.0\WebApplication1.Views.pdb
@@ -239,7 +237,6 @@ G:\Mijn Drive\Periode3\Project\Comic2\WebApplication1\obj\Debug\net5.0\WebApplic
 G:\Mijn Drive\Periode3\Project\Comic2\WebApplication1\obj\Debug\net5.0\WebApplication1.csproj.CopyComplete
 G:\Mijn Drive\Periode3\Project\Comic2\WebApplication1\obj\Debug\net5.0\WebApplication1.genruntimeconfig.cache
 G:\Mijn Drive\Periode3\Project\Comic2\WebApplication1\obj\Debug\net5.0\Razor\Pages\QueryOmOverzichtTeCreeren.cshtml.g.cs
-G:\Mijn Drive\Periode3\Project\Comic2\WebApplication1\obj\Debug\net5.0\Razor\Pages\Toevoegen.cshtml.g.cs
 C:\Users\gbuss\Desktop\WebDevP3\WebApplication1\bin\Debug\net5.0\Humanizer.dll
 C:\Users\gbuss\Desktop\WebDevP3\WebApplication1\bin\Debug\net5.0\Microsoft.AspNetCore.Cryptography.Internal.dll
 C:\Users\gbuss\Desktop\WebDevP3\WebApplication1\bin\Debug\net5.0\Microsoft.AspNetCore.Cryptography.KeyDerivation.dll
@@ -292,3 +289,13 @@ C:\Users\gbuss\Documents\GitHub\WebDevP3\WebApplication1\obj\Debug\net5.0\Razor\
 C:\Users\gbuss\Documents\GitHub\WebDevP3\WebApplication1\obj\Debug\net5.0\Razor\Pages\Zoek.cshtml.g.cs
 C:\Users\gbuss\Desktop\WebDevP3\WebApplication1\obj\Debug\net5.0\Razor\Pages\GebruikerPagina.cshtml.g.cs
 C:\Users\gbuss\Desktop\WebDevP3\WebApplication1\obj\Debug\net5.0\Razor\Pages\GebruikersAanpassen.cshtml.g.cs
+G:\Mijn Drive\Periode3\Project\Comic2\WebApplication1\obj\Debug\net5.0\Razor\Pages\AdminPagina.cshtml.g.cs
+G:\Mijn Drive\Periode3\Project\Comic2\WebApplication1\obj\Debug\net5.0\Razor\Pages\GebruikerPagina.cshtml.g.cs
+G:\Mijn Drive\Periode3\Project\Comic2\WebApplication1\obj\Debug\net5.0\Razor\Pages\GebruikersAanpassen.cshtml.g.cs
+G:\Mijn Drive\Periode3\Project\Comic2\WebApplication1\obj\Debug\net5.0\Razor\Pages\StripboekAanpassen.cshtml.g.cs
+G:\Mijn Drive\Periode3\Project\Comic2\WebApplication1\obj\Debug\net5.0\Razor\Pages\StripboekToevoegen.cshtml.g.cs
+G:\Mijn Drive\Periode3\Project\Comic2\WebApplication1\obj\Debug\net5.0\Razor\Pages\WachtwoordVergeten.cshtml.g.cs
+G:\Mijn Drive\Periode3\Project\Comic2\WebApplication1\obj\Debug\net5.0\Razor\Pages\Zoek.cshtml.g.cs
+G:\Mijn Drive\Periode3\Project\Comic2\WebApplication1\bin\Debug\net5.0\ref\WebApplication1.dll
+G:\Mijn Drive\Periode3\Project\Comic2\WebApplication1\obj\Debug\net5.0\Razor\Pages\Profiel\MijnProfiel.cshtml.g.cs
+G:\Mijn Drive\Periode3\Project\Comic2\WebApplication1\obj\Debug\net5.0\Razor\Pages\Profiel\Aanpassen.cshtml.g.cs

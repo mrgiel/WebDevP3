@@ -32,8 +32,6 @@ namespace WebApplication1.Pages
                 return RedirectToPage("AdminPagina");
             }
             return Page();
-
-
         }
     }
 }

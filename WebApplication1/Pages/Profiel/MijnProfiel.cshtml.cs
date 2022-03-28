@@ -28,7 +28,6 @@ namespace WebApplication1.Pages.Profiel
         {
             var user = await _userManager.GetUserAsync(User);
 
-
             var userName = await _userManager.GetUserNameAsync(user);
             var email = await _userManager.GetEmailAsync(user);
 
@@ -36,6 +35,40 @@ namespace WebApplication1.Pages.Profiel
             Gebruiker.Email = email;
 
             return Page();
+        }
+
+        public async Task<IActionResult> OnPostAsync()
+        {
+            if (!ModelState.IsValid)
+            {
+                return Page();
+            }
+
+            var user = await _userManager.GetUserAsync(User);
+
+            var userName = await _userManager.GetUserNameAsync(user);
+            if (Gebruiker.UserName != userName)
+            {
+                var setUserNameResult = await _userManager.SetUserNameAsync(user, Gebruiker.UserName);
+                if (!setUserNameResult.Succeeded)
+                {
+                   await _userManager.GetUserIdAsync(user);
+                }
+            }
+
+            var email = await _userManager.GetEmailAsync(user);
+            if (Gebruiker.Email != email)
+            {
+                var setEmailResult = await _userManager.SetEmailAsync(user, Gebruiker.Email);
+                if (!setEmailResult.Succeeded)
+                {
+                    await _userManager.GetUserIdAsync(user);
+                   
+                }
+            }
+
+            await _signInManager.RefreshSignInAsync(user);
+            return RedirectToPage("MijnProfiel");
         }
     }
 }

@@ -55,9 +55,16 @@ function send() {
 }
 
 
-// function  fill(array){
-//     const newarray = array.split('/').pop();
-//     for (let i = 0; i < voornaamTekenaar.length; i++) {
-//         voornaamTekenaar[i].value = array.split(',', i + 1).pop();
-//         achternaamTekenaar[i].value = newarray.split(',', i + 1).pop();
-//     }
+function  fill(array, auteurarray) {
+    const newarray = array.split('/').pop();
+    for (let i = 0; i < voornaamTekenaar.length; i++) {
+        voornaamTekenaar[i].value = array.split(',', i + 1).pop();
+        achternaamTekenaar[i].value = newarray.split(',', i + 1).pop();
+    }
+
+    const newarrayAuteur = auteurarray.split('/').pop();
+    for (let i = 0; i < voornaamAuteur.length; i++) {
+        voornaamAuteur[i].value = auteurarray.split(',', i + 1).pop();
+        achternaamAuteur[i].value = newarrayAuteur.split(',', i + 1).pop();
+    }
+}

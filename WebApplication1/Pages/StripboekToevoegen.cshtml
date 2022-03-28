@@ -1,4 +1,4 @@
-﻿@page
+@page
 @inject SignInManager<IdentityUser> SignInManager
 @using Microsoft.AspNetCore.Identity
 @using WebApplication1.Repositories
@@ -178,7 +178,7 @@
         <script> 
          addTekenaar(@length);
          addAuteur(@length);
-         fill('@Model.PersoonArray');
+         fill('@Model.PersoonArray', '@Model.AuteurArray');
         </script>
     }
 

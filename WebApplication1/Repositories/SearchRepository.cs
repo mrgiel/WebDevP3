@@ -25,10 +25,11 @@ namespace WebApplication1.Repositories
             var stripboeken = verbinding
                 .Query<Uitgave>(@"SELECT * 
                              FROM uitgave uitgave 
-                             INNER JOIN versie versie on uitgave.uitgave_id = versie.uitgave_id
-                             INNER JOIN uitgever uitgever on versie.uitgever_id = uitgever.uitgever_id
+                             INNER JOIN versie v on uitgave.uitgave_id = v.uitgave_id
+                             INNER JOIN uitgever uitgever on v.uitgever_id = uitgever.uitgever_id
                              INNER JOIN reeks r on uitgave.reeks_id = r.reeks_id
-                             WHERE naam LIKE CONCAT ('%',@StrZoekterm,'%') || r.reeks_naam LIKE CONCAT ('%',@StrZoekterm,'%');",
+                             INNER JOIN statusuitgave s on s.versie_id = v.versie_id
+                             WHERE naam LIKE CONCAT ('%',@StrZoekterm,'%') && s.status = '1' || r.reeks_naam LIKE CONCAT ('%',@StrZoekterm,'%') && s.status = '1';",
                     new {StrZoekterm = strZoekterm});
             return stripboeken.ToList();
         }
@@ -51,7 +52,8 @@ namespace WebApplication1.Repositories
                              INNER JOIN uitgave uitgave on v.uitgave_id = uitgave.uitgave_id
                              INNER JOIN uitgever uitgever on v.uitgever_id = uitgever.uitgever_id
                              INNER JOIN reeks r on uitgave.reeks_id = r.reeks_id
-                             WHERE isbn = @StrZoekterm";
+                             INNER JOIN statusuitgave s on s.versie_id = v.versie_id
+                             WHERE isbn = @StrZoekterm && s.status = '1'";
                     break;
                 case "uitgever":
                     sql += @"SELECT * 
@@ -59,7 +61,8 @@ namespace WebApplication1.Repositories
                              INNER JOIN versie v on uitgever.uitgever_id = v.uitgever_id
                              INNER JOIN uitgave uitgave on uitgave.uitgave_id = v.uitgave_id
                              INNER JOIN reeks r on uitgave.reeks_id = r.reeks_id
-                             WHERE uitgever_naam LIKE CONCAT ('%',@StrZoekterm,'%');";
+                             INNER JOIN statusuitgave s on s.versie_id = v.versie_id
+                             WHERE uitgever_naam LIKE CONCAT ('%',@StrZoekterm,'%') && s.status = '1'";
                     break;
                 case "prijs":
                     sql += @"SELECT * 
@@ -67,7 +70,8 @@ namespace WebApplication1.Repositories
                              INNER JOIN uitgave uitgave on v.uitgave_id = uitgave.uitgave_id
                              INNER JOIN uitgever uitgever on v.uitgever_id = uitgever.uitgever_id
                              INNER JOIN reeks r on uitgave.reeks_id = r.reeks_id
-                             WHERE prijs = @StrZoekterm";
+                             INNER JOIN statusuitgave s on s.versie_id = v.versie_id
+                             WHERE prijs = @StrZoekterm && s.status = '1'";
                     break;
                 case "naam":
                     sql += @"SELECT *
@@ -75,7 +79,8 @@ namespace WebApplication1.Repositories
                              INNER JOIN versie v on uitgave.uitgave_id = v.uitgave_id
                              INNER JOIN uitgever uitgever on v.uitgever_id = uitgever.uitgever_id
                              INNER JOIN reeks r on uitgave.reeks_id = r.reeks_id
-                             WHERE naam LIKE CONCAT ('%',@StrZoekterm,'%') || r.reeks_naam LIKE CONCAT ('%',@StrZoekterm,'%');";
+                             INNER JOIN statusuitgave s on s.versie_id = v.versie_id
+                             WHERE naam LIKE CONCAT ('%',@StrZoekterm,'%') && s.status = '1' || r.reeks_naam LIKE CONCAT ('%',@StrZoekterm,'%') && s.status = '1'";
                     break;
                 case "auteur":
                     sql += @"SELECT *
@@ -85,7 +90,9 @@ namespace WebApplication1.Repositories
                              INNER JOIN uitgave uitgave on v.uitgave_id = uitgave.uitgave_id
                              INNER JOIN uitgever uitgever on v.uitgever_id = uitgever.uitgever_id
                              INNER JOIN reeks r on uitgave.reeks_id = r.reeks_id
-                             WHERE i.rol = 'Auteur' && voornaam || achternaam LIKE CONCAT ('%',@StrZoekterm,'%')";
+                             INNER JOIN statusuitgave s on s.versie_id = v.versie_id
+                             WHERE i.rol = 'Auteur' && voornaam LIKE CONCAT ('%',@StrZoekterm,'%') && s.status = '1'
+                                || i.rol = 'Auteur' && achternaam LIKE CONCAT ('%',@StrZoekterm,'%') && s.status = '1'";
                     break;
                 case "tekenaar":
                     sql += @"SELECT *
@@ -95,7 +102,9 @@ namespace WebApplication1.Repositories
                              INNER JOIN uitgave uitgave on v.uitgave_id = uitgave.uitgave_id
                              INNER JOIN uitgever uitgever on v.uitgever_id = uitgever.uitgever_id
                              INNER JOIN reeks r on uitgave.reeks_id = r.reeks_id
-                             WHERE i.rol = 'Tekenaar' && voornaam || achternaam LIKE CONCAT ('%',@StrZoekterm,'%')";
+                             INNER JOIN statusuitgave s on s.versie_id = v.versie_id
+                             WHERE i.rol = 'Tekenaar' && voornaam LIKE CONCAT ('%',@StrZoekterm,'%') && s.status = '1'
+                                || i.rol = 'Tekenaar' && achternaam LIKE CONCAT ('%',@StrZoekterm,'%') && s.status = '1'";
                     break;
             }
 

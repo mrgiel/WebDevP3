@@ -20,9 +20,9 @@ namespace WebApplication1.Repositories
             return new MySqlConnection(
                 @"Server=127.0.0.1;
                 Port=3306;
-                Database=stripboeken;
+                Database=stripboekendb;
                 Uid=root;
-                Pwd=Admin");
+                Pwd=Test123");
         }
     }
 }

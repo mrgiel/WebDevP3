@@ -26,12 +26,9 @@ namespace WebApplication1.Pages
 
         public IActionResult OnPostSend()
         {
-            if (StripboekInformatie != null)
-            {
-                new StripboekenAanpassenRepository().StripboekAanpassen(Versie);
-                return RedirectToPage("AdminPagina");
-            }
-            return Page();
+            if (StripboekInformatie == null) return Page();
+            new StripboekenAanpassenRepository().StripboekAanpassen(Versie);
+            return RedirectToPage("AdminPagina");
 
 
         }

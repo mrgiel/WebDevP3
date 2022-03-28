@@ -13,23 +13,28 @@
     <div class="kut-imgs">
         <div class="new-content">
             <div class="row">
-                <form method="post">
-                    @foreach (var stripboek in Model.data)
-                    {
-                        <div class="col-xl-3 col-lg-4 col-md-6 mb-3">
-                            <div class="mt-4">
-                                <div class="image">
-                                    <p class="text-white text-center" style="">
-                                    <img src="@stripboek.afbeelding_url" alt="">
-                                    <div class="text-white text-center">
-                                        <span>@stripboek.Uitgave.naam (@stripboek.datum.Value.Year)</span><button type="button" asp-page-handler="Toevoegen" class="btn btn-danger">as</button>
-                                    </div>
-                                </div>
-                            </div>
 
+                @foreach (var stripboek in Model.data)
+                {
+                    <div class="col-xl-3 col-lg-4 col-md-6 mb-3">
+                        <div class="mt-4">
+                            <div class="image">
+                                <p class="text-white text-center" style="">
+                                    <img src="@stripboek.afbeelding_url" alt="">
+                                    <form method="post">
+                                        <button asp-page="ColletieToevoegen" asp-route-id="@stripboek.versie_id" type="submit" class="bg-success btn btn-block form-control text-dark">
+                                            <span>Toevoegen Aan Collectie</span>
+                                        </button>
+                                    </form>
+                                    <div class="text-white text-center">
+                                        <span>@stripboek.Uitgave.naam (@stripboek.datum.Year)</span>
+                                    </div>
+                                </p>
+                            </div>
                         </div>
-                    }
-                </form>
+
+                    </div>
+                }
             </div>
 
         </div>
@@ -54,8 +59,13 @@
                             <div class="image">
                                 <p class="text-white text-center" style="">
                                 <img src="@stripboek.afbeelding_url" alt="">
+                                <form method="post">
+                                    <button asp-page="ColletieToevoegen" asp-page-handler="Verwijderen" asp-route-id="@stripboek.versie_id">
+                                        <span>Toevoegen Aan Collectie</span>
+                                    </button>
+                                </form>
                                 <div class="text-white text-center">
-                                    <span>@stripboek.Uitgave.naam (@stripboek.datum.Value.Year)</span>
+                                    <span>@stripboek.Uitgave.naam (@stripboek.datum.Year)</span>
                                 </div>
                             </div>
                         </div>

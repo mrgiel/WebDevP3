@@ -14,11 +14,5 @@ namespace WebApplication1.Pages
         {
             data = new QueryOmOverzichtTeCreerenRepository().HaalCollectieOpRepo();
         }
-
-        public IActionResult OnPostToevoegen()
-        {
-            QueryOmOverzichtTeCreerenRepository().
-            return  RedirectToPage("Index");
-        }
     }
 }

@@ -5,10 +5,10 @@
 
 CREATE PROCEDURE HaalStripboekInformatieOp(versie_idVAR int)
 BEGIN
+    DECLARE rolVAR varchar(100);
     SELECT
-
         #Versie
-           v.Versie_id,
+        v.Versie_id,
         afbeelding_url,
         isbn,
         datum,
@@ -23,16 +23,17 @@ BEGIN
         nsfw,
 
         #Uitgever
-           u2.uitgever_id,
+        u2.uitgever_id,
         uitgever_naam,
 
         #Categorie
-           c.cat_id,
+        c.cat_id,
         cat_naam,
 
         #Reeks
-           r.reeks_id,
+        r.reeks_id,
         reeks_naam
+
 
     FROM Versie v
              INNER JOIN statusuitgave s on v.Versie_id = s.versie_id
@@ -41,4 +42,5 @@ BEGIN
              INNER JOIN Categorie c ON c.cat_id = u.cat_id
              INNER JOIN Reeks r ON r.reeks_id = u.reeks_id
     WHERE v.Versie_id = versie_idVAR;
-END
+    SET rolVAR = @rolVAR;
+    END

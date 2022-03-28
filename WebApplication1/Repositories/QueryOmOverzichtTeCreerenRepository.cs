@@ -13,14 +13,6 @@ namespace WebApplication1.Repositories
 {
     public class QueryOmOverzichtTeCreerenRepository : DbConnection
     {
-        public void VoegToeAanCollectie()
-        {
-            //stored procedure van haal collectie op
-            const string sql = "VoegToeAanCollectie";
-            
-            //connect to database
-            using var connection = Connect();
-        }
 
         public IEnumerable<Versie> HaalCollectieOpRepo()
         {

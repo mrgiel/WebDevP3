@@ -6,6 +6,7 @@ BEGIN
     SELECT
 
         #Versie
+           s.versie_id,
         afbeelding_url,
         isbn,
         druk,

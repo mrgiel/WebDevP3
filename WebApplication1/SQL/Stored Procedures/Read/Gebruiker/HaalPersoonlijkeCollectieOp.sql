@@ -5,16 +5,19 @@
 CREATE PROCEDURE HaalPersoonlijkeCollectieOp(gebruiker_id VARCHAR(255))
 BEGIN
     SELECT 
+           #bezit
         b.rating, 
         b.staat, 
         b.beschrijving, 
         b.hoeveelheid, 
         b.prijs_betaald,
         
+           #versie
         b.versie_id,
         v.afbeelding_url, 
         v.datum,
         
+           #uitgave
         u.uitgave_id,
         u.naam
     FROM Bezit b

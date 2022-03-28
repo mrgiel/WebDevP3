@@ -13,7 +13,7 @@ public class StripboekGoedkeurenRepository : DbConnection
         using IDbConnection verbinding = Connect();
         IEnumerable<Versie> stripboeken = verbinding
             .Query<Versie>(@"UPDATE statusuitgave
-                                 SET status = '1'
+                                 SET status = '1', datum_goedkeuring = now()
                                  WHERE versie_id = @Id",
                 new {Id = id});
         return stripboeken;

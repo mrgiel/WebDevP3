@@ -26,6 +26,6 @@ namespace WebApplication1.Models.Klasse
         public Uitgever Uitgever { get; set; }
 
         public IsGemaaktDoor IsGemaaktDoor { get; set; }
-        public  Reeks Reeks { get; set; }
+        public Bezit bezit { get; set; }
     }
 }

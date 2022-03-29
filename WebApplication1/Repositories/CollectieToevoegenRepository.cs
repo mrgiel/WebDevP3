@@ -94,7 +94,7 @@ public class CollectieToevoegenRepository : DbConnection
         var param = new
         {
            gebruiker_idVAR = bezit.gebruiker_id,
-            versie_idVAR = bezit.Versie.versie_id,
+            versie_idVAR = bezit.versie_id,
             ratingVAR = bezit.rating,
             staatVAR = bezit.staat,
             beschrijvingVAR = bezit.beschrijving,

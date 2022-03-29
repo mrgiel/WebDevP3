@@ -286,7 +286,6 @@ C:\Users\gbuss\Documents\GitHub\WebDevP3\WebApplication1\obj\Debug\net5.0\Razor\
 C:\Users\gbuss\Documents\GitHub\WebDevP3\WebApplication1\obj\Debug\net5.0\Razor\Pages\Register.cshtml.g.cs
 C:\Users\gbuss\Documents\GitHub\WebDevP3\WebApplication1\obj\Debug\net5.0\Razor\Pages\StripboekAanpassen.cshtml.g.cs
 C:\Users\gbuss\Documents\GitHub\WebDevP3\WebApplication1\obj\Debug\net5.0\Razor\Pages\StripboekToevoegen.cshtml.g.cs
-C:\Users\gbuss\Documents\GitHub\WebDevP3\WebApplication1\obj\Debug\net5.0\Razor\Pages\WachtwoordVergeten.cshtml.g.cs
 C:\Users\gbuss\Documents\GitHub\WebDevP3\WebApplication1\obj\Debug\net5.0\Razor\Pages\Zoek.cshtml.g.cs
 C:\Users\gbuss\Desktop\WebDevP3\WebApplication1\obj\Debug\net5.0\Razor\Pages\GebruikerPagina.cshtml.g.cs
 C:\Users\gbuss\Desktop\WebDevP3\WebApplication1\obj\Debug\net5.0\Razor\Pages\GebruikersAanpassen.cshtml.g.cs
@@ -301,3 +300,8 @@ C:\Users\gbuss\Desktop\WebDevP3\WebApplication1\obj\Debug\net5.0\Razor\Pages\Str
 G:\Mijn Drive\Periode3\Project\Comic2\WebApplication1\obj\Debug\net5.0\Razor\Pages\Profiel\MijnProfiel.cshtml.g.cs
 G:\Mijn Drive\Periode3\Project\Comic2\WebApplication1\obj\Debug\net5.0\Razor\Pages\Profiel\WachtwoordAanpassen.cshtml.g.cs
 G:\Mijn Drive\Periode3\Project\Comic2\WebApplication1\obj\Debug\net5.0\Razor\Pages\StripboekGoedkeuren.cshtml.g.cs
+C:\Users\gbuss\Documents\GitHub\WebDevP3\WebApplication1\obj\Debug\net5.0\Razor\Pages\GebruikerPagina.cshtml.g.cs
+C:\Users\gbuss\Documents\GitHub\WebDevP3\WebApplication1\obj\Debug\net5.0\Razor\Pages\GebruikersAanpassen.cshtml.g.cs
+C:\Users\gbuss\Documents\GitHub\WebDevP3\WebApplication1\obj\Debug\net5.0\Razor\Pages\Profiel\MijnProfiel.cshtml.g.cs
+C:\Users\gbuss\Documents\GitHub\WebDevP3\WebApplication1\obj\Debug\net5.0\Razor\Pages\Profiel\WachtwoordAanpassen.cshtml.g.cs
+C:\Users\gbuss\Documents\GitHub\WebDevP3\WebApplication1\obj\Debug\net5.0\Razor\Pages\StripboekGoedkeuren.cshtml.g.cs

@@ -4,22 +4,24 @@ using Microsoft.AspNetCore.Mvc.RazorPages;
 using WebApplication1.Models.Klasse;
 using WebApplication1.Repositories;
 
-namespace WebApplication1.Pages;
-
-public class StripboekGoedkeuren : PageModel
+namespace WebApplication1.Pages
 {
-    public IEnumerable<Versie> Stripboeken { get; set; }
-    
-    public IActionResult OnPostGoedkeuren(int id)
+
+    public class StripboekGoedkeuren : PageModel
     {
-        Stripboeken = new StripboekGoedkeurenRepository().Goedkeuren(id);
-        return RedirectToPage("AdminPagina");
-    } 
-    
-    public void OnPost(int versie_id)
-    {
-        Stripboeken = new StripboekenAanpassenRepository().HaalStripboekInformatieOp(versie_id);
+        public IEnumerable<Versie> Stripboeken { get; set; }
+
+        public IActionResult OnPostGoedkeuren(int id)
+        {
+            Stripboeken = new StripboekGoedkeurenRepository().Goedkeuren(id);
+            return RedirectToPage("AdminPagina");
+        }
+
+        public void OnPost(int versie_id)
+        {
+            Stripboeken = new StripboekenAanpassenRepository().HaalStripboekInformatieOp(versie_id);
+        }
+
+
     }
-    
-    
 }

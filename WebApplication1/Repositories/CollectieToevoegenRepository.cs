@@ -25,7 +25,7 @@ public class CollectieToevoegenRepository : DbConnection
         //connect to database
         using var connection = Connect();
 
-        var result =  connection.QuerySingleOrDefault<bool>(sql, param);
+        var result = connection.QuerySingleOrDefault<bool>(sql, param);
         return result;
     }
 
@@ -37,30 +37,45 @@ public class CollectieToevoegenRepository : DbConnection
     public Versie HaalStripboekInformatieOp(int versie_id)
     {
         //stored procedure van stripboeken informatie
-        const string sql = "HaalStripboekInformatieOp";
+        const string sql = @"
+        SELECT
+        
+        
+        s.versie_id,
+        afbeelding_url,
+        isbn,
+        druk,
+        datum,
+        
+        naam,
+        
+        reeks_naam
+        
+            FROM versie v
+        INNER JOIN statusuitgave s on v.Versie_id = s.versie_id
+        INNER JOIN uitgave u on v.uitgave_id = u.uitgave_id
+        INNER JOIN reeks r ON r.reeks_id = u.reeks_id
+        WHERE s.status = true and s.versie_id = @versie_idVAR";
 
         //param
         var param = new
         {
             //Versie
-            versie_idVAR = versie_id
+            @versie_idVAR = versie_id
         };
 
         //connect to database
         using var connection = Connect();
 
         //haal alles op
-        var result =  connection.Query<Versie, Uitgave, Uitgever, Categorie, Reeks, Versie>(
+        var result =  connection.Query<Versie, Uitgave, Reeks, Versie>(
             sql,
-            (versie, uitgave, uitgever, categorie, reeks) =>
+            (versie, uitgave, reeks) =>
             {
                 versie.Uitgave = uitgave;
-                versie.Uitgever = uitgever;
-                versie.Uitgave.Categorie = categorie;
                 versie.Uitgave.Reeks = reeks;
                 return versie;
-            }, param, splitOn: "naam, uitgever_naam, cat_naam, reeks_naam",
-            commandType: CommandType.StoredProcedure).Last();
+            }, param, splitOn: "naam, reeks_naam").Last();
 
         //return
         return result;
@@ -78,12 +93,13 @@ public class CollectieToevoegenRepository : DbConnection
         //vul collectie
         var param = new
         {
-            gebruiker_idVAR = bezit.gebruiker_id,
-            versie_idVAR = bezit.versie_id,
+           gebruiker_idVAR = bezit.gebruiker_id,
+            versie_idVAR = bezit.Versie.versie_id,
             ratingVAR = bezit.rating,
             staatVAR = bezit.staat,
             beschrijvingVAR = bezit.beschrijving,
-            prijs_betaaldVAR = bezit.prijs_betaald
+            prijs_betaaldVAR = bezit.prijs_betaald,
+            hoeveelheidVAR = bezit.hoeveelheid,
         };
 
         //Stop alle in de bijbehoorende tables en columns 

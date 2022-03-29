@@ -1,7 +1,12 @@
 ﻿@page
 @model WebApplication1.Pages.ColletieToevoegen
-
+@inject SignInManager<IdentityUser> SignInManager
+@using Microsoft.AspNetCore.Identity
 @{
+}
+@if (!SignInManager.IsSignedIn(User))
+{
+    Response.Redirect("Login");
 }
 
 <!DOCTYPE html>
@@ -24,22 +29,21 @@
     </div>
     <br/>
     <form method="post">
-        <input asp-for="data.bezit.versie_id" value="@Model.data.versie_id" type="hidden"/>
+        <input required  asp-for="data.bezit.versie_id" value="@Model.data.versie_id" type="hidden"/>
         <div class="row">
             <div class="col-6">
                 <h3>Prijs</h3>
-                <input asp-for="data.bezit.prijs_betaald" class="form-control" type="number" spellcheck="true" min="0" max="9999" placeholder="5,99 (euro)"/>
+                <input required  asp-for="data.bezit.prijs_betaald" class="form-control" type="number" spellcheck="true" min="0" max="9999" placeholder="5,99 (euro)"/>
             </div>
             <div class="col-6">
                 <h3 >Hoeveelheid</h3>
-                <input asp-for="data.bezit.hoeveelheid" class="form-control" min="1" max="99" type="number" placeholder="4 (Dezelfde Versie)"/>
-                 <span asp-validation-for="data.bezit.hoeveelheid"></span>
+                <input required  asp-for="data.bezit.hoeveelheid" class="form-control" min="1" max="99" type="number" placeholder="4 (Van Dezelfde Versie)"/>
             </div>
         </div>
         <div class="row">
             <div class="col-6">
                 <h3>Rating</h3>
-                <input asp-for="data.bezit.rating" class="form-control" type="number" min="1" max="1" placeholder="1 (van de 10)"/>
+                <input required  asp-for="data.bezit.rating" class="form-control" type="number" min="1" max="10" placeholder="1 (/10)"/>
             </div>
             <div class="col-6">
                 <h3 class=" mx-auto">Staat</h3>

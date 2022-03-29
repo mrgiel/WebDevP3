@@ -15,9 +15,11 @@ namespace WebApplication1.Models.Klasse
         [DataType(DataType.Currency)]
         public float prijs_betaald { get; set; }
 
-        public int Versie_id { get; set; }
-        public int uitgave_id { get; set; }
+        public int versie_id { get; set; }
+        public string gebruiker_id { get; set; }
         public Versie Versie { get; set; }
+
+        public Gebruiker Gebruiker { get; set; }
         public Uitgave Uitgave { get; set; }
     }
 }

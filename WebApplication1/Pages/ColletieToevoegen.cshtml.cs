@@ -17,8 +17,7 @@ public class ColletieToevoegen : PageModel
 
     public IActionResult OnGet([FromQuery(Name = "id")] int id)
     {
-        if (!new CollectieToevoegenRepository().StatusUitgave(id, new GebruikerRepo().HaalIdOp()) || id == 0)
-            RedirectToPage("index");
+        if (!new CollectieToevoegenRepository().StatusUitgave(id, new GebruikerRepo().HaalIdOp()) || id == 0) return RedirectToPage("index");
         data = new CollectieToevoegenRepository().HaalStripboekInformatieOp(id);
         return Page();
     }
@@ -30,8 +29,8 @@ public class ColletieToevoegen : PageModel
 
     public IActionResult OnPostSend()
     {
-        if (!ModelState.IsValid) return Page();
         data.bezit.gebruiker_id = new GebruikerRepo().HaalIdOp();
+
         if (data != null) new CollectieToevoegenRepository().VoegToeAanCollectie(data.bezit);
         return RedirectToPage("index");
     }

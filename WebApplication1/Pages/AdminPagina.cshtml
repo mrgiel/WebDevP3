@@ -15,8 +15,8 @@ else
         <div class="col-md-2">
             <div class="menu-style">
                 <ul class="menu">
-                    <li><a href="GebruikerPagina">Gebruikers</a></li>
-                    <li><a href="AdminPagina">Stripboeken</a></li>
+                    <a href="GebruikerPagina"><li>Gebruikers</li></a>
+                    <a href="AdminPagina"><li>Stripboeken</li></a>
                     <li><a href="#">Personen</a></li>
                 </ul>
             </div>
@@ -34,6 +34,7 @@ else
                         <th scope="col">Status</th>
                         <th scope="col">Verwijderen</th>
                         <th scope="col">Aanpassen</th>
+                        <th scope="col">Goedkeuren</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -55,6 +56,14 @@ else
                                     <button asp-page="StripboekAanpassen" asp-page-handler="Aanpassen" asp-route-id="@uitgave.versie_id">Aanpassen</button>
                                 </form>
                             </td>
+                            @if (@uitgave.status == 0)
+                            {
+                                <td data-label="Goedkeuren">
+                                    <form method="post">
+                                        <button asp-page="StripboekGoedkeuren" asp-route-versie_id="@uitgave.versie_id">Goedkeuren</button>
+                                    </form>
+                                </td>
+                            }
                         </tr>
                     }
                 </tbody>

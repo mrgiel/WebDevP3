@@ -90,7 +90,7 @@ CREATE TABLE Versie
 (
     Versie_id INT NOT NULL PRIMARY KEY  AUTO_INCREMENT,
     afbeelding_url varchar(200),
-    isbn VARCHAR(50),
+    isbn VARCHAR(50) UNIQUE,
     datum DATE,
     druk INT NOT NULL,
     prijs decimal(6,2),
@@ -125,7 +125,7 @@ CREATE TABLE IsGemaaktDoor
     rol ENUM('Auteur', 'Tekenaar') NOT NULL,
     persoon_id INT NOT NULL,
     versie_id INT NOT NULL,
-    PRIMARY KEY (persoon_id, versie_id),
+    PRIMARY KEY (rol, persoon_id, versie_id),
     FOREIGN KEY (persoon_id) REFERENCES Persoon (persoon_id),
     FOREIGN KEY (versie_id) REFERENCES Versie(versie_id)
 );

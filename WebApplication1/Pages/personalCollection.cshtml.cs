@@ -1,7 +1,9 @@
 using System;
 using System.Collections.Generic;
 using Dapper;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
+using MySqlConnector;
 using WebApplication1.Models;
 using WebApplication1.Models.Klasse;
 using WebApplication1.Repositories;
@@ -10,19 +12,37 @@ namespace WebApplication1.Pages
 {
     public class personalCollection : PageModel
     {
+        [FromQuery(Name = "id")] public string gebruikerId { get; set; }
+        public List<Bezit> Bezit { get; set; }
+        public bool GeenBezittingen { get; set; }
+        public string Error { get; set; }
+
+        
+        /// <summary>
+        /// Haalt de persoonlijke collectie op van ingelogde gebruiker.
+        /// </summary>
         public void OnGet()
         {
-            var bezit = new Bezit("sjonnie4332");
             ShowPersonalCollection personalCollection = new ShowPersonalCollection();
 
-            List<Bezit> result = personalCollection.GetCollection(bezit);
-
-            foreach (var item in result)
+            try
             {
-                Console.WriteLine(item.gebruikersnaam);
-                Console.WriteLine(item.beschrijving);
-                Console.WriteLine(item.hoeveelheid);
-                Console.WriteLine(item.isbn);
+                // Haal collectie op aan de hand van gebruikeId.
+                Bezit = personalCollection.GetCollection(gebruikerId);
+
+                // Gebruiker heeft geen items in collectie.
+                if (Bezit.Count == 0)
+                {
+                    GeenBezittingen = true;
+                }
+            }
+            catch (MySqlException)
+            {
+                Error = "Fout bij het ophalen van collectie, probeer het later opnieuw";
+            }
+            catch (Exception)
+            {
+                Error = "Er is iets mis gegaan probeer het later opnieuw";
             }
         }
     }

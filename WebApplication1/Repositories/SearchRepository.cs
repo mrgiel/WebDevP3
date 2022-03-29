@@ -80,7 +80,8 @@ namespace WebApplication1.Repositories
                              INNER JOIN uitgever uitgever on v.uitgever_id = uitgever.uitgever_id
                              INNER JOIN reeks r on uitgave.reeks_id = r.reeks_id
                              INNER JOIN statusuitgave s on s.versie_id = v.versie_id
-                             WHERE naam LIKE CONCAT ('%',@StrZoekterm,'%') && s.status = '1' || r.reeks_naam LIKE CONCAT ('%',@StrZoekterm,'%') && s.status = '1'";
+                             WHERE naam LIKE CONCAT ('%',@StrZoekterm,'%') && s.status = '1' 
+                                || r.reeks_naam LIKE CONCAT ('%',@StrZoekterm,'%') && s.status = '1'";
                     break;
                 case "auteur":
                     sql += @"SELECT *

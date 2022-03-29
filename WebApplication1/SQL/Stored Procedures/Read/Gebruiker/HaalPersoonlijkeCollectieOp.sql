@@ -2,11 +2,23 @@
 
 #haalt de persoonlijke collectie op van de gebruiker
 #params: gebruiker_id --> de primairy key van de gebruiker
-CREATE PROCEDURE HaalPersoonlijkeCollectieOp(gebruiker_id varchar(255))
+CREATE PROCEDURE HaalPersoonlijkeCollectieOp(gebruiker_id VARCHAR(255))
 BEGIN
-    SELECT afbeelding_url, isbn, datum, druk, prijs, rating, staat, b.beschrijving, hoeveelheid, prijs_betaald, naam
+    SELECT 
+        b.rating, 
+        b.staat, 
+        b.beschrijving, 
+        b.hoeveelheid, 
+        b.prijs_betaald,
+        
+        b.versie_id,
+        v.afbeelding_url, 
+        v.datum,
+        
+        u.uitgave_id,
+        u.naam
     FROM Bezit b
-             INNER JOIN versie v on b.versie_id = v.Versie_id
-             INNER JOIN uitgave u on v.uitgave_id = u.uitgave_id
-    WHERE b.gebruiker_id = @gebruiker_id;
+             INNER JOIN Versie v on b.versie_id = v.Versie_id
+             INNER JOIN Uitgave u on v.uitgave_id = u.uitgave_id
+    WHERE b.gebruiker_id = gebruiker_id;
 END 

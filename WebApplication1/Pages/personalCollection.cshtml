@@ -2,18 +2,39 @@
 @model WebApplication1.Pages.personalCollection
 
 @{
-    Layout = null;
+    Layout = "Shared/_Layout";
 }
 
-<!DOCTYPE html>
-
-<html>
-<head>
-    <title></title>
-</head>
-<body>
-<div>
+<div class="content">
+    <div class="banner-1">
+        <div class="banner-b1">
+            <h4>Mijn collectie</h4>
+            @if (Model.GeenBezittingen)
+            {
+                <h4 class="mt-4">Het lijkt erop dat je nog geen items in je collectie hebt :(</h4>
+            }
+        </div>
+    </div>
     
+    <div class="kut-imgs"> <!-- Deze naam maar even veranderen? hahaha -->
+        <div class="new-content">
+            <div class="row">
+                @foreach (var stripboek in Model.Bezit)
+                {
+                    <div class="col-xl-3 col-lg-4 col-md-6 mb-3">
+                        <div class="mt-4">
+                            <div class="image">
+                                <p class="text-white text-center" style="">
+                                    <img src="@stripboek.Versie.afbeelding_url"  alt="" border="0"/>
+                                    <div class="text-white text-center">
+                                        <span>@stripboek.Uitgave.naam (@stripboek.Versie.datum.Year)</span>
+                                    </div>
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                }
+            </div>
+        </div>
+    </div>
 </div>
-</body>
-</html>

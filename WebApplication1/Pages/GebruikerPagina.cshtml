@@ -1,9 +1,15 @@
 ﻿@page
 @model WebApplication1.Pages.GebruikerPaginaModel
+@inject SignInManager<IdentityUser> SignInManager
 @using WebApplication1.Models.Klasse
+@using WebApplication1.Repositories
+@using Microsoft.AspNetCore.Identity
 @{
 }
-
+@if (new GebruikerRepo().HaalRolOp() != "admin")
+{
+    Response.Redirect("Index");
+}
 <div class="content">
     <div class="row">
         <div class="col-md-2">

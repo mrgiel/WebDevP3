@@ -11,51 +11,67 @@
         </div>
     </div>
     <div class="kut-imgs">
-    <div class="new-content">
-        <div class="row">
-            @foreach (var stripboek in Model.data)
-            {
-                <div class="col-xl-3 col-lg-4 col-md-6 mb-3">
-                    <div class="mt-4">
-                        <div class="image">
-                            <p class="text-white text-center" style="">
-                                <img src="@stripboek.afbeelding_url"  alt="" border="0">
-                                <div class="text-white text-center"><span>@stripboek.Uitgave.naam (@stripboek.datum.Year)</span></div>
-                            </p>
+        <div class="new-content">
+            <div class="row">
+
+                @foreach (var stripboek in Model.data)
+                {
+                    <div class="col-xl-3 col-lg-4 col-md-6 mb-3">
+                        <div class="mt-4">
+                            <div class="image">
+                                <p class="text-white text-center" style="">
+                                    <img src="@stripboek.afbeelding_url" alt="">
+                                    <form method="post">
+                                        <button asp-page="ColletieToevoegen" asp-route-id="@stripboek.versie_id" type="submit" class="bg-success btn btn-block form-control text-dark">
+                                            <span>Toevoegen Aan Collectie</span>
+                                        </button>
+                                    </form>
+                                    <div class="text-white text-center">
+                                        <span>@stripboek.Uitgave.naam (@stripboek.datum.Year)</span>
+                                    </div>
+                                </p>
+                            </div>
+                        </div>
+
+                    </div>
+                }
+            </div>
+
+        </div>
+
+        <a href="/personalCollection"></a>
+
+        <div class="banner-2">
+            <div class="banner-b2">
+                <a href="/StripboekToevoegen">
+                    <i style="float:right" class="fa-solid fa-upload"></i><h5>Upload</h5>
+                </a>
+                <h4>Alle comics</h4>
+            </div>
+
+        </div>
+        <div class="strip-content">
+            <div class="row">
+                @foreach (var stripboek in Model.data)
+                {
+                    <div class="col-xl-3 col-lg-4 col-md-6 mb-3">
+                        <div class="mt-4">
+                            <div class="image">
+                                <p class="text-white text-center" style="">
+                                <img src="@stripboek.afbeelding_url" alt="">
+                                <form method="post">
+                                    <button asp-page="ColletieToevoegen" asp-page-handler="Verwijderen" asp-route-id="@stripboek.versie_id">
+                                        <span>Toevoegen Aan Collectie</span>
+                                    </button>
+                                </form>
+                                <div class="text-white text-center">
+                                    <span>@stripboek.Uitgave.naam (@stripboek.datum.Year)</span>
+                                </div>
+                            </div>
                         </div>
                     </div>
-
-                </div>
-            }
-        </div>
-    </div>
-
-    <a href="/personalCollection"></a>
-
-    <div class="banner-2">
-        <div class="banner-b2">
-           <a href="/StripboekToevoegen"><i style="float:right" class="fa-solid fa-upload"></i><h5>Upload</h5></a>
-            <h4>Alle comics</h4>
-        </div>
-        
-    </div>
-    <div class="strip-content">
-        <div class="row">
-            @foreach (var stripboek in Model.data)
-            {
-                <div class="col-xl-3 col-lg-4 col-md-6 mb-3">
-                    <div class="mt-4">
-                        <div class="image">
-                            <p class="text-white text-center" style="">
-                                <img src="@stripboek.afbeelding_url"  alt="" border="0">
-                                <div class="text-white text-center"><span>@stripboek.Uitgave.naam (@stripboek.datum.Year)</span></div>
-                            </p>
-                        </div>
-                    </div>
-                </div>
-            }
+                }
+            </div>
         </div>
     </div>
 </div>
-</div>
-

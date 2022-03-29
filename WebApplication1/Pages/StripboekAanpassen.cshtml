@@ -97,8 +97,9 @@
                 <div class="row">
                     <div class="col-6">
                         <h3 >Beschrijving</h3>
-                        <input class="form-control" asp-for="Versie.Uitgave.beschrijving" value="@Model.StripboekInformatie.First().Uitgave.beschrijving" minlength="1" maxlength="255" type="text"/>
-                    </div>
+                        <textarea class="form-control" asp-for="Versie.Uitgave.beschrijving" value="@Model.StripboekInformatie.First().Uitgave.beschrijving" minlength="0" maxlength="255" text-wrap:normal type="text" placeholder="Dit boek gaat over een cowboy!"></textarea>
+                                    
+                        </div>
                     <div class="col-6">
                         <h3 class=" mx-auto">Sensueel</h3>
                         <select class="form-control" asp-for="Versie.Uitgave.nsfw">

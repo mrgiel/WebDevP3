@@ -3,7 +3,7 @@ DROP TABLE IF EXISTS Uitgave;
 CREATE TABLE Uitgave
 (
     uitgave_id             INT AUTO_INCREMENT PRIMARY KEY,
-    naam           varchar(100) NOT NULL,
+    naam           varchar(100) unique NOT NULL,
     hoogte         INT,
     beschrijving   VARCHAR(255),
     nsfw           BOOL         NOT NULL DEFAULT False,

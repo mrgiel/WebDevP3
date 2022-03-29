@@ -1,0 +1,77 @@
+﻿@page
+@model WebApplication1.Pages.ColletieToevoegen
+@inject SignInManager<IdentityUser> SignInManager
+@using Microsoft.AspNetCore.Identity
+@{
+}
+@if (!SignInManager.IsSignedIn(User))
+{
+    Response.Redirect("Login");
+}
+
+<!DOCTYPE html>
+
+<html lang="ne" xmlns="http://www.w3.org/1999/html">
+<head>
+    <title>ColletieToevoegen</title>
+</head>
+<body>
+<div class="text-center">
+    <div>
+        <h1>Colletie Toevoegen</h1>
+        @* betere margins dan <br> (mx/ml) *@
+        <br/>
+        <br/>
+        <div>
+            <h1>@Model.data.Uitgave.Reeks.reeks_naam</h1>
+            <h3>@Model.data.Uitgave.naam</h3>
+        </div>
+    </div>
+    <br/>
+    <form method="post">
+        <input required  asp-for="data.bezit.versie_id" value="@Model.data.versie_id" type="hidden"/>
+        <div class="row">
+            <div class="col-6">
+                <h3>Prijs</h3>
+                <input required  asp-for="data.bezit.prijs_betaald" class="form-control" type="number" spellcheck="true" min="0" max="9999" placeholder="5,99 (euro)"/>
+            </div>
+            <div class="col-6">
+                <h3 >Hoeveelheid</h3>
+                <input required  asp-for="data.bezit.hoeveelheid" class="form-control" min="1" max="99" type="number" placeholder="4 (Van Dezelfde Versie)"/>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-6">
+                <h3>Rating</h3>
+                <input required  asp-for="data.bezit.rating" class="form-control" type="number" min="1" max="10" placeholder="1 (/10)"/>
+            </div>
+            <div class="col-6">
+                <h3 class=" mx-auto">Staat</h3>
+                <select class="form-control" asp-for="data.bezit.staat">
+                    <option value="slecht">
+                        Slecht
+                    </option>
+                    <option value="gemiddeld">
+                        Gemiddeld
+                    </option>
+                    <option value="goed">
+                        Goed
+                    </option>
+                </select>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-6">
+                <div class="form-group">
+                    <h3>Beschrijving</h3>
+                    <textarea asp-for="data.bezit.beschrijving" minlength="0" maxlength="255" class="form-control" text-wrap:normal type="text" placeholder="Toen ik 5 jaar was kreeg ik dit stripboek van mijn opa!"></textarea>
+                </div>
+            </div>
+        </div>
+        <div class="col-3 mx-auto">
+            <button type="submit" class="form-control align-content-center" asp-page-handler="Send">Toevoegen</button>
+        </div>
+    </form>
+</div>
+</body>
+</html>

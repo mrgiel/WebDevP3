@@ -5,7 +5,7 @@ CREATE TABLE StatusUitgave
     status            BOOL DEFAULT FALSE,
     datum_goedkeuring DATE,
     gebruiker_id     varchar(255) NOT NULL,
-    versie_id                INT NOT NULL,
+    versie_id                INT NOT NULL unique ,
     FOREIGN KEY (gebruiker_id) REFERENCES Gebruiker (Id),
     FOREIGN KEY (versie_id) REFERENCES Versie (versie_id)
 );

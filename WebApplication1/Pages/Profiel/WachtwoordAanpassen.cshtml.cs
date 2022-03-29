@@ -64,7 +64,7 @@ namespace WebApplication1.Pages.Profiel
 
             await _signInManager.RefreshSignInAsync(user);
 
-            return RedirectToPage();
+            return RedirectToPage("MijnProfiel");
         }
     }
 }

@@ -25,6 +25,7 @@
     <file url="file://$PROJECT_DIR$/WebApplication1/SQL/Stored Procedures/Read/Stripboek/HaalAlleUitgeverOp.sql" dialect="MySQL" />
     <file url="file://$PROJECT_DIR$/WebApplication1/SQL/Stored Procedures/Read/Stripboek/HaalCollectieOp.sql" dialect="MySQL" />
     <file url="file://$PROJECT_DIR$/WebApplication1/SQL/Stored Procedures/Read/Stripboek/HaalStripboekInformatieOp.sql" dialect="MySQL" />
+    <file url="file://$PROJECT_DIR$/WebApplication1/SQL/Stored Procedures/Update/Aanpassen/GebruikerAanpassen.sql" dialect="MySQL" />
     <file url="file://$PROJECT_DIR$/WebApplication1/SQL/Stored Procedures/Update/Aanpassen/StripboekAanpassen.sql" dialect="MySQL" />
     <file url="file://$PROJECT_DIR$/WebApplication1/SQL/Stored Procedures/Update/Invoegen/StripboekToevoegen.sql" dialect="MySQL" />
   </component>

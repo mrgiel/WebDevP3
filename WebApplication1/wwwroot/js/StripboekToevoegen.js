@@ -1,4 +1,4 @@
-﻿let voornaamTekenaar = document.getElementsByName('voornaamTekenaar');
+let voornaamTekenaar = document.getElementsByName('voornaamTekenaar');
 let achternaamTekenaar = document.getElementsByName('achternaamTekenaar');
 let voornaamAuteur = document.getElementsByName('voornaamAuteur');
 let achternaamAuteur = document.getElementsByName('achternaamAuteur');

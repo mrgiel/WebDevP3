@@ -304,7 +304,6 @@ C:\Users\gbuss\Documents\GitHub\WebDevP3\WebApplication1\obj\Debug\net5.0\Razor\
 C:\Users\gbuss\Documents\GitHub\WebDevP3\WebApplication1\obj\Debug\net5.0\Razor\Pages\Profiel\MijnProfiel.cshtml.g.cs
 C:\Users\gbuss\Documents\GitHub\WebDevP3\WebApplication1\obj\Debug\net5.0\Razor\Pages\Profiel\WachtwoordAanpassen.cshtml.g.cs
 C:\Users\gbuss\Documents\GitHub\WebDevP3\WebApplication1\obj\Debug\net5.0\Razor\Pages\StripboekGoedkeuren.cshtml.g.cs
-<<<<<<< HEAD
 G:\Mijn Drive\Periode3\Project\Comic2\WebApplication1\bin\Debug\net5.0\Fizzler.dll
 G:\Mijn Drive\Periode3\Project\Comic2\WebApplication1\bin\Debug\net5.0\runtime.osx.10.10-x64.CoreCompat.System.Drawing.dll
 G:\Mijn Drive\Periode3\Project\Comic2\WebApplication1\bin\Debug\net5.0\SkiaSharp.dll
@@ -327,7 +326,6 @@ G:\Mijn Drive\Periode3\Project\Comic2\WebApplication1\bin\Debug\net5.0\runtimes\
 G:\Mijn Drive\Periode3\Project\Comic2\WebApplication1\bin\Debug\net5.0\runtimes\win7-x64\native\libSkiaSharp.dll
 G:\Mijn Drive\Periode3\Project\Comic2\WebApplication1\bin\Debug\net5.0\runtimes\win7-x86\native\libSkiaSharp.dll
 G:\Mijn Drive\Periode3\Project\Comic2\WebApplication1\obj\Debug\net5.0\Razor\Pages\ColletieToevoegen.cshtml.g.cs
-=======
 G:\Mijn Drive\Periode3\Project\Comic2\WebApplication1\obj\Debug\net5.0\Razor\Pages\wwVergeten\Bevestig.cshtml.g.cs
 G:\Mijn Drive\Periode3\Project\Comic2\WebApplication1\obj\Debug\net5.0\Razor\Pages\wwVergeten\checkEmail.cshtml.g.cs
 G:\Mijn Drive\Periode3\Project\Comic2\WebApplication1\obj\Debug\net5.0\Razor\Pages\wwVergeten\ResetBevestiging.cshtml.g.cs

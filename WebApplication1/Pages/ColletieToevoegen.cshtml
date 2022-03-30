@@ -33,7 +33,7 @@
         <div class="row">
             <div class="col-6">
                 <h3>Prijs</h3>
-                <input required  asp-for="data.bezit.prijs_betaald" class="form-control" type="number" spellcheck="true" min="0" max="9999" placeholder="5,99 (euro)"/>
+                <input required  asp-for="data.bezit.prijs_betaald" class="form-control" type="number" pattern="(^[0-9]{0,2}$)|(^[0-9]{0,2}\,[0-9]{0,5}$)" step="any" min="0" max="9999" placeholder="5,99 (euro)"/>
             </div>
             <div class="col-6">
                 <h3 >Hoeveelheid</h3>

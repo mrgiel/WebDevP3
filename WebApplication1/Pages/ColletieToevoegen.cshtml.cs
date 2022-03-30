@@ -32,6 +32,6 @@ public class ColletieToevoegen : PageModel
         data.bezit.gebruiker_id = new GebruikerRepo().HaalIdOp();
 
         if (data != null) new CollectieToevoegenRepository().VoegToeAanCollectie(data.bezit);
-        return RedirectToPage("index");
+        return RedirectToPage("/personalCollection",new {id= new GebruikerRepo().HaalIdOp()});
     }
 }

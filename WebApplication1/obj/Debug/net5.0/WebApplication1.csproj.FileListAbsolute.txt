@@ -179,7 +179,6 @@ G:\Mijn Drive\Periode3\Project\Comic2\WebApplication1\obj\Debug\net5.0\WebApplic
 G:\Mijn Drive\Periode3\Project\Comic2\WebApplication1\obj\Debug\net5.0\WebApplication1.TagHelpers.output.cache
 G:\Mijn Drive\Periode3\Project\Comic2\WebApplication1\obj\Debug\net5.0\WebApplication1.RazorCoreGenerate.cache
 G:\Mijn Drive\Periode3\Project\Comic2\WebApplication1\obj\Debug\net5.0\Razor\Pages\Error.cshtml.g.cs
-G:\Mijn Drive\Periode3\Project\Comic2\WebApplication1\obj\Debug\net5.0\Razor\Pages\ForgotPassword.cshtml.g.cs
 G:\Mijn Drive\Periode3\Project\Comic2\WebApplication1\obj\Debug\net5.0\Razor\Pages\Index.cshtml.g.cs
 G:\Mijn Drive\Periode3\Project\Comic2\WebApplication1\obj\Debug\net5.0\Razor\Pages\Login.cshtml.g.cs
 G:\Mijn Drive\Periode3\Project\Comic2\WebApplication1\obj\Debug\net5.0\Razor\Pages\Logout.cshtml.g.cs
@@ -305,3 +304,10 @@ C:\Users\gbuss\Documents\GitHub\WebDevP3\WebApplication1\obj\Debug\net5.0\Razor\
 C:\Users\gbuss\Documents\GitHub\WebDevP3\WebApplication1\obj\Debug\net5.0\Razor\Pages\Profiel\MijnProfiel.cshtml.g.cs
 C:\Users\gbuss\Documents\GitHub\WebDevP3\WebApplication1\obj\Debug\net5.0\Razor\Pages\Profiel\WachtwoordAanpassen.cshtml.g.cs
 C:\Users\gbuss\Documents\GitHub\WebDevP3\WebApplication1\obj\Debug\net5.0\Razor\Pages\StripboekGoedkeuren.cshtml.g.cs
+G:\Mijn Drive\Periode3\Project\Comic2\WebApplication1\obj\Debug\net5.0\Razor\Pages\wwVergeten\Bevestig.cshtml.g.cs
+G:\Mijn Drive\Periode3\Project\Comic2\WebApplication1\obj\Debug\net5.0\Razor\Pages\wwVergeten\checkEmail.cshtml.g.cs
+G:\Mijn Drive\Periode3\Project\Comic2\WebApplication1\obj\Debug\net5.0\Razor\Pages\wwVergeten\ResetBevestiging.cshtml.g.cs
+G:\Mijn Drive\Periode3\Project\Comic2\WebApplication1\obj\Debug\net5.0\Razor\Pages\wwVergeten\ResetWachtwoord.cshtml.g.cs
+G:\Mijn Drive\Periode3\Project\Comic2\WebApplication1\bin\Debug\net5.0\Newtonsoft.Json.dll
+G:\Mijn Drive\Periode3\Project\Comic2\WebApplication1\bin\Debug\net5.0\SendGrid.dll
+G:\Mijn Drive\Periode3\Project\Comic2\WebApplication1\bin\Debug\net5.0\StarkbankEcdsa.dll

@@ -47,12 +47,6 @@
                             <a class="nav-link" aria-current="page" href="/Index">Home</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#">Comic Lijst</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#">Nieuwste comics</a>
-                        </li>
-                        <li class="nav-item">
                             @if (SignInManager.IsSignedIn(User))
                             {
                                 <a class="nav-link" asp-route-id="@gebruikerId" asp-page="personalCollection">Mijn collectie</a>

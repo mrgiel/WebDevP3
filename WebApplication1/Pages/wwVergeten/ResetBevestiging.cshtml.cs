@@ -5,13 +5,12 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 
-namespace WebApplication1.Pages
+namespace WebApplication1.Pages.wwVergeten
 {
-    public class ForgotPasswordModel : PageModel
+    public class ResetBevestigingModel : PageModel
     {
         public void OnGet()
         {
         }
-
     }
 }

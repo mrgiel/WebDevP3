@@ -4,10 +4,14 @@
     src: url('Gaglin-Regular.otf'); /* IE9 */
 }
 
-h1,h2,h3,h4,h5,h6,p,span {
+h1, h2, h3, h4, h5, h6, p, span {
     font-family: Gaglin !important;
     letter-spacing: 1px;
     color:#ffffff;
+}
+
+h1, h2 {
+    background-color: #5F051D;
 }
 
 button {
@@ -250,7 +254,7 @@ strip-content span {
 .banner-b2 h4 {
     color: #fff;
     border: 2px solid;
-    width: fit-content;
+    text-align:center;
     padding: 7px;
 }
 
@@ -383,7 +387,7 @@ strip-content span {
             text-transform: uppercase;
         }
 
-    @media screen and (max-width: 767px) {
+    @media screen and (max-width: 1199px) {
         table {
             border: 0;
         }

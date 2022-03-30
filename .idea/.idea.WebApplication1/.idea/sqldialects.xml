@@ -17,7 +17,6 @@
     <file url="file://$PROJECT_DIR$/WebApplication1/SQL/Klasse/Uitgever.sql" dialect="MySQL" />
     <file url="file://$PROJECT_DIR$/WebApplication1/SQL/Klasse/Versie.sql" dialect="MySQL" />
     <file url="file://$PROJECT_DIR$/WebApplication1/SQL/Koppel/Bezit.sql" dialect="MySQL" />
-    <file url="file://$PROJECT_DIR$/WebApplication1/SQL/Koppel/IsGemaaktDoor.sql" dialect="MySQL" />
     <file url="file://$PROJECT_DIR$/WebApplication1/SQL/Koppel/StatusUitgave.sql" dialect="MySQL" />
     <file url="file://$PROJECT_DIR$/WebApplication1/SQL/Stored Procedures/Read/Gebruiker/HaalPersoonlijkeCollectieOp.sql" dialect="MySQL" />
     <file url="file://$PROJECT_DIR$/WebApplication1/SQL/Stored Procedures/Read/Gebruiker/PersoonlijkeInformatie.sql" dialect="MySQL" />

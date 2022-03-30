@@ -15,7 +15,11 @@
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "D:\\Visual_Studio\\SDK\\NuGetPackages",
+<<<<<<< HEAD
           "C:\\Program Files (x86)\\Microsoft\\Xamarin\\NuGet"
+=======
+          "C:\\Program Files (x86)\\Microsoft\\Xamarin\\NuGet\\"
+>>>>>>> origin/style
         ],
         "configFilePaths": [
           "C:\\Users\\Gebruiker\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -50,10 +54,6 @@
               "target": "Package",
               "version": "[2.0.123, )"
             },
-            "Dapper": {
-              "target": "Package",
-              "version": "[2.0.123, )"
-            },
             "Microsoft.AspNetCore.Identity.EntityFrameworkCore": {
               "target": "Package",
               "version": "[5.0.14, )"
@@ -72,14 +72,11 @@
               "target": "Package",
               "version": "[8.0.28, )"
             },
-            "MySql.Data": {
-              "target": "Package",
-              "version": "[8.0.28, )"
-            },
             "Pomelo.EntityFrameworkCore.MySql": {
               "target": "Package",
               "version": "[5.0.4, )"
             },
+<<<<<<< HEAD
             "SkiaSharp.Svg": {
               "target": "Package",
               "version": "[1.60.0, )"
@@ -87,6 +84,11 @@
             "Svg": {
               "target": "Package",
               "version": "[3.4.1, )"
+=======
+            "SendGrid": {
+              "target": "Package",
+              "version": "[9.27.0, )"
+>>>>>>> origin/style
             }
           },
           "imports": [

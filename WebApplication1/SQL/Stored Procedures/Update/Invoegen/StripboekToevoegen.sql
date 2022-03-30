@@ -94,14 +94,12 @@ BEGIN
         from versie);
 
     #StatusUitgave
-    INSERT INTO statusuitgave(status, gebruiker_id, versie_id)
+    INSERT ignore statusuitgave(status, gebruiker_id, versie_id)
     SELECT false, Id, Versie.Versie_id
     FROM versie,
          gebruiker
     WHERE versie.isbn = isbnVAR
-      and gebruiker_idVAR = gebruiker.Id and (select versie_id WHERE versie.isbn = isbnVAR
-                                                                 and gebruiker_idVAR = Id) not in(versie_id);
-
+      and gebruiker_idVAR = gebruiker.Id;
     BEGIN
         #declare
         DECLARE counter INT DEFAULT 1;

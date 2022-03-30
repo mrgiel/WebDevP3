@@ -69,13 +69,7 @@ else
                             <td data-label="Uitgever">@uitgave.Uitgever.uitgever_naam</td>
                             <td data-label="Categorie">@uitgave.Uitgave.Categorie.cat_naam</td>
                             <td data-label="Schrijver">
-                                @if (@uitgave.IsGemaaktDoor.rol == RolPersoon.auteur)
-                                {<text>@uitgave.IsGemaaktDoor.Persoon.voornaam @uitgave.IsGemaaktDoor.Persoon.achternaam</text>}
-                            </td>
-                            <td data-label="Tekenaar">
-                                @if (@uitgave.IsGemaaktDoor.rol == RolPersoon.tekenaar)
-                                {<text>@uitgave.IsGemaaktDoor.Persoon.voornaam @uitgave.IsGemaaktDoor.Persoon.achternaam</text>}
-                            </td>
+                             
                         </tr>
                         </tbody>
                         <thead>

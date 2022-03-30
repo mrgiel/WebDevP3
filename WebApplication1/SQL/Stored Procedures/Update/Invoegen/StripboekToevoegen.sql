@@ -1,4 +1,4 @@
-﻿#Voegt alles van stripboeken toe via inser intos
+#Voegt alles van stripboeken toe via inser intos
 #Alleen moet de auteur/tekenaar nog toevoegen
 
 DROP PROCEDURE IF EXISTS StripboekToevoegen;
@@ -99,8 +99,7 @@ BEGIN
     FROM versie,
          gebruiker
     WHERE versie.isbn = isbnVAR
-      and gebruiker_idVAR = gebruiker.Id and (select versie_id WHERE versie.isbn = isbnVAR
-                                                                 and gebruiker_idVAR = Id) not in(versie_id);
+      and gebruiker_idVAR = gebruiker.Id;
 
     BEGIN
         #declare

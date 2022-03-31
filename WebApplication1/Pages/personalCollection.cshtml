@@ -25,7 +25,9 @@
                         <div class="mt-4">
                             <div class="image">
                                 <p class="text-white text-center" style="">
-                                    <img src="@stripboek.Versie.afbeelding_url"  alt="" border="0"/>
+                                    <a asp-page="/Stripboek" asp-route-id="@stripboek.Versie.versie_id">
+                                        <img src="@stripboek.Versie.afbeelding_url" alt="" border="0"/>
+                                    </a>
                                     <div class="text-white text-center">
                                         <span>@stripboek.Uitgave.naam (@stripboek.Versie.datum.Year)</span>
                                     </div>

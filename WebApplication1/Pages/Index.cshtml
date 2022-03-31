@@ -20,7 +20,9 @@
                         <div class="mt-4">
                             <div class="image">
                                 <p class="text-white text-center" style="">
-                                    <img src="@stripboek.afbeelding_url" alt="">
+                                    <a asp-page="/Stripboek" asp-route-id="@stripboek.versie_id">
+                                        <img src="@stripboek.afbeelding_url" alt="">
+                                    </a>
                                     <form method="post">
                                         <button asp-page="ColletieToevoegen" asp-route-id="@stripboek.versie_id" type="submit" class="bg-success btn btn-block form-control text-dark">
                                             <span>Toevoegen Aan Collectie</span>
